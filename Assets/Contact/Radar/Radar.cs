@@ -7,12 +7,23 @@ public class Radar : MonoBehaviour
 {
     private static Radar _Instance;
 
+    
     public static event Action<RadarContact> OnRadarContactOccured;
 
+
+    private const float MIMIMUM_ROTATION_INPUT_TIME = 0.75f;
+    private const float MINIMUM_WIDTH = 20;
+    private const float MAXIMUM_WIDTH = 180;
+
+
+
     private List<IRadarDetectable> _allDetectables;
+    private Bearing[] _bearings;
+    
 
     [Header("Settings:")]
     [SerializeField] private float _rotationSpeed;
+    [SerializeField] private float _widthSpeed;
 
 
     [Header("State:")]
@@ -26,7 +37,16 @@ public class Radar : MonoBehaviour
             return _Instance._rotation;
         }
     }
-    [Range(0, 280)] [SerializeField] private float _width;
+    
+    [Range(MINIMUM_WIDTH, MAXIMUM_WIDTH)] [SerializeField] private float _width;
+    private static float Width
+    {
+        get
+        {
+            return _Instance._width;
+        }
+    }
+    
     [Range(0, 100)] [SerializeField] private float _length;
     
     [Header("Input:")]
@@ -36,9 +56,7 @@ public class Radar : MonoBehaviour
 
 
 
-    private const float MIMIMUM_ROTATION_INPUT_TIME = 0.75f;
 
-    private Bearing[] _bearings;
 
 
 
@@ -49,6 +67,9 @@ public class Radar : MonoBehaviour
         _Instance = this;
         _allDetectables = new List<IRadarDetectable>();
     
+        _width = Mathf.Lerp(MINIMUM_WIDTH, MAXIMUM_WIDTH, 0.75f);
+        _rotation = 0f;
+
         SetupBearings();
     }
 
@@ -80,6 +101,8 @@ public class Radar : MonoBehaviour
     {
         RotateRadar();
     
+        UpdateWidth();
+
         FindAllDetectables();
     }
 
@@ -90,11 +113,11 @@ public class Radar : MonoBehaviour
     {
         // Get the raw input this frame:
         int rotationInputThisFrame = 0;
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.A))
         {  
             rotationInputThisFrame = 1;
         }
-        else if (Input.GetKey(KeyCode.E))
+        else if (Input.GetKey(KeyCode.D))
         {
             rotationInputThisFrame = -1;
         }
@@ -154,6 +177,30 @@ public class Radar : MonoBehaviour
 
 
     }
+    #endregion
+
+    #region Update Width
+
+    private void UpdateWidth()
+    {
+        int widthInput = 0;
+
+        if (Input.GetKey(KeyCode.Q))
+        {
+            widthInput = -1;
+        }
+        else if (Input.GetKey(KeyCode.E))
+        {
+            widthInput = 1;
+        }
+        
+        _width += widthInput * Time.deltaTime * _widthSpeed;
+
+        _width = Mathf.Clamp(_width, MINIMUM_WIDTH, MAXIMUM_WIDTH);
+
+
+    }
+
     #endregion
 
 
