@@ -19,6 +19,13 @@ public class RadarManager : MonoBehaviour
     
     // The rotation of the radar dish
     [Range(0, 360)] [SerializeField] private float _rotation;
+    public static float Rotation
+    {
+        get
+        {
+            return _Instance._rotation;
+        }
+    }
     [Range(0, 280)] [SerializeField] private float _width;
     [Range(0, 100)] [SerializeField] private float _length;
     
@@ -85,11 +92,11 @@ public class RadarManager : MonoBehaviour
         int rotationInputThisFrame = 0;
         if (Input.GetKey(KeyCode.Q))
         {  
-            rotationInputThisFrame = -1;
+            rotationInputThisFrame = 1;
         }
         else if (Input.GetKey(KeyCode.E))
         {
-            rotationInputThisFrame = 1;
+            rotationInputThisFrame = -1;
         }
 
         // If we are not rotating, and a button input is detected,
