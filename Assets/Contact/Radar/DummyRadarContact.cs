@@ -6,7 +6,7 @@ public class DummyRadarContact : MonoBehaviour, IRadarDetectable
 {
     private void Start()
     {
-        RadarManager.RegisterRadarDetectable(this);
+        Radar.RegisterRadarDetectable(this);
     }
 
     public Vector3 GetPosition()

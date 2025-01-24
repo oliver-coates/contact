@@ -35,13 +35,13 @@ public class RadarUI : MonoBehaviour
 
     private void RefreshUI()
     {
-        _centerIcon.eulerAngles = new Vector3(0, 0, RadarManager.Rotation); 
+        _centerIcon.eulerAngles = new Vector3(0, 0, Radar.Rotation); 
 
     }
 
     private void RefreshUIDelayed()
     {
-        _rotaionText.text = $"{RadarManager.Rotation:000}";
+        _rotaionText.text = $"{Radar.Rotation:000}";
     }
 
 }

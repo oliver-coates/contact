@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RadarManager : MonoBehaviour
+public class Radar : MonoBehaviour
 {
-    private static RadarManager _Instance;
+    private static Radar _Instance;
 
     public static event Action<RadarContact> OnRadarContactOccured;
 
