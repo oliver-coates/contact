@@ -19,15 +19,20 @@ public class RadarManager : MonoBehaviour
     
     // The rotation of the radar dish
     [Range(0, 360)] [SerializeField] private float _rotation;
-    private bool _isRotating;
-    private float _rotationTime;
-    private int _rotationInput;
-
-    private const float MIMIMUM_ROTATION_INPUT_TIME = 2f;
-
-
     [Range(0, 280)] [SerializeField] private float _width;
     [Range(0, 100)] [SerializeField] private float _length;
+    
+    [Header("Input:")]
+    [SerializeField] private bool _isRotating;
+    [SerializeField] private float _rotationTime;
+    [SerializeField] private int _rotationInput;
+
+
+
+    private const float MIMIMUM_ROTATION_INPUT_TIME = 0.75f;
+
+    private Bearing[] _bearings;
+
 
 
 
@@ -36,6 +41,17 @@ public class RadarManager : MonoBehaviour
     {
         _Instance = this;
         _allDetectables = new List<IRadarDetectable>();
+    
+        SetupBearings();
+    }
+
+    private void SetupBearings()
+    {
+        _bearings = new Bearing[360];
+        for (int degree = 0; degree < 360; degree++)
+        {
+            _bearings[degree] = new Bearing(degree);
+        }
     }
 
 
@@ -56,33 +72,50 @@ public class RadarManager : MonoBehaviour
     public void Update()
     {
         RotateRadar();
+    
+        FindAllDetectables();
     }
 
 
+
+    #region Rotation
     private void RotateRadar()
     {
-        bool isInputtingThisFrame = false;
-        if (!_isRotating)
+        // Get the raw input this frame:
+        int rotationInputThisFrame = 0;
+        if (Input.GetKey(KeyCode.Q))
+        {  
+            rotationInputThisFrame = -1;
+        }
+        else if (Input.GetKey(KeyCode.E))
         {
-            if (Input.GetKey(KeyCode.Q))
-            {  
-                _rotationInput = -1;
+            rotationInputThisFrame = 1;
+        }
 
-                _isRotating = true;
-                isInputtingThisFrame = true;
-            }
-            else if (Input.GetKey(KeyCode.E))
-            {
+        // If we are not rotating, and a button input is detected,
+        // start rotating
+        if (!_isRotating && rotationInputThisFrame != 0)
+        {
+            _isRotating = true;
+
+           if (rotationInputThisFrame == -1)
+           {
+                _rotationInput = -1;
+           }
+           else if (rotationInputThisFrame == 1)
+           {
                 _rotationInput = 1;
-                
-                _isRotating = true;
-                isInputtingThisFrame = true;
-            }
+           }
         }
 
         // If we are rotating, rotate the radar
         if (_isRotating)
         {
+            if (rotationInputThisFrame != 0)
+            {
+                _rotationInput = rotationInputThisFrame;
+            }
+
             // Grab input:
             _rotation += _rotationInput * Time.deltaTime * _rotationSpeed;
 
@@ -100,8 +133,9 @@ public class RadarManager : MonoBehaviour
 
         // If we are not rotating,
         // only stop rotating once we are past the minimum rotation input time
-        if (isInputtingThisFrame)
+        if (rotationInputThisFrame == 0)
         {
+            // Stop Rotating
             if (_rotationTime > MIMIMUM_ROTATION_INPUT_TIME)
             {
                 _isRotating = false;
@@ -113,6 +147,67 @@ public class RadarManager : MonoBehaviour
 
 
     }
+    #endregion
+
+
+    #region Calculate all detectables
+
+    private void FindAllDetectables()
+    {
+        // Reset all bearings:
+        foreach (Bearing bearing in _bearings)
+        {
+            bearing.Reset();
+        }
+
+        // Go through all detectables:
+        foreach (IRadarDetectable detectable in _allDetectables)
+        {
+            Vector3 pos = detectable.GetPosition();
+
+            float angle = Vector3.Angle(Vector3.forward, pos.normalized);
+
+            if (pos.x < 0)
+            {
+                angle = 359.9f - angle;
+            }
+
+            int bearing = Mathf.FloorToInt(angle);
+
+            _bearings[bearing].AddDetectable(detectable);
+            // Debug.Log($"Added detectable under bearing {bearing} ({angle})");
+        }
+    }
+
+    #endregion
+
+    private class Bearing
+    {
+        private int _degree;
+        private List<IRadarDetectable> _detectables;
+
+        public Bearing(int degree)
+        {
+            _degree = degree;
+            _detectables = new List<IRadarDetectable>();
+        }
+
+        public void Reset()
+        {
+            _detectables = new List<IRadarDetectable>();
+        }
+
+        public void AddDetectable(IRadarDetectable detectable)
+        {
+            _detectables.Add(detectable);
+        }
+
+        public List<IRadarDetectable> GetDetectables()
+        {
+            return _detectables;
+        }
+    }
+
 
 
 
