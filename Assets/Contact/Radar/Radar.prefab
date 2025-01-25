@@ -688,6 +688,7 @@ RectTransform:
   - {fileID: 9214674715999136382}
   - {fileID: 3719783679798812422}
   - {fileID: 1054077758856922786}
+  - {fileID: 2865935786601609}
   m_Father: {fileID: 3844540261906713509}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -772,11 +773,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _refreshRateSeconds: 0.2
   _activeSweepColor: {r: 0.9725491, g: 0.9176471, b: 0.54901963, a: 1}
-  _inactiveSweepColor: {r: 0.6226415, g: 0.5956103, b: 0.41411534, a: 1}
+  _inactiveSweepColor: {r: 0.6603774, g: 0.6266373, b: 0.41429335, a: 1}
+  _contactPrefab: {fileID: 1205543556080132231, guid: 01fca1de801f66544918fa858d8dc3bd,
+    type: 3}
+  _contactMaximumDrawDistance: 43
   _centerIcon: {fileID: 3719783679798812422}
   _sweepTransform: {fileID: 3213536811357184066}
   _sweepLine: {fileID: 6564514013346695848}
   _rotaionText: {fileID: 8297590248397435589}
+  _contactsHolder: {fileID: 2865935786601609}
 --- !u!1 &1866838208675597977
 GameObject:
   m_ObjectHideFlags: 0
@@ -3070,6 +3075,41 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &5330898890620787317
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2865935786601609}
+  m_Layer: 5
+  m_Name: Contacts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2865935786601609
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5330898890620787317}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3615375931011608194}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5674752598195156998
 GameObject:
   m_ObjectHideFlags: 0

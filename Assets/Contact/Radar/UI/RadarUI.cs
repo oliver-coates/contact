@@ -11,6 +11,8 @@ public class RadarUI : MonoBehaviour
 
     [SerializeField] private Color _activeSweepColor;
     [SerializeField] private Color _inactiveSweepColor;
+    [SerializeField] private GameObject _contactPrefab;
+    [SerializeField] private float _contactMaximumDrawDistance = 43;
 
 
     [Header("UI References:")]
@@ -18,10 +20,17 @@ public class RadarUI : MonoBehaviour
     [SerializeField] private Transform _sweepTransform;
     [SerializeField] private LineRenderer _sweepLine;
     [SerializeField] private TextMeshProUGUI _rotaionText;
+    
+    [SerializeField] private Transform _contactsHolder;
 
-    private void Start()
+    private void Awake()
     {
+        Radar.OnRadarContactOccured += DrawContact;
+    }
 
+    private void OnDestroy()
+    {
+        Radar.OnRadarContactOccured -= DrawContact;
     }
 
     private void Update()
@@ -61,4 +70,16 @@ public class RadarUI : MonoBehaviour
         _rotaionText.text = $"{Radar.Rotation:000}";
     }
 
+    public void DrawContact(RadarContact contact)
+    {
+        Vector3 contactPosition = contact.position;
+
+        RectTransform newContact = Instantiate(_contactPrefab, _contactsHolder).GetComponent<RectTransform>();
+
+        float xPos = (contactPosition.x / Radar.MAXIMUM_DISTANCE) * _contactMaximumDrawDistance;
+        float yPos = (contactPosition.y / Radar.MAXIMUM_DISTANCE) * _contactMaximumDrawDistance;
+
+
+        newContact.anchoredPosition = new Vector2(xPos, yPos);
+    }
 }

@@ -15,8 +15,8 @@ public class Radar : MonoBehaviour
     private const float MINIMUM_WIDTH = 20;
     private const float MAXIMUM_WIDTH = 180;
 
-    private const float MAXIMUM_DISTANCE = 100000;
-    private const float MINIMUM_DISTANCE = 3000;
+    public const float MAXIMUM_DISTANCE = 100000;
+    public const float MINIMUM_DISTANCE = 3000;
 
     private const float CHANCE_OF_DETECTION_AT_MAX_DISTANCE = 0.1f;
     private const float CHANCE_OF_DETECTION_AT_MIN_DISTANCE = 1f;
