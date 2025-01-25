@@ -77,7 +77,7 @@ public class RadarUI : MonoBehaviour
         RectTransform newContact = Instantiate(_contactPrefab, _contactsHolder).GetComponent<RectTransform>();
 
         float xPos = (contactPosition.x / Radar.MAXIMUM_DISTANCE) * _contactMaximumDrawDistance;
-        float yPos = (contactPosition.y / Radar.MAXIMUM_DISTANCE) * _contactMaximumDrawDistance;
+        float yPos = (contactPosition.z / Radar.MAXIMUM_DISTANCE) * _contactMaximumDrawDistance;
 
 
         newContact.anchoredPosition = new Vector2(xPos, yPos);

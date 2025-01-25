@@ -11,11 +11,11 @@ public class Radar : MonoBehaviour
     public static event Action<RadarContact> OnRadarContactOccured;
 
 
-    private const float MIMIMUM_ROTATION_INPUT_TIME = 0.75f;
+    private const float MIMIMUM_ROTATION_INPUT_TIME = 0.5f;
     private const float MINIMUM_WIDTH = 20;
     private const float MAXIMUM_WIDTH = 180;
 
-    public const float MAXIMUM_DISTANCE = 100000;
+    public const float MAXIMUM_DISTANCE = 10000;
     public const float MINIMUM_DISTANCE = 3000;
 
     private const float CHANCE_OF_DETECTION_AT_MAX_DISTANCE = 0.1f;
