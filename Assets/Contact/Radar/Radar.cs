@@ -24,6 +24,7 @@ public class Radar : MonoBehaviour
     [Header("Settings:")]
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private float _widthSpeed;
+    [SerializeField] private float _sweepSpeed;
 
 
     [Header("State:")]
@@ -49,6 +50,16 @@ public class Radar : MonoBehaviour
     
     [Range(0, 100)] [SerializeField] private float _length;
     
+    [SerializeField] private float _sweepAngle;
+    public static float SweepAngle
+    {
+        get
+        {
+            return _Instance._sweepAngle;
+        }	
+    }
+
+
     [Header("Input:")]
     [SerializeField] private bool _isRotating;
     [SerializeField] private float _rotationTime;
@@ -102,6 +113,8 @@ public class Radar : MonoBehaviour
         RotateRadar();
     
         UpdateWidth();
+
+        UpdateSweepAngle();
 
         FindAllDetectables();
     }
@@ -234,6 +247,22 @@ public class Radar : MonoBehaviour
     }
 
     #endregion
+
+
+    #region Update Sweep Angle
+
+    private void UpdateSweepAngle()
+    {
+        float angleMax = _width / 2f; 
+        if (_sweepAngle > angleMax || _sweepAngle < -angleMax)
+        {
+            _sweepAngle = angleMax;
+        }
+
+        _sweepAngle -= Time.deltaTime * _sweepSpeed;
+    }
+
+    #endregion 
 
     private class Bearing
     {

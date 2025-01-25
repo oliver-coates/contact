@@ -12,6 +12,7 @@ public class RadarUI : MonoBehaviour
 
     [Header("UI References:")]
     [SerializeField] private Transform _centerIcon;
+    [SerializeField] private Transform _sweepTransform;
 
     [SerializeField] private TextMeshProUGUI _rotaionText;
 
@@ -35,7 +36,9 @@ public class RadarUI : MonoBehaviour
 
     private void RefreshUI()
     {
-        _centerIcon.eulerAngles = new Vector3(0, 0, Radar.Rotation); 
+        _centerIcon.localEulerAngles = new Vector3(0, 0, Radar.Rotation); 
+
+        _sweepTransform.localEulerAngles = new Vector3(0, 0, Radar.SweepAngle);
 
     }
 

@@ -532,9 +532,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 70
   _widthSpeed: 50
+  _sweepSpeed: 20
   _rotation: 0
   _width: 0
   _length: 0
+  _sweepAngle: 0
   _isRotating: 0
   _rotationTime: 0
   _rotationInput: 0
@@ -739,11 +741,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Radar
       objectReference: {fileID: 0}
-    - target: {fileID: 1601546737779018192, guid: 7386a7111fa624b45bfd9860aade0d58,
-        type: 3}
-      propertyPath: _degreesPerMidPoint
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 3844540261906713509, guid: 7386a7111fa624b45bfd9860aade0d58,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -799,11 +796,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 330585545}
-    - target: {fileID: 8748149225427562564, guid: 7386a7111fa624b45bfd9860aade0d58,
-        type: 3}
-      propertyPath: m_Parameters.widthMultiplier
-      value: 0.002
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
