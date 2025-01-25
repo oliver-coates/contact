@@ -1,6 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{90847105-006F-4990-837D-F68C13178DFD}" SchemaVersion="123">
+<WwiseDocument Type="WorkUnit" ID="{E6856268-2D58-4488-94B0-CCAE293AF67C}" SchemaVersion="123">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{90847105-006F-4990-837D-F68C13178DFD}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{E6856268-2D58-4488-94B0-CCAE293AF67C}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="play_radar_rotate_start" ID="{A11E5A0A-1CB0-47B4-A093-337DA036905E}">
+					<ChildrenList>
+						<Action Name="" ID="{A0BE0E94-7747-486A-8774-FF504100A5E5}" ShortID="602985431">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="start" ID="{401CA325-2323-4045-B349-E40C53CAAF9B}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{C6987387-8045-4C72-976A-2F5075561382}" ShortID="463954920">
+							<PropertyList>
+								<Property Name="Delay" Type="Real64" Value="0.525"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.3"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="lp" ID="{4DA9FDD6-7769-4FA6-8390-5E1C0A6BBB87}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_radar_rotate_end" ID="{C0E0CE68-FF30-4AA6-9FF3-B79AE09725C2}">
+					<ChildrenList>
+						<Action Name="" ID="{B0C52DB3-F0E5-4D5F-83A4-8F865BDC86D0}" ShortID="485498765">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="end" ID="{5CA667AF-E286-4B3A-8F61-B033051BD106}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{EA618A57-3694-4CC8-B90A-7FEE9D679BCA}" ShortID="261948616">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.3"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="lp" ID="{4DA9FDD6-7769-4FA6-8390-5E1C0A6BBB87}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{1A247B9F-3234-4463-8B22-7B87223C6C09}" ShortID="797130616">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="start" ID="{401CA325-2323-4045-B349-E40C53CAAF9B}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>

@@ -1,6 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{94CDA80D-FD96-405B-81F4-3B587ED83818}" SchemaVersion="123">
+<WwiseDocument Type="WorkUnit" ID="{21C7B1D9-4E5A-4010-828B-D447A146E895}" SchemaVersion="123">
 	<AudioObjects>
-		<WorkUnit Name="Default Work Unit" ID="{94CDA80D-FD96-405B-81F4-3B587ED83818}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{21C7B1D9-4E5A-4010-828B-D447A146E895}" PersistMode="Standalone">
+			<ChildrenList>
+				<ActorMixer Name="SFX" ID="{9EC1748B-7880-40C0-87A9-4426A8E7AFCD}" ShortID="989314782">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A312D248-9EDC-4113-8E1C-D99C71A0A9B3}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{022E2D47-9BDA-4C3A-82AE-E98597460EA7}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<BlendContainer Name="New Blend Container" ID="{97CD82DB-6F6D-4FCA-91CD-817367C01AE1}" ShortID="304794909">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A312D248-9EDC-4113-8E1C-D99C71A0A9B3}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{022E2D47-9BDA-4C3A-82AE-E98597460EA7}"/>
+								</Reference>
+							</ReferenceList>
+						</BlendContainer>
+						<RandomSequenceContainer Name="start" ID="{401CA325-2323-4045-B349-E40C53CAAF9B}" ShortID="923749220">
+							<PropertyList>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A312D248-9EDC-4113-8E1C-D99C71A0A9B3}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{022E2D47-9BDA-4C3A-82AE-E98597460EA7}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="servo_start" ID="{5F42DA6C-391C-4078-9BE5-1AE16E3068AA}" ShortID="261942955">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A312D248-9EDC-4113-8E1C-D99C71A0A9B3}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{022E2D47-9BDA-4C3A-82AE-E98597460EA7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="servo_start" ID="{50CA9F57-8B90-4E2C-99BE-E443F34DDFE7}">
+											<Language>SFX</Language>
+											<AudioFile>servo_start.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="852207089"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="servo_start" ID="{50CA9F57-8B90-4E2C-99BE-E443F34DDFE7}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Playlist">
+									<Reference>
+										<ObjectRef Name="servo_start" ID="{5F42DA6C-391C-4078-9BE5-1AE16E3068AA}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="end" ID="{5CA667AF-E286-4B3A-8F61-B033051BD106}" ShortID="746790854">
+							<PropertyList>
+								<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A312D248-9EDC-4113-8E1C-D99C71A0A9B3}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{022E2D47-9BDA-4C3A-82AE-E98597460EA7}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="servo_end" ID="{88FE5FEE-EE09-4854-8976-862BF2C56961}" ShortID="739706267">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A312D248-9EDC-4113-8E1C-D99C71A0A9B3}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{022E2D47-9BDA-4C3A-82AE-E98597460EA7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="servo_end" ID="{69B4D56B-3688-4B2B-BA7D-799AC9B629EA}">
+											<Language>SFX</Language>
+											<AudioFile>servo_end.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="805539508"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="servo_end" ID="{69B4D56B-3688-4B2B-BA7D-799AC9B629EA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Playlist">
+									<Reference>
+										<ObjectRef Name="servo_end" ID="{88FE5FEE-EE09-4854-8976-862BF2C56961}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="lp" ID="{4DA9FDD6-7769-4FA6-8390-5E1C0A6BBB87}" ShortID="456689445">
+							<PropertyList>
+								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.5"/>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A312D248-9EDC-4113-8E1C-D99C71A0A9B3}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{022E2D47-9BDA-4C3A-82AE-E98597460EA7}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="servo_lp" ID="{52A179AD-591C-4D5E-BFF7-F292693EEF8C}" ShortID="357711347">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A312D248-9EDC-4113-8E1C-D99C71A0A9B3}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{022E2D47-9BDA-4C3A-82AE-E98597460EA7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="servo_lp" ID="{1F736376-E393-4812-BEC1-9BD483681512}">
+											<Language>SFX</Language>
+											<AudioFile>servo_lp.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1016737854"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="servo_lp" ID="{1F736376-E393-4812-BEC1-9BD483681512}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Playlist">
+									<Reference>
+										<ObjectRef Name="servo_lp" ID="{52A179AD-591C-4D5E-BFF7-F292693EEF8C}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</RandomSequenceContainer>
+					</ChildrenList>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
 	</AudioObjects>
 </WwiseDocument>

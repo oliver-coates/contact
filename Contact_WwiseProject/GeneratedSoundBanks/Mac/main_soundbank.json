@@ -1,0 +1,78 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "2228651116",
+    "Type": "User",
+    "GUID": "{11252B18-2787-4403-9C8D-E823328218A0}",
+    "Language": "SFX",
+    "Hash": "{A4211AFB-7313-4DC4-B816-FFB900081DCB}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\main_soundbank",
+    "ShortName": "main_soundbank",
+    "Path": "main_soundbank.bnk",
+    "Media": [
+     {
+      "Id": "805539508",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "servo_end.wav",
+      "CachePath": "92/{9202B9CE-E42F-1BC0-E1D5-93FEBDA10D5E}.wem"
+     },
+     {
+      "Id": "852207089",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "servo_start.wav",
+      "CachePath": "77/{77982F34-AB0F-C18D-2044-8A49078755F2}.wem"
+     },
+     {
+      "Id": "1016737854",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "servo_lp.wav",
+      "CachePath": "89/{896B3E1A-C7CD-7F55-EA96-A1C8D255D34A}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "2370402918",
+      "Name": "play_radar_rotate_end",
+      "ObjectPath": "\\Events\\Default Work Unit\\play_radar_rotate_end",
+      "GUID": "{C0E0CE68-FF30-4AA6-9FF3-B79AE09725C2}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.9598866",
+      "DurationMax": "0.9598866",
+      "MediaRefs": [
+       {
+        "Id": "805539508"
+       }
+      ]
+     },
+     {
+      "Id": "3847834445",
+      "Name": "play_radar_rotate_start",
+      "ObjectPath": "\\Events\\Default Work Unit\\play_radar_rotate_start",
+      "GUID": "{A11E5A0A-1CB0-47B4-A093-337DA036905E}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "852207089"
+       },
+       {
+        "Id": "1016737854"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{CF2774DC-F744-9A1A-7D44-3F304A7EB8E6}"
+ }
+}
