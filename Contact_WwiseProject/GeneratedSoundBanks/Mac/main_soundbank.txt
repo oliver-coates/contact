@@ -1,0 +1,21 @@
+Event	ID	Name			Wwise Object Path	Notes
+	186916906	stop_radar_warble			\Default Work Unit\stop_radar_warble	
+	2370402918	play_radar_rotate_end			\Default Work Unit\play_radar_rotate_end	
+	2545029876	play_radar_warble			\Default Work Unit\play_radar_warble	
+	3847834445	play_radar_rotate_start			\Default Work Unit\play_radar_rotate_start	
+
+Audio Bus	ID	Name			Wwise Object Path	Notes
+	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+	4098848842	local			\Default Work Unit\Master Audio Bus\local	
+	4130616467	through_wall			\Default Work Unit\Master Audio Bus\through_wall	
+
+Effect plug-ins	ID	Name	Type				Notes
+	1008402193	Low_Pass_20KHz	Wwise Parametric EQ			
+	2539557199	Treble	Wwise Flanger			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	17746272	radar_warble	Y:\Documents\GitHub\Contact - GGJ25\Contact_WwiseProject\.cache\D4\{D4C8E827-24E6-5825-3AC3-8EDA470CF12C}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Local\radar_warble		352896
+	805539508	servo_end	Y:\Documents\GitHub\Contact - GGJ25\Contact_WwiseProject\.cache\5B\{5BE9A0F0-11E4-7A61-0949-37251EEEBD54}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Through The Wall\radar_rotate\end\servo_end		104648
+	852207089	servo_start	Y:\Documents\GitHub\Contact - GGJ25\Contact_WwiseProject\.cache\77\{77982F34-AB0F-C18D-2044-8A49078755F2}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Through The Wall\radar_rotate\start\servo_start		124616
+	1016737854	servo_lp	Y:\Documents\GitHub\Contact - GGJ25\Contact_WwiseProject\.cache\89\{896B3E1A-C7CD-7F55-EA96-A1C8D255D34A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Through The Wall\radar_rotate\lp\servo_lp		112732
+

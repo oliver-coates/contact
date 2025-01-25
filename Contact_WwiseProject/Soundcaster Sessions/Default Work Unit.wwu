@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{694C10D3-3915-48E1-AA80-6577DC7FB25D}" SchemaVersion="123">
+	<SoundcasterSessions>
+		<WorkUnit Name="Default Work Unit" ID="{694C10D3-3915-48E1-AA80-6577DC7FB25D}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="New Soundcaster Session" ID="{CC6FD59C-AD62-40A2-9DAC-2BE5F3BF1A44}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="play_radar_rotate_start" ID="{A11E5A0A-1CB0-47B4-A093-337DA036905E}" WorkUnitID="{E6856268-2D58-4488-94B0-CCAE293AF67C}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="play_radar_rotate_end" ID="{C0E0CE68-FF30-4AA6-9FF3-B79AE09725C2}" WorkUnitID="{E6856268-2D58-4488-94B0-CCAE293AF67C}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="play_radar_warble" ID="{3909AFFB-6FFA-4B7D-8FFB-CEFAE24804ED}" WorkUnitID="{E6856268-2D58-4488-94B0-CCAE293AF67C}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="stop_radar_warble" ID="{3F79DB50-231D-4C3C-B726-08CDA52D5C41}" WorkUnitID="{E6856268-2D58-4488-94B0-CCAE293AF67C}"/>
+							<Position X="3" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true"/>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundcasterSessions>
+</WwiseDocument>

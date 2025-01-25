@@ -11,10 +11,15 @@ public class Radar : MonoBehaviour
     public static event Action<RadarContact> OnRadarContactOccured;
 
 
-    private const float MIMIMUM_ROTATION_INPUT_TIME = 0.75f;
+    private const float MIMIMUM_ROTATION_INPUT_TIME = 0.5f;
     private const float MINIMUM_WIDTH = 20;
     private const float MAXIMUM_WIDTH = 180;
 
+    public const float MAXIMUM_DISTANCE = 10000;
+    public const float MINIMUM_DISTANCE = 3000;
+
+    private const float CHANCE_OF_DETECTION_AT_MAX_DISTANCE = 0.4f;
+    private const float CHANCE_OF_DETECTION_AT_MIN_DISTANCE = 1f;
 
 
     private List<IRadarDetectable> _allDetectables;
@@ -24,6 +29,7 @@ public class Radar : MonoBehaviour
     [Header("Settings:")]
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private float _widthSpeed;
+    [SerializeField] private float _sweepSpeed;
 
 
     [Header("State:")]
@@ -37,9 +43,17 @@ public class Radar : MonoBehaviour
             return _Instance._rotation;
         }
     }
-    
+    public static bool IsRotating
+    {
+        get
+        {
+            return _Instance._isRotating;
+        }
+    }
+
+
     [Range(MINIMUM_WIDTH, MAXIMUM_WIDTH)] [SerializeField] private float _width;
-    private static float Width
+    public static float Width
     {
         get
         {
@@ -49,6 +63,17 @@ public class Radar : MonoBehaviour
     
     [Range(0, 100)] [SerializeField] private float _length;
     
+    [SerializeField] private float _sweepAngle;
+    public static float SweepAngle
+    {
+        get
+        {
+            return _Instance._sweepAngle;
+        }	
+    }
+
+    private int _previousSweepBearing;
+
     [Header("Input:")]
     [SerializeField] private bool _isRotating;
     [SerializeField] private float _rotationTime;
@@ -69,6 +94,8 @@ public class Radar : MonoBehaviour
     
         _width = Mathf.Lerp(MINIMUM_WIDTH, MAXIMUM_WIDTH, 0.75f);
         _rotation = 0f;
+        _sweepAngle = _width/2f;
+        _previousSweepBearing = -1;
 
         SetupBearings();
     }
@@ -103,7 +130,16 @@ public class Radar : MonoBehaviour
     
         UpdateWidth();
 
-        FindAllDetectables();
+        // Only do the following when not rotating:
+        if (_isRotating == false)
+        {
+            UpdateSweepAngle();
+
+            FindAllDetectables();
+
+            AttemptSweepCheck();
+        }
+        
     }
 
 
@@ -123,9 +159,9 @@ public class Radar : MonoBehaviour
         }
 
         // If we are not rotating, and a button input is detected,
-        // start rotating
         if (!_isRotating && rotationInputThisFrame != 0)
         {
+            // Start rotating
             _isRotating = true;
 
            if (rotationInputThisFrame == -1)
@@ -136,6 +172,10 @@ public class Radar : MonoBehaviour
            {
                 _rotationInput = 1;
            }
+
+            // AkSoundEngine.PostEvent("play_radar_rotate_start", gameObject);
+            AkUnitySoundEngine.PostEvent("play_radar_rotate_start", gameObject);
+
         }
 
         // If we are rotating, rotate the radar
@@ -172,12 +212,15 @@ public class Radar : MonoBehaviour
                 _rotationTime = 0f;
                 _rotationInput = 0;
 
+                // AkSoundEngine.PostEvent("play_radar_rotate_end", gameObject);
+                AkUnitySoundEngine.PostEvent("play_radar_rotate_end", gameObject);
             }
         }
 
 
     }
     #endregion
+
 
     #region Update Width
 
@@ -226,6 +269,8 @@ public class Radar : MonoBehaviour
                 angle = 359.9f - angle;
             }
 
+            angle = 360 - angle;
+
             int bearing = Mathf.FloorToInt(angle);
 
             _bearings[bearing].AddDetectable(detectable);
@@ -234,6 +279,73 @@ public class Radar : MonoBehaviour
     }
 
     #endregion
+
+
+    #region Sweep
+
+    private void UpdateSweepAngle()
+    {
+        float angleMax = _width / 2f; 
+        if (_sweepAngle > angleMax || _sweepAngle < -angleMax)
+        {
+            _sweepAngle = angleMax;
+        }
+
+        _sweepAngle -= Time.deltaTime * _sweepSpeed;
+    }
+
+    private void AttemptSweepCheck()
+    {
+        float absoluteAngle = _sweepAngle + _rotation;
+        
+        if (absoluteAngle < 0)
+        {
+            absoluteAngle += 360;
+        }
+        else if (absoluteAngle > 360)
+        {
+            absoluteAngle -= 360;
+        }
+
+        int currentBearing = Mathf.FloorToInt(absoluteAngle);
+
+        if (currentBearing != _previousSweepBearing)
+        {
+            CheckForDetectablesOnBearing(currentBearing);
+            _previousSweepBearing = currentBearing;
+        }
+    }
+
+    private void CheckForDetectablesOnBearing(int bearing)
+    {
+        Bearing currentBearing = _bearings[bearing];
+
+        foreach (IRadarDetectable detectable in currentBearing.GetDetectables())
+        {
+
+            float distance = detectable.GetPosition().magnitude;
+
+            float distanceClamped = Mathf.Clamp(distance, MINIMUM_DISTANCE, MAXIMUM_DISTANCE);
+
+            float distanceLerp = 1 - ((distanceClamped - MINIMUM_DISTANCE) / (MAXIMUM_DISTANCE - MINIMUM_DISTANCE));
+            // Debug.Log($"Distance lerp: {distanceLerp}");
+
+            float chanceOfDetection = Mathf.Lerp(distanceLerp, CHANCE_OF_DETECTION_AT_MIN_DISTANCE,
+                                                               CHANCE_OF_DETECTION_AT_MAX_DISTANCE);
+
+            // Debug.Log($"Chance of detection: {chanceOfDetection}");
+
+            float randomRoll = UnityEngine.Random.Range(0f, 1f);
+
+            if (randomRoll <= chanceOfDetection)
+            {
+                // Debug.Log("BINGO!");
+                OnRadarContactOccured?.Invoke(new RadarContact(detectable.GetPosition(), 1f, detectable));
+            }
+        }         
+    }
+
+    #endregion 
 
     private class Bearing
     {
