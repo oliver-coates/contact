@@ -15,6 +15,11 @@ public class Radar : MonoBehaviour
     private const float MINIMUM_WIDTH = 20;
     private const float MAXIMUM_WIDTH = 180;
 
+    private const float MAXIMUM_DISTANCE = 100000;
+    private const float MINIMUM_DISTANCE = 3000;
+
+    private const float CHANCE_OF_DETECTION_AT_MAX_DISTANCE = 0.1f;
+    private const float CHANCE_OF_DETECTION_AT_MIN_DISTANCE = 1f;
 
 
     private List<IRadarDetectable> _allDetectables;
@@ -210,6 +215,7 @@ public class Radar : MonoBehaviour
     }
     #endregion
 
+
     #region Update Width
 
     private void UpdateWidth()
@@ -256,6 +262,8 @@ public class Radar : MonoBehaviour
             {
                 angle = 359.9f - angle;
             }
+
+            angle = 360 - angle;
 
             int bearing = Mathf.FloorToInt(angle);
 
@@ -304,8 +312,31 @@ public class Radar : MonoBehaviour
 
     private void CheckForDetectablesOnBearing(int bearing)
     {
+        Bearing currentBearing = _bearings[bearing];
 
-         
+        foreach (IRadarDetectable detectable in currentBearing.GetDetectables())
+        {
+
+            float distance = detectable.GetPosition().magnitude;
+
+            float distanceClamped = Mathf.Clamp(distance, MINIMUM_DISTANCE, MAXIMUM_DISTANCE);
+
+            float distanceLerp = 1 - ((distanceClamped - MINIMUM_DISTANCE) / (MAXIMUM_DISTANCE - MINIMUM_DISTANCE));
+            // Debug.Log($"Distance lerp: {distanceLerp}");
+
+            float chanceOfDetection = Mathf.Lerp(distanceLerp, CHANCE_OF_DETECTION_AT_MIN_DISTANCE,
+                                                               CHANCE_OF_DETECTION_AT_MAX_DISTANCE);
+
+            // Debug.Log($"Chance of detection: {chanceOfDetection}");
+
+            float randomRoll = UnityEngine.Random.Range(0f, 1f);
+
+            if (randomRoll <= chanceOfDetection)
+            {
+                // Debug.Log("BINGO!");
+                OnRadarContactOccured?.Invoke(new RadarContact(detectable.GetPosition(), 1f));
+            }
+        }         
     }
 
     #endregion 
