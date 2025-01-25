@@ -167,7 +167,7 @@ public class Gunner : MonoBehaviour
         _readyToFire = true;
 
         _fireTimer = 0;
-        _timeToFire = UnityEngine.Random.Range(1f, 3f);
+        _timeToFire = UnityEngine.Random.Range(1.5f, 4f);
 
         Debug.Log($"Ready to fire");
         OnReadyToFire?.Invoke();
