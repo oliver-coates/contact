@@ -159,9 +159,9 @@ public class Radar : MonoBehaviour
         }
 
         // If we are not rotating, and a button input is detected,
-        // start rotating
         if (!_isRotating && rotationInputThisFrame != 0)
         {
+            // Start rotating
             _isRotating = true;
 
            if (rotationInputThisFrame == -1)
@@ -172,6 +172,10 @@ public class Radar : MonoBehaviour
            {
                 _rotationInput = 1;
            }
+
+            // AkSoundEngine.PostEvent("play_radar_rotate_start", gameObject);
+            AkUnitySoundEngine.PostEvent("play_radar_rotate_start", gameObject);
+
         }
 
         // If we are rotating, rotate the radar
@@ -208,6 +212,8 @@ public class Radar : MonoBehaviour
                 _rotationTime = 0f;
                 _rotationInput = 0;
 
+                // AkSoundEngine.PostEvent("play_radar_rotate_end", gameObject);
+                AkUnitySoundEngine.PostEvent("play_radar_rotate_end", gameObject);
             }
         }
 
