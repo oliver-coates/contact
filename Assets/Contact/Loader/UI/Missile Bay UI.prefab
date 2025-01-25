@@ -494,7 +494,7 @@ GameObject:
   - component: {fileID: 4411274030357501271}
   - component: {fileID: 9213375050744630268}
   m_Layer: 5
-  m_Name: Bay 1
+  m_Name: Missile Bay UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
