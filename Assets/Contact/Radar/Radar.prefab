@@ -771,8 +771,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _refreshRateSeconds: 0.2
+  _activeSweepColor: {r: 0.9725491, g: 0.9176471, b: 0.54901963, a: 1}
+  _inactiveSweepColor: {r: 0.6226415, g: 0.5956103, b: 0.41411534, a: 1}
   _centerIcon: {fileID: 3719783679798812422}
   _sweepTransform: {fileID: 3213536811357184066}
+  _sweepLine: {fileID: 6564514013346695848}
   _rotaionText: {fileID: 8297590248397435589}
 --- !u!1 &1866838208675597977
 GameObject:
@@ -1590,7 +1593,7 @@ GameObject:
   - component: {fileID: 6080479081240090196}
   - component: {fileID: 6564514013346695848}
   m_Layer: 0
-  m_Name: Line
+  m_Name: Sweep Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

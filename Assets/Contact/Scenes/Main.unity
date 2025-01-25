@@ -532,7 +532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 70
   _widthSpeed: 50
-  _sweepSpeed: 20
+  _sweepSpeed: 15
   _rotation: 0
   _width: 0
   _length: 0

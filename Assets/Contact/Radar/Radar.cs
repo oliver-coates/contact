@@ -38,7 +38,15 @@ public class Radar : MonoBehaviour
             return _Instance._rotation;
         }
     }
-    
+    public static bool IsRotating
+    {
+        get
+        {
+            return _Instance._isRotating;
+        }
+    }
+
+
     [Range(MINIMUM_WIDTH, MAXIMUM_WIDTH)] [SerializeField] private float _width;
     public static float Width
     {
@@ -59,6 +67,7 @@ public class Radar : MonoBehaviour
         }	
     }
 
+    private int _previousSweepBearing;
 
     [Header("Input:")]
     [SerializeField] private bool _isRotating;
@@ -80,6 +89,8 @@ public class Radar : MonoBehaviour
     
         _width = Mathf.Lerp(MINIMUM_WIDTH, MAXIMUM_WIDTH, 0.75f);
         _rotation = 0f;
+        _sweepAngle = _width/2f;
+        _previousSweepBearing = -1;
 
         SetupBearings();
     }
@@ -114,9 +125,16 @@ public class Radar : MonoBehaviour
     
         UpdateWidth();
 
-        UpdateSweepAngle();
+        // Only do the following when not rotating:
+        if (_isRotating == false)
+        {
+            UpdateSweepAngle();
 
-        FindAllDetectables();
+            FindAllDetectables();
+
+            AttemptSweepCheck();
+        }
+        
     }
 
 
@@ -249,7 +267,7 @@ public class Radar : MonoBehaviour
     #endregion
 
 
-    #region Update Sweep Angle
+    #region Sweep
 
     private void UpdateSweepAngle()
     {
@@ -260,6 +278,34 @@ public class Radar : MonoBehaviour
         }
 
         _sweepAngle -= Time.deltaTime * _sweepSpeed;
+    }
+
+    private void AttemptSweepCheck()
+    {
+        float absoluteAngle = _sweepAngle + _rotation;
+        
+        if (absoluteAngle < 0)
+        {
+            absoluteAngle += 360;
+        }
+        else if (absoluteAngle > 360)
+        {
+            absoluteAngle -= 360;
+        }
+
+        int currentBearing = Mathf.FloorToInt(absoluteAngle);
+
+        if (currentBearing != _previousSweepBearing)
+        {
+            CheckForDetectablesOnBearing(currentBearing);
+            _previousSweepBearing = currentBearing;
+        }
+    }
+
+    private void CheckForDetectablesOnBearing(int bearing)
+    {
+
+         
     }
 
     #endregion 

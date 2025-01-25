@@ -9,11 +9,14 @@ public class RadarUI : MonoBehaviour
     [SerializeField] private float _refreshRateSeconds;
     private float _refreshTimer = 0;
 
+    [SerializeField] private Color _activeSweepColor;
+    [SerializeField] private Color _inactiveSweepColor;
+
 
     [Header("UI References:")]
     [SerializeField] private Transform _centerIcon;
     [SerializeField] private Transform _sweepTransform;
-
+    [SerializeField] private LineRenderer _sweepLine;
     [SerializeField] private TextMeshProUGUI _rotaionText;
 
     private void Start()
@@ -39,6 +42,17 @@ public class RadarUI : MonoBehaviour
         _centerIcon.localEulerAngles = new Vector3(0, 0, Radar.Rotation); 
 
         _sweepTransform.localEulerAngles = new Vector3(0, 0, Radar.SweepAngle);
+
+        if (Radar.IsRotating)
+        {
+            _sweepLine.startColor = _inactiveSweepColor;
+            _sweepLine.endColor = _inactiveSweepColor;
+        }
+        else
+        {
+            _sweepLine.startColor = _activeSweepColor;
+            _sweepLine.endColor = _activeSweepColor;
+        }
 
     }
 
