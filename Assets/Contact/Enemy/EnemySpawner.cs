@@ -13,11 +13,14 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float outerRadius;
     private float ratio;
 
+    [SerializeField] private GameObject[] wave;
+
+
     void Start()
-    {
+    {   
         ratio = innerRadius / outerRadius;
         // Spawn one enemy for testing
-        SpawnEnemy();
+        //SpawnEnemy();
     }
 
     public Vector3 RandomDonutPosition()
@@ -28,7 +31,7 @@ public class EnemySpawner : MonoBehaviour
         return donutPos;
     }
 
-    void SpawnEnemy()
+    public void SpawnEnemy()
     {
         Vector3 spawnPoint = RandomDonutPosition();
 

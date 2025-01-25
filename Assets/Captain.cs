@@ -20,7 +20,7 @@ public class Captain : MonoBehaviour
             bearingOrder = 0;
         }
 
-        Debug.Log($"Enemy Bearing: " + bearingOrder);
+        Debug.Log($"Enemy Bearing: " + bearingOrder + " --- " + bearing);
     }
 
     // Start is called before the first frame update

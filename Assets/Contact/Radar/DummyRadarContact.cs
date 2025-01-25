@@ -16,6 +16,6 @@ public class DummyRadarContact : MonoBehaviour, IRadarDetectable
 
     public void SetBearing(int bearing)
     {
-        throw new System.NotImplementedException();
+        
     }
 }

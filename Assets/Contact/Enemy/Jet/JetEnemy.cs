@@ -8,6 +8,7 @@ public class JetEnemy : EnemyBase
 {
     [Header("Object References")]
     [SerializeField] private EnemySpawner _enemySpawner;
+    [SerializeField] private WaveManager _waveManager;
     [SerializeField] private GameObject missile;
 
     [Header("Position References")]
@@ -47,6 +48,7 @@ public class JetEnemy : EnemyBase
         // I AM NOT MAKING A STATE MACHINE! 
 
         _enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+        _waveManager = GameObject.Find("EnemySpawner").GetComponent<WaveManager>();
         startPos = transform.position;
         firePos = GetFirePosition(startPos, subPos);
         escapePos = _enemySpawner.RandomDonutPosition();
@@ -116,6 +118,7 @@ public class JetEnemy : EnemyBase
         {
             // Jet Escaped, destroy
             Debug.Log("Jet Escaped");
+            _waveManager.spawnedEnemies -= 1;
             Destroy(gameObject);
         }
     }

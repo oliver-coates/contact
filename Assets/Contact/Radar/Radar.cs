@@ -269,14 +269,12 @@ public class Radar : MonoBehaviour
                 angle = 359.9f - angle;
             }
             
-
             angle = 360 - angle;
 
-            int bearing = Mathf.FloorToInt(angle);
+            int bearing = Mathf.Clamp(Mathf.FloorToInt(angle), 0, 359);
 
-            Debug.Log($"Added detectable under bearing {bearing} ({angle})");
 
-            // _bearings[bearing].AddDetectable(detectable);
+            _bearings[bearing].AddDetectable(detectable);
         }
     }
 
@@ -367,7 +365,7 @@ public class Radar : MonoBehaviour
 
         public void AddDetectable(IRadarDetectable detectable)
         {
-            Debug.Log($"Bearing: {_degree}");
+
             _detectables.Add(detectable);
             detectable.SetBearing(_degree);
         }
