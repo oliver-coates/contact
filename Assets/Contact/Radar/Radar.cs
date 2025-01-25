@@ -18,7 +18,7 @@ public class Radar : MonoBehaviour
     public const float MAXIMUM_DISTANCE = 10000;
     public const float MINIMUM_DISTANCE = 3000;
 
-    private const float CHANCE_OF_DETECTION_AT_MAX_DISTANCE = 0.1f;
+    private const float CHANCE_OF_DETECTION_AT_MAX_DISTANCE = 0.4f;
     private const float CHANCE_OF_DETECTION_AT_MIN_DISTANCE = 1f;
 
 
@@ -340,7 +340,7 @@ public class Radar : MonoBehaviour
             if (randomRoll <= chanceOfDetection)
             {
                 // Debug.Log("BINGO!");
-                OnRadarContactOccured?.Invoke(new RadarContact(detectable.GetPosition(), 1f));
+                OnRadarContactOccured?.Invoke(new RadarContact(detectable.GetPosition(), 1f, detectable));
             }
         }         
     }

@@ -1587,6 +1587,9 @@ MonoBehaviour:
   _radius: 0.44
   _refreshRate: 0.02
   _degreesPerMidPoint: 20
+  _restColor: {r: 1, g: 1, b: 1, a: 1}
+  _attemptingLockColor: {r: 0.9811321, g: 0.71401703, b: 0.41189036, a: 1}
+  _readyToFireColor: {r: 0.8773585, g: 0.23589355, b: 0.23589355, a: 1}
 --- !u!1 &3019931421950281571
 GameObject:
   m_ObjectHideFlags: 0
