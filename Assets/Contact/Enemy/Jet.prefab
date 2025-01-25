@@ -115,6 +115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6323010544644074559}
   - component: {fileID: 6897774166123094866}
+  - component: {fileID: 8485179101047724586}
   m_Layer: 0
   m_Name: Jet
   m_TagString: Untagged
@@ -150,3 +151,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ca1361f5e70d694bb64b6133a9ab5ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8485179101047724586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8271892447891287542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33682c3c9beccb047bebb1aec879dd4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemySpawner: {fileID: 0}
+  subPos: {x: 0, y: 0, z: 0}
+  startPos: {x: 0, y: 0, z: 0}
+  firePos: {x: 0, y: 0, z: 0}
+  minFirePos: 80
+  maxFirePos: 400
+  escapePos: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 0, z: 400}
+  speed: 1
+  bombing: 0
+  escaping: 0
