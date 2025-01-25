@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 public class Engineer : MonoBehaviour
 {
     private static Engineer _Instance;
+
+    public static event Action<int> OnHealthChanged;
 
     [Header("Settings:")]
     [SerializeField] private int _shipHealth = 5;
@@ -24,6 +27,7 @@ public class Engineer : MonoBehaviour
     private void Awake()
     {
         _Instance = this;
+
         _healthRemaining = _shipHealth;
     } 
 
@@ -31,6 +35,8 @@ public class Engineer : MonoBehaviour
     public static void TakeDamage()
     {
         _Instance._healthRemaining -= 1;
+
+        OnHealthChanged?.Invoke(healthRemaining);
 
         if (_Instance._healthRemaining == 0)
         {
