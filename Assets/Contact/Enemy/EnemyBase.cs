@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour, IRadarDetectable
 {
+    protected int bearing;
+
     public Vector3 GetPosition()
     {
         return transform.position;
     }
-
+    
     void Start()
     {
         Radar.RegisterRadarDetectable(this);
@@ -20,7 +22,8 @@ public class EnemyBase : MonoBehaviour, IRadarDetectable
         Radar.DeregisterRadarDetectable(this);
     }
 
-    void Update()
+    public void SetBearing(int bearing)
     {
+        this.bearing = bearing;
     }
 }

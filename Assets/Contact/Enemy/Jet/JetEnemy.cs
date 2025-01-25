@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.Common;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class JetEnemy : MonoBehaviour
+public class JetEnemy : EnemyBase
 {
     [Header("Object References")]
     [SerializeField] private EnemySpawner _enemySpawner;
@@ -36,6 +37,7 @@ public class JetEnemy : MonoBehaviour
     // Behaviors
     [SerializeField] private bool bombing;
     [SerializeField] private bool escaping;
+    [SerializeField] private bool detected;
 
     void Awake()
     {
@@ -75,22 +77,19 @@ public class JetEnemy : MonoBehaviour
     {
         if (bombing) {BombManeuver();}
         if (escaping) {EscapeManeuver();}
+        if ((Vector3.Distance(transform.position, subPos) < 1000) && (!detected))
+        {
+            Debug.Log("Enemy aircraft detected!!");
+            detected = true;
+            // Captain Event
+            Captain.Detection(this, bearing);
+        }
     }
+
+    #region Maneuvers
 
     void BombManeuver()
     {
-        // Straight Line Boring Movement
-        // transform.position = Vector3.MoveTowards(transform.position, firePos, speed);
-
-        // Jet has reached fire position, fire missile
-        // if (Vector3.Distance(transform.position, firePos) < 0.1)
-        // {
-        //     FireMissle();
-        //     bombing = false;
-        //     escaping = true;
-        //     _counter = 0;
-        // }
-
         if (_counter < _bombingPositions.Count)
         {
             transform.position = Vector3.MoveTowards(transform.position, _bombingPositions[_counter], 200 * speed * Time.deltaTime);
@@ -104,14 +103,10 @@ public class JetEnemy : MonoBehaviour
             escaping = true;
             _counter = 0;
         }
-
     }
 
     void EscapeManeuver()
     {
-        // Straight Line Boring Movement
-        //transform.position = Vector3.MoveTowards(transform.position, escapePos, speed);
-
         if (_counter < _escapePositions.Count)
         {
             transform.position = Vector3.MoveTowards(transform.position, _escapePositions[_counter], 200 * speed * Time.deltaTime);
@@ -123,14 +118,9 @@ public class JetEnemy : MonoBehaviour
             Debug.Log("Jet Escaped");
             Destroy(gameObject);
         }
-
-        // if (Vector3.Distance(transform.position, escapePos) < 1)
-        // {
-        //     // Jet Escaped, destroy
-        //     Debug.Log("Jet Escaped");
-        //     Destroy(gameObject);
-        // }
     }
+
+    # endregion
 
     private Vector3 CubicCurve(Vector3 start, Vector3 control1, Vector3 control2, Vector3 end, float t)
     {
