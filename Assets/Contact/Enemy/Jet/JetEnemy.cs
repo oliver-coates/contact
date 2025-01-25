@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data.Common;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
 public class JetEnemy : MonoBehaviour
 {
+    [Header("Object References")]
     [SerializeField] private EnemySpawner _enemySpawner;
+    [SerializeField] private GameObject missile;
 
     [Header("Position References")]
     [SerializeField] private Vector3 subPos = Vector3.zero;
@@ -140,6 +141,7 @@ public class JetEnemy : MonoBehaviour
     void FireMissle()
     {
         // Fires a missile towards the submarine
+        Instantiate(missile, transform.position, Quaternion.identity);
         Debug.Log($"Incoming Missle!");
     }
 

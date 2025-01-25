@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemySpawner: {fileID: 0}
+  missile: {fileID: 1674583181168442723, guid: fb19c5232dcc20b4985ea045cf32fb4c, type: 3}
   subPos: {x: 0, y: 0, z: 0}
   startPos: {x: 0, y: 0, z: 0}
   firePos: {x: 0, y: 0, z: 0}
