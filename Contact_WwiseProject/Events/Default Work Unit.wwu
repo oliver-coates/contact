@@ -23,6 +23,17 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{4A6CF1D0-B4C7-4CB8-A2FF-2AEC88C8B72F}" ShortID="847396974">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="41"/>
+								<Property Name="Delay" Type="Real64" Value="0.15"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="stop_radar_warble" ID="{3F79DB50-231D-4C3C-B726-08CDA52D5C41}" WorkUnitID="{E6856268-2D58-4488-94B0-CCAE293AF67C}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="play_radar_rotate_end" ID="{C0E0CE68-FF30-4AA6-9FF3-B79AE09725C2}">
@@ -52,6 +63,42 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="start" ID="{401CA325-2323-4045-B349-E40C53CAAF9B}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{80D35E26-6BCD-4E53-A3ED-8CB0629C7231}" ShortID="1056243063">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="41"/>
+								<Property Name="Delay" Type="Real64" Value="0.15"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="play_radar_warble" ID="{3909AFFB-6FFA-4B7D-8FFB-CEFAE24804ED}" WorkUnitID="{E6856268-2D58-4488-94B0-CCAE293AF67C}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="play_radar_warble" ID="{3909AFFB-6FFA-4B7D-8FFB-CEFAE24804ED}">
+					<ChildrenList>
+						<Action Name="" ID="{3330AA4E-DFEB-416C-8D08-949817B882DB}" ShortID="1008977769">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="radar_warble" ID="{56DD7A30-FE75-4664-9B8C-EAE4ED4C4810}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="stop_radar_warble" ID="{3F79DB50-231D-4C3C-B726-08CDA52D5C41}">
+					<ChildrenList>
+						<Action Name="" ID="{FE8EC322-9158-451B-A997-B2B7A1FD51D8}" ShortID="842272882">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="radar_warble" ID="{56DD7A30-FE75-4664-9B8C-EAE4ED4C4810}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

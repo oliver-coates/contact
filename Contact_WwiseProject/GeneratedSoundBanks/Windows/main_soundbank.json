@@ -10,18 +10,26 @@
     "Type": "User",
     "GUID": "{11252B18-2787-4403-9C8D-E823328218A0}",
     "Language": "SFX",
-    "Hash": "{A4211AFB-7313-4DC4-B816-FFB900081DCB}",
+    "Hash": "{5A9BF883-7817-3045-98B6-7BE4B630CCC5}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main_soundbank",
     "ShortName": "main_soundbank",
     "Path": "main_soundbank.bnk",
     "Media": [
+     {
+      "Id": "17746272",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "radar_warble.wav",
+      "CachePath": "D4/{D4C8E827-24E6-5825-3AC3-8EDA470CF12C}.wem"
+     },
      {
       "Id": "805539508",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "servo_end.wav",
-      "CachePath": "92/{9202B9CE-E42F-1BC0-E1D5-93FEBDA10D5E}.wem"
+      "CachePath": "5B/{5BE9A0F0-11E4-7A61-0949-37251EEEBD54}.wem"
      },
      {
       "Id": "852207089",
@@ -40,6 +48,26 @@
       "CachePath": "89/{896B3E1A-C7CD-7F55-EA96-A1C8D255D34A}.wem"
      }
     ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "1008402193",
+       "Name": "Low_Pass_20KHz",
+       "ObjectPath": "\\Effects\\Factory Effects\\Parametric EQ\\Low Pass Filters\\Low_Pass_20KHz",
+       "GUID": "{830124FB-B9D5-4AE8-846E-E94A74652666}",
+       "LibName": "Wwise Parametric EQ",
+       "LibId": "6881283"
+      },
+      {
+       "Id": "2539557199",
+       "Name": "Treble",
+       "ObjectPath": "\\Effects\\Factory Effects\\Flanger\\Flanging\\Treble",
+       "GUID": "{FB516F18-AA49-4B92-BC11-FA23E8CC59B4}",
+       "LibName": "Wwise Flanger",
+       "LibId": "8192003"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "2370402918",
@@ -47,11 +75,19 @@
       "ObjectPath": "\\Events\\Default Work Unit\\play_radar_rotate_end",
       "GUID": "{C0E0CE68-FF30-4AA6-9FF3-B79AE09725C2}",
       "DurationType": "OneShot",
-      "DurationMin": "0.9598866",
-      "DurationMax": "0.9598866",
+      "DurationMin": "0.5926984",
+      "DurationMax": "0.5926984",
       "MediaRefs": [
        {
         "Id": "805539508"
+       }
+      ],
+      "ActionPostEvent": [
+       {
+        "Id": "2545029876",
+        "Name": "play_radar_warble",
+        "ObjectPath": "\\Events\\Default Work Unit\\play_radar_warble",
+        "GUID": "{3909AFFB-6FFA-4B7D-8FFB-CEFAE24804ED}"
        }
       ]
      },
@@ -68,11 +104,75 @@
        {
         "Id": "1016737854"
        }
+      ],
+      "ActionPostEvent": [
+       {
+        "Id": "186916906",
+        "Name": "stop_radar_warble",
+        "ObjectPath": "\\Events\\Default Work Unit\\stop_radar_warble",
+        "GUID": "{3F79DB50-231D-4C3C-B726-08CDA52D5C41}"
+       }
       ]
+     },
+     {
+      "Id": "2545029876",
+      "Name": "play_radar_warble",
+      "ObjectPath": "\\Events\\Default Work Unit\\play_radar_warble",
+      "GUID": "{3909AFFB-6FFA-4B7D-8FFB-CEFAE24804ED}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "17746272"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "2539557199"
+        }
+       ]
+      }
+     },
+     {
+      "Id": "186916906",
+      "Name": "stop_radar_warble",
+      "ObjectPath": "\\Events\\Default Work Unit\\stop_radar_warble",
+      "GUID": "{3F79DB50-231D-4C3C-B726-08CDA52D5C41}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     }
+    ],
+    "Busses": [
+     {
+      "Id": "3803692087",
+      "Name": "Master Audio Bus",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus",
+      "GUID": "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
+     },
+     {
+      "Id": "4098848842",
+      "Name": "local",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\local",
+      "GUID": "{2B0A47D7-4018-4A98-BC85-4A77DE36B9B8}"
+     },
+     {
+      "Id": "4130616467",
+      "Name": "through_wall",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\through_wall",
+      "GUID": "{7A688009-D780-4AEF-B636-E878CC8B4280}",
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "1008402193"
+        }
+       ]
+      }
      }
     ]
    }
   ],
-  "FileHash": "{D2974447-B416-A953-17B1-F4997F66A474}"
+  "FileHash": "{DA754992-3371-BC8E-321F-3D34B004727B}"
  }
 }

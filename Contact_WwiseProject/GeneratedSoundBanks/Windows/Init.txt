@@ -1,5 +1,10 @@
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+	4098848842	local			\Default Work Unit\Master Audio Bus\local	
+	4130616467	through_wall			\Default Work Unit\Master Audio Bus\through_wall	
+
+Effect plug-ins	ID	Name	Type				Notes
+	1008402193	Low_Pass_20KHz	Wwise Parametric EQ			
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			
