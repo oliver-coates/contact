@@ -175,12 +175,21 @@ public class Gunner : MonoBehaviour
 
     private void AttemptFire()
     {
-        // TODO: Chjeck for ammo:
-
+        _fireTimer = 0f;
         _readyToFire = false;
 
-        Debug.Log($"Fired");
-        OnFired?.Invoke(_currentTrackedDetectable);
+        // TODO: Chjeck for ammo:
+        if (Loader.CanFire())
+        {
+            Debug.Log($"Fired");
+            OnFired?.Invoke(_currentTrackedDetectable);
+        }
+        else
+        {
+            Debug.Log($"No missile to fire");
+        }
+
+        
     }
 
     private void FireFailed()
