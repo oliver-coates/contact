@@ -783,6 +783,7 @@ MonoBehaviour:
   _rotaionText: {fileID: 8297590248397435589}
   _distanceText: {fileID: 9004454723743843301}
   _lockText: {fileID: 5758175752446487237}
+  _missileText: {fileID: 8513899330195838594}
   _contactsHolder: {fileID: 2865935786601609}
   _greenColor: {r: 0.47592562, g: 0.8773585, b: 0.48489326, a: 1}
   _whiteColor: {r: 1, g: 1, b: 1, a: 1}
@@ -2525,7 +2526,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -1, y: -1}
+  m_SizeDelta: {x: -0.59999967, y: -0.59999967}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &71166179991252618
 CanvasRenderer:

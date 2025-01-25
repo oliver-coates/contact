@@ -25,6 +25,7 @@ public class RadarUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _rotaionText;
     [SerializeField] private TextMeshProUGUI _distanceText;
     [SerializeField] private TextMeshProUGUI _lockText;
+    [SerializeField] private TextMeshProUGUI _missileText;
 
 
     [SerializeField] private Transform _contactsHolder;
@@ -113,6 +114,23 @@ public class RadarUI : MonoBehaviour
             _lockText.text = "NULL";
             _lockText.color = _whiteColor;
         }
+
+        if (Loader.IsSwitching)
+        {
+            _missileText.text = "WAIT";
+            _missileText.color = _yellowColor;
+        }
+        else if (Loader.IsLoading || Loader.NeedsLoad)
+        {
+            _missileText.text = "LOAD";
+            _missileText.color = _redColor;
+        }
+        else
+        {
+            _missileText.text = "READY";
+            _missileText.color = _greenColor;
+        }
+
     }
 
     public void DrawContact(RadarContact contact)

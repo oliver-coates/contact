@@ -11,9 +11,11 @@ public class LoaderUI : MonoBehaviour
     {
         _missileBayUIs[0].Setup(Loader.MissileBays[0]);
         _missileBayUIs[1].Setup(Loader.MissileBays[1]);
+    }
 
-        _missileBayUIs[0].Select();
-        _missileBayUIs[1].Deselect();
+    public void SwitchBays()
+    {
+        Loader.AttemptSwitchBays();
     }
 
 

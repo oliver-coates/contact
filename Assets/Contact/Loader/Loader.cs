@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Loader : MonoBehaviour
 {
-    public static Loader _Instance;
+    private static Loader _Instance;
 
     [Header("Settings:")]
     [SerializeField] private int _numMissileBays = 2;
@@ -21,6 +21,47 @@ public class Loader : MonoBehaviour
 
     private MissileBay _activeMissileBay;
 
+    [SerializeField] private bool _isSwitching = false;
+    public static bool IsSwitching
+    {
+        get
+        {
+            return _Instance._isSwitching;
+        }
+    }
+    private MissileBay _bayCurrentlySwitchingTo;
+    [SerializeField] private float _switchTimer = 0f;
+    [SerializeField] private float _switchTime;
+
+    public static bool IsLoading
+    {
+        get
+        {
+            if (_Instance._activeMissileBay == null)
+            {
+                return false;
+            }
+            else
+            {
+                return _Instance._activeMissileBay.isLoading;
+            }
+        }
+    }
+
+    public static bool NeedsLoad
+    {
+        get
+        {
+            if (_Instance._activeMissileBay == null)
+            {
+                return false;
+            }
+            else
+            {
+                return _Instance._activeMissileBay.missiles == 0;
+            }
+        }
+    }
 
     private void Awake()
     {
@@ -32,9 +73,11 @@ public class Loader : MonoBehaviour
         for (int missileBayIndex = 0; missileBayIndex < _numMissileBays; missileBayIndex++)
         {
             _missileBays.Add(new MissileBay());
-        }
+        }    
 
         _activeMissileBay = _missileBays[0];
+        _activeMissileBay.SetIsSelected(true);
+
     }
 
     private void Update()
@@ -46,11 +89,28 @@ public class Loader : MonoBehaviour
                 missileBay.Load(Time.deltaTime);
             }
         }
+
+        if (_isSwitching)
+        {
+            _switchTimer += Time.deltaTime;
+
+            if (_switchTimer > _switchTime)
+            {
+                SwitchBays();
+            }
+        }
     }
 
     public static bool CanFire()
     {
-        return _Instance._activeMissileBay.CanFire();
+        if (_Instance._activeMissileBay == null)
+        {
+            return false;
+        }
+        else
+        {
+            return _Instance._activeMissileBay.CanFire();
+        }
     }
 
     private void Fired(IRadarDetectable radarDetectable)
@@ -63,21 +123,58 @@ public class Loader : MonoBehaviour
         _activeMissileBay.RemoveMissile();
     }
 
-    public void SwitchBays()
+    public static void AttemptSwitchBays()
     {
-        if (_activeMissileBay == _missileBays[0])
+        MissileBay currentBay = _Instance._activeMissileBay;
+
+        MissileBay otherBay;
+        if (currentBay == _Instance._missileBays[0])
         {
-            _activeMissileBay = _missileBays[1];
+            otherBay = _Instance._missileBays[1];
         }
         else
         {
-            _activeMissileBay = _missileBays[0];
+            otherBay = _Instance._missileBays[0];
         }
+
+        if (_Instance._isSwitching)
+        {
+            return;
+        }
+
+        if (otherBay.isLoading)
+        {
+            return;
+        }
+
+        _Instance._switchTime = 5f;
+        _Instance._switchTimer = 0f;
+        _Instance._isSwitching = true;
+        _Instance._bayCurrentlySwitchingTo = otherBay;
+
+        currentBay.SetIsSelected(false);
+        _Instance._activeMissileBay = null;
     }
 
-    public void StartLoad()
+    public static void SwitchBays()
     {
-        _activeMissileBay.StartLoading();
+        _Instance._isSwitching = false;
+
+        _Instance._activeMissileBay = _Instance._bayCurrentlySwitchingTo;
+        _Instance._bayCurrentlySwitchingTo = null;
+
+        _Instance._activeMissileBay.SetIsSelected(true);
+    }
+
+    public static void StartLoad(MissileBay bay)
+    {
+        if (bay.isLoading == false && bay.isSelected == false)
+        {
+            if (bay.CanLoad())
+            {
+                bay.StartLoading();
+            }
+        }
     }
 
 }

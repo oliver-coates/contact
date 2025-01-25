@@ -12,6 +12,7 @@ public class MissileBay
     public event Action OnStartedLoad;
     public event Action OnFinishedLoading;
     public event Action<int> OnMissileCountChanged;
+    public event Action<bool> OnSelectionStateChanged;
 
     [SerializeField] private int _missiles;
     public int missiles
@@ -31,12 +32,23 @@ public class MissileBay
         }	
     }
 
+    [SerializeField] private bool _isSelected;
+    public bool isSelected
+    {
+        get
+        {
+            return _isSelected;
+        }
+    }
+
     private float _loadTime;
     private float _loadTimer;
 
     public MissileBay()
     {
         _missiles = NUM_MISSILES;
+        _isLoading = false;
+        _isSelected = false;
     }
 
     public void RemoveMissile()
@@ -60,7 +72,7 @@ public class MissileBay
 
     public bool CanLoad()
     {
-        return (_missiles < NUM_MISSILES);
+        return (_missiles < NUM_MISSILES) && _isSelected == false;
     }
 
     public void StartLoading()
@@ -73,17 +85,20 @@ public class MissileBay
 
     public void Load(float deltaTime)
     {
-        _loadTimer += deltaTime;
-
-        if (_loadTime > _loadTimer)
+        if (_isLoading)
         {
-            AddMissile();
-            GetNewLoadTime();
-            _loadTimer = 0f;
-        
-            if (_missiles == NUM_MISSILES)
+            _loadTimer += deltaTime;
+
+            if (_loadTimer > _loadTime)
             {
-                FinishedLoading();
+                AddMissile();
+                GetNewLoadTime();
+                _loadTimer = 0f;
+            
+                if (_missiles == NUM_MISSILES)
+                {
+                    FinishedLoading();
+                }
             }
         }
     }
@@ -98,5 +113,12 @@ public class MissileBay
     private void GetNewLoadTime()
     {
         _loadTime = UnityEngine.Random.Range(2, 5);
+    }
+
+    public void SetIsSelected(bool isSelected)
+    {
+        _isSelected = isSelected;
+
+        OnSelectionStateChanged?.Invoke(isSelected);
     }
 }

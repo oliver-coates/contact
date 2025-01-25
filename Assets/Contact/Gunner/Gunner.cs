@@ -101,9 +101,9 @@ public class Gunner : MonoBehaviour
         {
             _loseLockTimer = 0;
 
-            if (_readyToFire)
+            if (_hits > 0)
             {
-                FireFailed();
+                LoseLock();
             }
         }
         
@@ -177,6 +177,7 @@ public class Gunner : MonoBehaviour
     {
         _fireTimer = 0f;
         _readyToFire = false;
+        _hits = 0;
 
         // TODO: Chjeck for ammo:
         if (Loader.CanFire())
@@ -194,6 +195,7 @@ public class Gunner : MonoBehaviour
 
     private void FireFailed()
     {
+        _readyToFire = false;
         Debug.Log($"Faield to fire");
 
         OnFailedToFire?.Invoke();

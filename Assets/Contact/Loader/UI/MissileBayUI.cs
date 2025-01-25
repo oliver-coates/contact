@@ -31,15 +31,20 @@ public class MissileBayUI : MonoBehaviour
         toDisplay.OnFinishedLoading += ShowIsNotLoading;
         toDisplay.OnStartedLoad += ShowIsLoading;
         toDisplay.OnMissileCountChanged += RedrawMissiles;
+        toDisplay.OnSelectionStateChanged += SetSelectionState;
+
+        SetSelectionState(toDisplay.isSelected);
     }
 
     private void OnDestroy()
     {
         if (_toDisplay != null)
         {
-            _toDisplay.OnFinishedLoading += ShowIsNotLoading;
-            _toDisplay.OnStartedLoad += ShowIsLoading;
-            _toDisplay.OnMissileCountChanged += RedrawMissiles;
+            _toDisplay.OnFinishedLoading -= ShowIsNotLoading;
+            _toDisplay.OnStartedLoad -= ShowIsLoading;
+            _toDisplay.OnMissileCountChanged -= RedrawMissiles;
+            _toDisplay.OnSelectionStateChanged -= SetSelectionState;
+
         }
         
     }
@@ -48,7 +53,7 @@ public class MissileBayUI : MonoBehaviour
     {
         for (int missileIndex = 0; missileIndex < 4; missileIndex++)
         {
-            if (missileIndex <= count)
+            if (missileIndex < count)
             {
                 // Is loaded
                 _missileImages[missileIndex].color = _whiteColor;
@@ -77,6 +82,18 @@ public class MissileBayUI : MonoBehaviour
         _rearImage.color = _whiteColor;
     }
 
+    private void SetSelectionState(bool state)
+    {
+        if (state == true)
+        {
+            Select();
+        }
+        else
+        {
+            Deselect();
+        }
+    }
+
     public void Select()
     {
         _backerImage.color = _orangeColor;
@@ -85,6 +102,11 @@ public class MissileBayUI : MonoBehaviour
     public void Deselect()
     {
         _backerImage.color = Color.black;
+    }
+
+    public void AttemptStartLoad()
+    {
+        Loader.StartLoad(_toDisplay);
     }
     
 }
