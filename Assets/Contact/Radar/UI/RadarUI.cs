@@ -20,9 +20,23 @@ public class RadarUI : MonoBehaviour
     [SerializeField] private Transform _centerIcon;
     [SerializeField] private Transform _sweepTransform;
     [SerializeField] private LineRenderer _sweepLine;
+
+
     [SerializeField] private TextMeshProUGUI _rotaionText;
-    
+    [SerializeField] private TextMeshProUGUI _distanceText;
+    [SerializeField] private TextMeshProUGUI _lockText;
+
+
     [SerializeField] private Transform _contactsHolder;
+
+    [Header("Color:")]
+    [SerializeField] private Color _greenColor;
+    [SerializeField] private Color _whiteColor;
+    [SerializeField] private Color _redColor;
+    [SerializeField] private Color _yellowColor;
+    [SerializeField] private Color _orangeColor;
+
+
 
     private void Awake()
     {
@@ -64,13 +78,41 @@ public class RadarUI : MonoBehaviour
             _sweepLine.endColor = _activeSweepColor;
         }
 
+        if (Gunner.ReadyToFire)
+        {
+            float distanceToTarget = Gunner.CurrentTrackedDetectable.GetPosition().magnitude;
+            _distanceText.text = $"{distanceToTarget:0000}"; 
 
+            _distanceText.color = _redColor;
+
+            _lockText.text = "GOOD";
+            _lockText.color = _greenColor;
+        }
 
     }
 
     private void RefreshUIDelayed()
     {
         _rotaionText.text = $"{Radar.Rotation:000}";
+
+        if (Gunner.AttemptingLock && !Gunner.ReadyToFire)
+        {
+            float randomDistance = UnityEngine.Random.Range(0, 10000);
+            _distanceText.text = $"{randomDistance:0000}"; 
+
+            _distanceText.color = _orangeColor;
+
+            _lockText.text = "HOLD";
+            _lockText.color = _redColor;
+        }
+        else
+        {
+            _distanceText.text = "0000";
+            _distanceText.color = _whiteColor;
+
+            _lockText.text = "NULL";
+            _lockText.color = _whiteColor;
+        }
     }
 
     public void DrawContact(RadarContact contact)

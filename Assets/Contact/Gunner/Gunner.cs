@@ -18,6 +18,13 @@ public class Gunner : MonoBehaviour
     [Header("State")]
     [SerializeField] private int _hits;
     private IRadarDetectable _currentTrackedDetectable;
+    public static IRadarDetectable CurrentTrackedDetectable
+    {
+        get
+        {
+            return _Instance._currentTrackedDetectable;
+        }
+    }
 
     [SerializeField] private bool _attemptingLock;
     public static bool AttemptingLock
@@ -111,7 +118,7 @@ public class Gunner : MonoBehaviour
             return;
         }
 
-        
+
         if (contact.detectable == _currentTrackedDetectable)
         {
             SimilarContactMade();
