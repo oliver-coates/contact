@@ -22,11 +22,20 @@ public class RadarContact
         }	
     }
 
+    [SerializeField] private IRadarDetectable _detectable;
+    public IRadarDetectable detectable
+    {
+        get
+        {
+            return _detectable;
+        }	
+    }
 
 
-    public RadarContact(Vector3 position, float strength)
+    public RadarContact(Vector3 position, float strength, IRadarDetectable detectable)
     {
         _position = position;
         _strength = strength;
+        _detectable = detectable;
     }
 }

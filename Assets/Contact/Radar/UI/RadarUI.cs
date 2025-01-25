@@ -15,6 +15,7 @@ public class RadarUI : MonoBehaviour
     [SerializeField] private float _contactMaximumDrawDistance = 43;
 
 
+
     [Header("UI References:")]
     [SerializeField] private Transform _centerIcon;
     [SerializeField] private Transform _sweepTransform;
@@ -63,6 +64,8 @@ public class RadarUI : MonoBehaviour
             _sweepLine.endColor = _activeSweepColor;
         }
 
+
+
     }
 
     private void RefreshUIDelayed()
@@ -77,7 +80,7 @@ public class RadarUI : MonoBehaviour
         RectTransform newContact = Instantiate(_contactPrefab, _contactsHolder).GetComponent<RectTransform>();
 
         float xPos = (contactPosition.x / Radar.MAXIMUM_DISTANCE) * _contactMaximumDrawDistance;
-        float yPos = (contactPosition.y / Radar.MAXIMUM_DISTANCE) * _contactMaximumDrawDistance;
+        float yPos = (contactPosition.z / Radar.MAXIMUM_DISTANCE) * _contactMaximumDrawDistance;
 
 
         newContact.anchoredPosition = new Vector2(xPos, yPos);

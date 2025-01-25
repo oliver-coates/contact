@@ -18,7 +18,7 @@ public class RadarContactUI : MonoBehaviour
     [SerializeField] private float _timer;
     [SerializeField] private float _fadeTime;
     
-    public void Start()
+    public void Awake()
     {
         _timer = 0f;
         _fadeTime = UnityEngine.Random.Range(_minimumFadeTime, _maximumFadeTime);
