@@ -89,6 +89,7 @@ public class Gunner : MonoBehaviour
 
             if (_readyToFire)
             {
+                AkUnitySoundEngine.SetRTPCValue("rtpc_radar_warble_intensity", 3);
                 _fireTimer += Time.deltaTime;
 
                 if (_fireTimer > _timeToFire)
@@ -96,6 +97,11 @@ public class Gunner : MonoBehaviour
                     AttemptFire();
                 }
             }
+            else
+            {
+                AkUnitySoundEngine.SetRTPCValue("rtpc_radar_warble_intensity", 2);
+            }
+        
         }
         else
         {
@@ -104,6 +110,15 @@ public class Gunner : MonoBehaviour
             if (_hits > 0)
             {
                 LoseLock();
+            }
+        
+            if (Radar.IsRotating)
+            {
+                AkUnitySoundEngine.SetRTPCValue("rtpc_radar_warble_intensity", 0);
+            }
+            else
+            {
+                AkUnitySoundEngine.SetRTPCValue("rtpc_radar_warble_intensity", 1);
             }
         }
         

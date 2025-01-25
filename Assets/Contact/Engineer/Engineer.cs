@@ -24,6 +24,7 @@ public class Engineer : MonoBehaviour
     private void Awake()
     {
         _Instance = this;
+        _healthRemaining = _shipHealth;
     } 
 
 
