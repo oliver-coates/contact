@@ -39,7 +39,7 @@ public class Radar : MonoBehaviour
     }
     
     [Range(MINIMUM_WIDTH, MAXIMUM_WIDTH)] [SerializeField] private float _width;
-    private static float Width
+    public static float Width
     {
         get
         {

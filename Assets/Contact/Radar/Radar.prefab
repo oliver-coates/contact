@@ -1577,6 +1577,8 @@ MonoBehaviour:
   _lineTransform: {fileID: 6363649612779528895}
   _lineRenderer: {fileID: 8748149225427562564}
   _radius: 0.44
+  _refreshRate: 0.02
+  _degreesPerMidPoint: 10
 --- !u!1 &3211781777778725236
 GameObject:
   m_ObjectHideFlags: 0
