@@ -15,16 +15,24 @@ public class FriendlyMissile : MonoBehaviour, IRadarDetectable
     // Update is called once per frame
     void Update()
     {
-        targetPos = target.GetPosition();
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
-
-        if (Vector3.Distance(transform.position, targetPos) < 10)
+        if (target != null)
         {
-            // Missile Hit Target
-            Debug.Log("Enemy Target Destroyed!");
-            target.DestroyYou();
+            targetPos = target.GetPosition();
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+
+            if (Vector3.Distance(transform.position, targetPos) < 10)
+            {
+                // Missile Hit Target
+                Debug.Log("Enemy Target Destroyed!");
+                target.DestroyYou();
+                DestroyYou();
+            }
+        }
+        else
+        {
             DestroyYou();
         }
+
     }
 
     public void SetTarget(IRadarDetectable givenTarget)
