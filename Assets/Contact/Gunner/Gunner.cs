@@ -133,6 +133,11 @@ public class Gunner : MonoBehaviour
 
     private void OnContact(RadarContact contact)
     {
+        if (_readyToFire == false)
+        {
+            return;
+        }
+
         if (_attemptingLock == false)
         {
             return;
@@ -151,7 +156,6 @@ public class Gunner : MonoBehaviour
 
     private void SimilarContactMade()
     {
-        Debug.Log($"Repeat hit");
         _hits += 1;
         _loseLockTimer = 0f;
 
@@ -159,14 +163,17 @@ public class Gunner : MonoBehaviour
         {
             SetReadyToFire();
         }
+
+        Debug.Log($"Repeat hit - {_currentTrackedDetectable.GetHashCode()}");
     }
 
     private void NewContactMade(IRadarDetectable detectable)
     {
-        Debug.Log($"New hit");
         _currentTrackedDetectable = detectable;
         _loseLockTimer = 0f;
         _hits = 1;
+
+        Debug.Log($"New hit - {_currentTrackedDetectable.GetHashCode()}");
     }
 
     private void LoseLock()
