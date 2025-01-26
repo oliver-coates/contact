@@ -10,6 +10,7 @@ public class JetEnemy : EnemyBase
     [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private WaveManager _waveManager;
     [SerializeField] private GameObject missile;
+    [SerializeField] private EnemyBase _enemyBase;
 
     [Header("Position References")]
     [SerializeField] private Vector3 subPos = Vector3.zero;
@@ -46,11 +47,10 @@ public class JetEnemy : EnemyBase
     [SerializeField] private float nearDetectionRadius;
     public enum DetectionDistance {Near, Far};
     
-
-    
-
     void Awake()
     {
+        _enemyBase = GetComponent<EnemyBase>();
+        _enemyBase.isJet = true;
         bombing = true;
         escaping = false;
         _counter = 0;
@@ -102,11 +102,6 @@ public class JetEnemy : EnemyBase
         }
     }
 
-    void JetDetected()
-    {
-
-    }
-
     #region Maneuvers
 
     void BombManeuver()
@@ -141,6 +136,13 @@ public class JetEnemy : EnemyBase
             _waveManager.undefeatedEnemies += 1;
             Destroy(gameObject);
         }
+    }
+
+    public void ShotDown()
+    {
+        Debug.Log("Jet Destroyed");
+        _waveManager.spawnedEnemies -= 1;
+        Destroy(gameObject);
     }
 
     # endregion

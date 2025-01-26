@@ -48,7 +48,7 @@ public class Gunner : MonoBehaviour
     private float _loseLockTimer = 0;
     private float _fireTimer = 0;
 
-
+    [SerializeField] private GameObject friendlyMissile;
     
     private void Awake()
     {
@@ -199,6 +199,7 @@ public class Gunner : MonoBehaviour
         {
             Debug.Log($"Fired");
             OnFired?.Invoke(_currentTrackedDetectable);
+            Fire(_currentTrackedDetectable);
         }
         else
         {
@@ -208,10 +209,17 @@ public class Gunner : MonoBehaviour
         
     }
 
+    private void Fire(IRadarDetectable target)
+    {
+        GameObject firedMissile = Instantiate(friendlyMissile, new Vector3(0, 100, 0), Quaternion.identity);
+        FriendlyMissile missileTarget = firedMissile.GetComponent<FriendlyMissile>();
+        missileTarget.SetTarget(target);
+    }
+
     private void FireFailed()
     {
         _readyToFire = false;
-        Debug.Log($"Faield to fire");
+        Debug.Log($"Failed to fire");
 
         OnFailedToFire?.Invoke();
     }

@@ -1483,8 +1483,6 @@ MonoBehaviour:
   _attemptingLock: 0
   _readyToFire: 0
   _timeToFire: 0
-  friendlyMissile: {fileID: 1674583181168442723, guid: 55cbda579ed5b754caffa200180b2a6e,
-    type: 3}
 --- !u!1 &1941062185
 GameObject:
   m_ObjectHideFlags: 0

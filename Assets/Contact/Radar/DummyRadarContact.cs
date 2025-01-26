@@ -18,4 +18,14 @@ public class DummyRadarContact : MonoBehaviour, IRadarDetectable
     {
         
     }
+
+    public void DestroyYou()
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        Radar.DeregisterRadarDetectable(this);
+    }
 }

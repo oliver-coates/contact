@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Contact.sln"
+    "dotnet.defaultSolution": "contact.sln"
 }

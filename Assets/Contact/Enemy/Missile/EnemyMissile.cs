@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Missle : MonoBehaviour
+public class EnemyMissle : MonoBehaviour
 {
 
     private Vector3 subPos = Vector3.zero;
