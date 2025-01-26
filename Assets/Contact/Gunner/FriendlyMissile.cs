@@ -23,11 +23,9 @@ public class FriendlyMissile : MonoBehaviour, IRadarDetectable
 
         if (Vector3.Distance(transform.position, targetPos) < 10)
         {
-            // Missile Hit Target
-            Debug.Log("Enemy Target Destroyed!");
-            target.DestroyYou();
             DestroyYou();
         }
+
     }
 
     public void SetTarget(IRadarDetectable givenTarget)
