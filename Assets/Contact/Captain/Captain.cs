@@ -11,7 +11,7 @@ public class Captain : MonoBehaviour
         Instance = this;
     }
 
-    public static void Detection(IRadarDetectable radarDetectable, int bearing)
+    public static void Detection(IRadarDetectable radarDetectable, int bearing, JetEnemy.DetectionDistance jetDistance)
     {
         float tempBearing = bearing / 10;
         int bearingOrder = (int)tempBearing * 10;
@@ -20,7 +20,7 @@ public class Captain : MonoBehaviour
             bearingOrder = 0;
         }
 
-        Debug.Log($"Enemy Bearing: " + bearingOrder + " --- " + bearing);
+        Debug.Log($"Enemy Bearing: {bearingOrder} | {bearing} | {jetDistance}");
     }
 
     // Start is called before the first frame update

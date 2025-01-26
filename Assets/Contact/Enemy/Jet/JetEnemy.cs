@@ -35,10 +35,19 @@ public class JetEnemy : EnemyBase
 
     [SerializeField] private float speed;
 
-    // Behaviors
+    [Header("Behaviors")]
     [SerializeField] private bool bombing;
     [SerializeField] private bool escaping;
-    [SerializeField] private bool detected;
+    [SerializeField] private bool detectedFar;
+    [SerializeField] private bool detectedNear;
+
+    [Header("Detection Distance")]
+    [SerializeField] private float farDetectionRadius;
+    [SerializeField] private float nearDetectionRadius;
+    public enum DetectionDistance {Near, Far};
+    
+
+    
 
     void Awake()
     {
@@ -79,13 +88,23 @@ public class JetEnemy : EnemyBase
     {
         if (bombing) {BombManeuver();}
         if (escaping) {EscapeManeuver();}
-        if ((Vector3.Distance(transform.position, subPos) < 1000) && (!detected))
+        if ((Vector3.Distance(transform.position, subPos) < farDetectionRadius) && (!detectedFar))
         {
-            Debug.Log("Enemy aircraft detected!!");
-            detected = true;
-            // Captain Event
-            Captain.Detection(this, bearing);
+            Debug.Log($"Far enemy aircraft detected at {farDetectionRadius}m!");
+            detectedFar = true;
+            Captain.Detection(this, bearing, DetectionDistance.Far);
         }
+        if ((Vector3.Distance(transform.position, subPos) < nearDetectionRadius) && (!detectedNear))
+        {
+            Debug.Log($"Near enemy aircraft detected at {nearDetectionRadius}m!");
+            detectedNear = true;
+            Captain.Detection(this, bearing, DetectionDistance.Near);
+        }
+    }
+
+    void JetDetected()
+    {
+
     }
 
     #region Maneuvers
@@ -119,6 +138,7 @@ public class JetEnemy : EnemyBase
             // Jet Escaped, destroy
             Debug.Log("Jet Escaped");
             _waveManager.spawnedEnemies -= 1;
+            _waveManager.undefeatedEnemies += 1;
             Destroy(gameObject);
         }
     }

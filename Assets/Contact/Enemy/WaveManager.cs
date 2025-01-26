@@ -20,7 +20,8 @@ public class WaveManager : MonoBehaviour
     
 
     //public List<GameObject> spawnedEnemies = new List<GameObject>();
-    public int spawnedEnemies = 0;
+    public int spawnedEnemies = 0; // Enemies that have been spawned that round
+    public int undefeatedEnemies = 0; // Enemies that were not destroyed and are added to the next waves total enemies
     
     [Header("Wave Value Variables")]
     // Number of enemies is calculated using ax^z
@@ -32,12 +33,13 @@ public class WaveManager : MonoBehaviour
     [Header("  Read")]
     [SerializeField] private int waveValue;
     [SerializeField] private float preValue;
-    [SerializeField] private int flooredValue;
+    [SerializeField] private int roundedValue;
     
 
     void Start()
     {
         GenerateWave();
+        undefeatedEnemies = 0;
     }
 
     void FixedUpdate()
@@ -56,6 +58,7 @@ public class WaveManager : MonoBehaviour
         {
             currWave ++;
             GenerateWave();
+            undefeatedEnemies = 0;
         }
     }
 
@@ -78,8 +81,8 @@ public class WaveManager : MonoBehaviour
     public void GenerateWave()
     {
         waveValue = CalculateWaveValue();
+        waveValue += undefeatedEnemies;
 
-        waveValue = Mathf.FloorToInt(Mathf.Pow(currWave, exponent));
         GenerateEnemies();
 
         if (enemiesToSpawn.Count > 0)
@@ -93,8 +96,12 @@ public class WaveManager : MonoBehaviour
     public int CalculateWaveValue()
     {
         preValue = valueMod * Mathf.Pow(currWave, exponent);
-        flooredValue = Mathf.FloorToInt(preValue);
-        return flooredValue;
+        roundedValue = Mathf.RoundToInt(preValue);
+        if (roundedValue == 0)
+        {
+            roundedValue = 1;
+        }
+        return roundedValue;
         
     }
 
