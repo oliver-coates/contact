@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: 60f8a67e7c6f1f4180414f791c9f8dca
     GuidInternal: 
-    m_lastTime: -8584638383448407505
+    m_lastTime: -8584638293477333257
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,8 +38,25 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 773ad1bed5b6fb49ae59cfee59d62b06
     GuidInternal: 
-    m_lastTime: -8584637533535180606
+    m_lastTime: -8584637489317329626
     List:
+    - name: dry_bus
+      guid: 5cb0abbbe03c6d45988d19eb786b730b
+      id: 4126973915
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 773ad1bed5b6fb49ae59cfee59d62b06
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: dry_bus
+        ObjectType: 1
+        guid: 5cb0abbbe03c6d45988d19eb786b730b
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\dry_bus
     - name: futz
       guid: 118031c76e722943a4203d8a22e0f782
       id: 2913178912
@@ -117,7 +134,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 27eb08825f48e148951ccd7bdc7558b3
     GuidInternal: 
-    m_lastTime: -8584637533531971862
+    m_lastTime: -8584637527166004046
     List:
     - name: main_soundbank
       guid: 182b2511872703449c8de823328218a0
@@ -145,8 +162,25 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 686285e6582d884494b0ccae293af67c
     GuidInternal: 
-    m_lastTime: -8584637533535180606
+    m_lastTime: -8584637489317344776
     List:
+    - name: Play_alarm
+      guid: 05a25f84f728324ab384913b0f0ee0f6
+      id: 603937113
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 686285e6582d884494b0ccae293af67c
+      - ElementName: Play_alarm
+        ObjectType: 3
+        guid: 05a25f84f728324ab384913b0f0ee0f6
+      Path: Events\Default Work Unit\Play_alarm
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: Play_captain_high_stress
       guid: c5e84d303bd8524a99b51ba6eb91b5e9
       id: 3717362780
@@ -164,6 +198,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 3.506984
       minDuration: 1.874898
+    - name: Play_missile_launch
+      guid: 9130b61cc72b384883b1efd398231920
+      id: 104690776
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 686285e6582d884494b0ccae293af67c
+      - ElementName: Play_missile_launch
+        ObjectType: 3
+        guid: 9130b61cc72b384883b1efd398231920
+      Path: Events\Default Work Unit\Play_missile_launch
+      maxAttenuation: 0
+      maxDuration: 5.482653
+      minDuration: 5.482653
     - name: play_radar_rotate_end
       guid: 68cee0c030ffa64a9ff3b79ae09725c2
       id: 2370402918
@@ -198,9 +249,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
-    - name: play_radar_warble
+    - name: play_radar_warble_SC
       guid: fbaf0939fa6f7d4b8ffbcefae24804ed
-      id: 2545029876
+      id: 1862541533
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -208,16 +259,16 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 686285e6582d884494b0ccae293af67c
-      - ElementName: play_radar_warble
+      - ElementName: play_radar_warble_SC
         ObjectType: 3
         guid: fbaf0939fa6f7d4b8ffbcefae24804ed
-      Path: Events\Default Work Unit\play_radar_warble
+      Path: Events\Default Work Unit\play_radar_warble_SC
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
-    - name: stop_radar_warble
+    - name: stop_radar_warble_SC
       guid: 50db793f1d233c4cb72608cda52d5c41
-      id: 186916906
+      id: 2535798275
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -225,10 +276,10 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 686285e6582d884494b0ccae293af67c
-      - ElementName: stop_radar_warble
+      - ElementName: stop_radar_warble_SC
         ObjectType: 3
         guid: 50db793f1d233c4cb72608cda52d5c41
-      Path: Events\Default Work Unit\stop_radar_warble
+      Path: Events\Default Work Unit\stop_radar_warble_SC
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -244,8 +295,22 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: b50b479fcfde9447842a9b6f53d342bb
     GuidInternal: 
-    m_lastTime: -8584637533535180606
+    m_lastTime: -8584637489317329626
     List:
+    - name: amount_of_lock
+      guid: ff190edc9b8d264f965cee87e4ccd5d1
+      id: 2384490635
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b50b479fcfde9447842a9b6f53d342bb
+      - ElementName: amount_of_lock
+        ObjectType: 13
+        guid: ff190edc9b8d264f965cee87e4ccd5d1
+      Path: Game Parameters\Default Work Unit\amount_of_lock
     - name: bearing_RTPC
       guid: 2988a9a10b3386478bcb2cc3e0400579
       id: 3820148733
@@ -260,6 +325,20 @@ MonoBehaviour:
         ObjectType: 13
         guid: 2988a9a10b3386478bcb2cc3e0400579
       Path: Game Parameters\Default Work Unit\bearing_RTPC
+    - name: distance_to_target
+      guid: 9e0ac7247ce456409927a1e42bd9315f
+      id: 4278471036
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b50b479fcfde9447842a9b6f53d342bb
+      - ElementName: distance_to_target
+        ObjectType: 13
+        guid: 9e0ac7247ce456409927a1e42bd9315f
+      Path: Game Parameters\Default Work Unit\distance_to_target
     - name: radar_warble_intensity
       guid: a3a7571fc1ebc044ba256d1b4dd3d430
       id: 1091865113
@@ -286,7 +365,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: d8c0db9369af864ca84bb487c3d74ce4
     GuidInternal: 
-    m_lastTime: -8584638383447279363
+    m_lastTime: -8584638293477343249
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -300,8 +379,74 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: e978dbf1651bbb42ac71dcc7ac78a696
     GuidInternal: 
-    m_lastTime: -8584637533531961386
+    m_lastTime: -8584637489317073882
     List:
+    - name: amount_of_lock
+      guid: 77ba67d6387c5c4da078d321a0ff07e4
+      id: 2384490635
+      PathAndIcons:
+      - ElementName: Switches
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e978dbf1651bbb42ac71dcc7ac78a696
+      - ElementName: amount_of_lock
+        ObjectType: 11
+        guid: 77ba67d6387c5c4da078d321a0ff07e4
+      Path: Switches\Default Work Unit\amount_of_lock
+      values:
+      - name: almost_locked
+        guid: 5be66acc39b2994ab73a424b4f45bfc2
+        id: 2436997636
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: amount_of_lock
+          ObjectType: 11
+          guid: 77ba67d6387c5c4da078d321a0ff07e4
+        - ElementName: almost_locked
+          ObjectType: 10
+          guid: 5be66acc39b2994ab73a424b4f45bfc2
+      - name: locked
+        guid: d0f6800ccb385945bc3e97be7f24dc20
+        id: 136945955
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: amount_of_lock
+          ObjectType: 11
+          guid: 77ba67d6387c5c4da078d321a0ff07e4
+        - ElementName: locked
+          ObjectType: 10
+          guid: d0f6800ccb385945bc3e97be7f24dc20
+      - name: not_locked
+        guid: 291da5bfe3878841b1db3b70eb1d8f1a
+        id: 3497779481
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: amount_of_lock
+          ObjectType: 11
+          guid: 77ba67d6387c5c4da078d321a0ff07e4
+        - ElementName: not_locked
+          ObjectType: 10
+          guid: 291da5bfe3878841b1db3b70eb1d8f1a
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
     - name: bearing_switch_group
       guid: ddf6b65526599a41aa338cd4d7d5c2aa
       id: 2228001748
@@ -896,6 +1041,56 @@ MonoBehaviour:
       ValueGuids: []
       ValueIcons: []
       valuesInternal: []
+    - name: distance_to_target
+      guid: 0e0aa5628e022c4a8b2d6a9e815cb097
+      id: 4278471036
+      PathAndIcons:
+      - ElementName: Switches
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e978dbf1651bbb42ac71dcc7ac78a696
+      - ElementName: distance_to_target
+        ObjectType: 11
+        guid: 0e0aa5628e022c4a8b2d6a9e815cb097
+      Path: Switches\Default Work Unit\distance_to_target
+      values:
+      - name: far
+        guid: 86cfcaa16cd24d488a7175e5dc3af914
+        id: 1183803292
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: distance_to_target
+          ObjectType: 11
+          guid: 0e0aa5628e022c4a8b2d6a9e815cb097
+        - ElementName: far
+          ObjectType: 10
+          guid: 86cfcaa16cd24d488a7175e5dc3af914
+      - name: near
+        guid: 7aa115cc399ce645907b1d73e0d10c39
+        id: 1133794587
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: distance_to_target
+          ObjectType: 11
+          guid: 0e0aa5628e022c4a8b2d6a9e815cb097
+        - ElementName: near
+          ObjectType: 10
+          guid: 7aa115cc399ce645907b1d73e0d10c39
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
     - name: radar_warble_switch
       guid: e7e1a6741af6d547bb7de3dbabde1ecc
       id: 26923334
@@ -990,11 +1185,11 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 3defa1e25f69bb4395e57db54fea05a4
     GuidInternal: 
-    m_lastTime: -8584638383447861429
+    m_lastTime: -8584638293477333257
     List: []
-  ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
+  ExpandedFileSystemItemIds: 02000000030000000c000000190000001a0000004400000045000000
+  ExpandedWaapiItemIds: 02000000030000000c000000190000001a0000004400000045000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
-  currentDataSource: 0
+  currentDataSource: 1
   CurrentPluginConfig: 

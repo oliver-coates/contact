@@ -1448,7 +1448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 25
   _widthSpeed: 32
-  _sweepSpeed: 35
+  _sweepSpeed: 25
   _rotation: 0
   _width: 0
   _length: 0
@@ -4112,6 +4112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96488da8663f2944c8403b3c53e0a84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraControl: {fileID: 0}
   _shipHealth: 5
   _healthRemaining: 0
 --- !u!1 &2133515949
@@ -4378,6 +4379,27 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2702779223241564998, guid: 2e062b6ea9f3d1f47bda8a2c6d19d63c,
+        type: 3}
+      propertyPath: shakeAmount
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2702779223241564998, guid: 2e062b6ea9f3d1f47bda8a2c6d19d63c,
+        type: 3}
+      propertyPath: globalVolume
+      value: 
+      objectReference: {fileID: 11400000, guid: a6560a915ef98420e9faacc1c7438823,
+        type: 2}
+    - target: {fileID: 2702779223241564998, guid: 2e062b6ea9f3d1f47bda8a2c6d19d63c,
+        type: 3}
+      propertyPath: shakeDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2702779223241564998, guid: 2e062b6ea9f3d1f47bda8a2c6d19d63c,
+        type: 3}
+      propertyPath: maxShakeIntensity
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 3014039414511859200, guid: 2e062b6ea9f3d1f47bda8a2c6d19d63c,
         type: 3}
       propertyPath: m_Name

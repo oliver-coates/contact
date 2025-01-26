@@ -54,6 +54,12 @@ public class WaveManager : MonoBehaviour
             {
                 spawnTimer -= Time.fixedDeltaTime;
                 waveTimer -= Time.fixedDeltaTime;
+
+                // Adance to next wave instantly when no contacts exist
+                if (Radar.DoAnyContactsExist)
+                {
+                    spawnTimer = 0;
+                }
             }
 
             if (waveTimer <= 0 && spawnedEnemies <= 0)

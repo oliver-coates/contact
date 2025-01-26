@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 
 public class FriendlyMissile : MonoBehaviour, IRadarDetectable
@@ -25,11 +23,9 @@ public class FriendlyMissile : MonoBehaviour, IRadarDetectable
 
         if (Vector3.Distance(transform.position, targetPos) < 10)
         {
-            // Missile Hit Target
-            Debug.Log("Enemy Target Destroyed!");
-            target.DestroyYou();
             DestroyYou();
         }
+
     }
 
     public void SetTarget(IRadarDetectable givenTarget)
