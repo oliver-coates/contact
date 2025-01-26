@@ -52,6 +52,14 @@ public class Radar : MonoBehaviour
         }
     }
 
+    public static bool DoAnyContactsExist
+    {
+        get
+        {
+            return _Instance._allDetectables.Count > 0;
+        }
+    }
+
 
     [Range(MINIMUM_WIDTH, MAXIMUM_WIDTH)] [SerializeField] private float _width;
     public static float Width
@@ -98,7 +106,14 @@ public class Radar : MonoBehaviour
         _sweepAngle = _width/2f;
         _previousSweepBearing = -1;
 
+        GameManager.OnGameStart += GameStart;
+
         SetupBearings();
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.OnGameStart -= GameStart;
     }
 
     private void SetupBearings()
@@ -124,6 +139,10 @@ public class Radar : MonoBehaviour
     #endregion
 
 
+    private void GameStart()
+    {
+        AkUnitySoundEngine.PostEvent("play_radar_rotate_end", gameObject);
+    }
 
     public void Update()
     {   
