@@ -18,15 +18,19 @@ public class FriendlyMissile : MonoBehaviour, IRadarDetectable
             DestroyYou();
             return;
         }
+        else
+        {
+            targetPos = target.GetPosition();
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
 
-        targetPos = target.GetPosition();
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
-
-        if (Vector3.Distance(transform.position, targetPos) < 10)
-        { 
-            target.DestroyYou();
-            DestroyYou();
+            if (Vector3.Distance(transform.position, targetPos) < 10)
+            { 
+                target.DestroyYou();
+                DestroyYou();
+            }    
         }
+
+        
 
     }
 

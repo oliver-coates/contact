@@ -3407,8 +3407,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3101814553204854388, guid: d563126b1d77e744c8a7ea61caa97665,
         type: 3}
+      propertyPath: _enemySpawnValueBase
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101814553204854388, guid: d563126b1d77e744c8a7ea61caa97665,
+        type: 3}
       propertyPath: _enemySpawnExponentValue
-      value: 1.1
+      value: 1.05
       objectReference: {fileID: 0}
     - target: {fileID: 3865709086351397882, guid: d563126b1d77e744c8a7ea61caa97665,
         type: 3}
