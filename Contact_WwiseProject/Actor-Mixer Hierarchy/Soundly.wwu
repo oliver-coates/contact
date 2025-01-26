@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{BF7A9F50-0A48-4B2B-A32D-A3D0A1230FFC}" SchemaVersion="123">
+	<AudioObjects>
+		<WorkUnit Name="Soundly" ID="{BF7A9F50-0A48-4B2B-A32D-A3D0A1230FFC}" PersistMode="Standalone">
+			<ChildrenList>
+				<Sound Name="pop" ID="{B8182931-D213-4B30-ABD8-3ABA14A8B731}" ShortID="912650954">
+					<PropertyList>
+						<Property Name="Soundly:ActiveChannels" Type="string" Value="[]"/>
+						<Property Name="Soundly:FileID" Type="string" Value="1737773802FIO3FNaqtW"/>
+						<Property Name="Soundly:FileName" Type="string" Value="/Volumes/20407 DATA/DATA/••My sound library••/Paintbox Of Clowns/Pop.aif"/>
+						<Property Name="Soundly:HandleStartTime" Type="string" Value="0"/>
+						<Property Name="Soundly:HandleStopTime" Type="string" Value="2.0"/>
+						<Property Name="Soundly:LibraryID" Type="string" Value="1737773797EoRBmPb-bV"/>
+						<Property Name="Soundly:LibraryLocation" Type="string" Value="Local"/>
+						<Property Name="Soundly:PlaybackSpeed" Type="string" Value="1.0"/>
+						<Property Name="Soundly:ProcessList" Type="string" Value="[]"/>
+						<Property Name="Soundly:RenderedFileBitRate" Type="string" Value="2"/>
+						<Property Name="Soundly:RenderedFilePath" Type="string" Value="/Users/hamish/Documents/Soundly Audio/Pop 3.wav"/>
+						<Property Name="Soundly:RenderedFileSampleRate" Type="string" Value="44100"/>
+						<Property Name="Soundly:SelectionStartTime" Type="string" Value="0"/>
+						<Property Name="Soundly:SelectionStopTime" Type="string" Value="0"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{4F6476B8-6563-4D60-A45E-441669FA1CAE}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BED13A77-B6D5-49FB-AE59-CFEE59D62B06}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Pop 3" ID="{0DE2A48A-BD7C-46A3-8955-3BDF35770986}">
+							<PropertyList>
+								<Property Name="Soundly:FileIDForAudioSource" Type="string" Value="1737773802FIO3FNaqtW"/>
+							</PropertyList>
+							<Language>SFX</Language>
+							<AudioFile>Soundly Audio\Pop 3.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="314433379"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Pop 3" ID="{0DE2A48A-BD7C-46A3-8955-3BDF35770986}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

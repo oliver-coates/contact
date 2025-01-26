@@ -1,6 +1,298 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{F1DB78E9-1B65-42BB-AC71-DCC7AC78A696}" SchemaVersion="123">
 	<Switches>
-		<WorkUnit Name="Default Work Unit" ID="{F1DB78E9-1B65-42BB-AC71-DCC7AC78A696}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{F1DB78E9-1B65-42BB-AC71-DCC7AC78A696}" PersistMode="Standalone">
+			<ChildrenList>
+				<SwitchGroup Name="radar_warble_switch" ID="{74A6E1E7-F61A-47D5-BB7D-E3DBABDE1ECC}">
+					<PropertyList>
+						<Property Name="UseGameParameter" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Switch Name="radar_level_0" ID="{CE252D36-CD20-42FB-A175-9AA005A6F97B}"/>
+						<Switch Name="radar_level_1" ID="{2BB0D677-83CB-4AD7-AFBE-596B32315B2B}"/>
+						<Switch Name="radar_level_2" ID="{BF67D696-5B06-4B66-855B-23FB33C0552C}"/>
+						<Switch Name="radar_level_3" ID="{36E2949C-375D-438F-BCA4-FF5C221F2909}"/>
+					</ChildrenList>
+					<SwitchOnRTPC>
+						<GameParameterRef Name="radar_warble_intensity" ID="{1F57A7A3-EBC1-44C0-BA25-6D1B4DD3D430}"/>
+						<Curve Name="" ID="{25742573-4EA2-4CE3-BD43-E8F3F0094DC3}">
+							<PropertyList>
+								<Property Name="Flags" Type="int32" Value="65537"/>
+							</PropertyList>
+							<PointList>
+								<Point>
+									<XPos>0</XPos>
+									<YPos>0</YPos>
+									<Flags>5</Flags>
+								</Point>
+								<Point>
+									<XPos>1</XPos>
+									<YPos>1</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>2</XPos>
+									<YPos>2</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>2.999</XPos>
+									<YPos>3</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>3</XPos>
+									<YPos>0</YPos>
+									<Flags>37</Flags>
+								</Point>
+							</PointList>
+						</Curve>
+					</SwitchOnRTPC>
+				</SwitchGroup>
+				<SwitchGroup Name="bearing_switch_group" ID="{55B6F6DD-5926-419A-AA33-8CD4D7D5C2AA}">
+					<PropertyList>
+						<Property Name="UseGameParameter" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Switch Name="bearing_00" ID="{9B469319-FFB6-4532-89CE-C23173ACA0B6}"/>
+						<Switch Name="bearing_10" ID="{A1CADF1B-DDEA-48BC-A888-AFB1E99E1F4C}"/>
+						<Switch Name="bearing_20" ID="{B4F58779-D5AE-4BAA-A39E-33D0A0468ABE}"/>
+						<Switch Name="bearing_30" ID="{0C96ECB6-9895-4880-A94D-CD4EFA2A01E6}"/>
+						<Switch Name="bearing_40" ID="{369BE035-91CE-401F-A912-8272BE2C1429}"/>
+						<Switch Name="bearing_50" ID="{C7C5100F-0BCF-40B8-9A83-E0AF7DB8ACC3}"/>
+						<Switch Name="bearing_60" ID="{35454E6B-F13B-4835-AC13-55E2D100B430}"/>
+						<Switch Name="bearing_70" ID="{53A90F3B-0F71-4AE5-A70D-27F64C25EBCD}"/>
+						<Switch Name="bearing_80" ID="{72B4E1E0-3A85-42A2-9D83-32A65D91FA61}"/>
+						<Switch Name="bearing_90" ID="{535D6071-917A-4036-BEB0-E8F417D990A2}"/>
+						<Switch Name="bearing_100" ID="{8F747240-95C5-4CE5-B103-8D5963A2A9B1}"/>
+						<Switch Name="bearing_110" ID="{D1E22332-918E-4187-B9F8-D46F450BDDAD}"/>
+						<Switch Name="bearing_120" ID="{F6FE42E3-BAC0-4A93-8484-8DC7E7BB82E7}"/>
+						<Switch Name="bearing_130" ID="{98DB5029-DE0F-4694-9D6D-5D2D0AEEB146}"/>
+						<Switch Name="bearing_140" ID="{06130645-AB3D-452F-8575-300AA1D67E03}"/>
+						<Switch Name="bearing_150" ID="{26CEFA63-D7BE-46C8-898A-06854B14DC0F}"/>
+						<Switch Name="bearing_160" ID="{293F0FD8-5B68-43B4-80B6-403B132A38CA}"/>
+						<Switch Name="bearing_170" ID="{695DA991-B28A-4249-A2A9-2287AF62FA82}"/>
+						<Switch Name="bearing_180" ID="{957F82C9-D507-44AA-8F7D-6FCB204E4637}"/>
+						<Switch Name="bearing_190" ID="{6A106E00-A369-4AA4-BE79-EADCE1630F32}"/>
+						<Switch Name="bearing_200" ID="{5AEC19DA-0193-4A4B-932F-5E44F4811276}"/>
+						<Switch Name="bearing_210" ID="{91B21BE1-E4EB-46A6-9DBF-A6754EB69AE9}"/>
+						<Switch Name="bearing_220" ID="{54416252-5626-4666-96F0-E2A12A8C646A}"/>
+						<Switch Name="bearing_230" ID="{02A1F84B-F3C2-49CC-A22D-59763CD0B4EC}"/>
+						<Switch Name="bearing_240" ID="{EBFFFFFA-6D89-4333-9BA9-E94BCC1057BB}"/>
+						<Switch Name="bearing_250" ID="{4C96EEFC-4F1D-4D74-9327-654EA7481988}"/>
+						<Switch Name="bearing_260" ID="{B17D98B4-9D27-43BB-9DB0-96735913A6B0}"/>
+						<Switch Name="bearing_270" ID="{D816FC42-758B-4928-94ED-2C88A475E56A}"/>
+						<Switch Name="bearing_280" ID="{FE72E1BE-53FF-4636-9B45-D988B9835856}"/>
+						<Switch Name="bearing_290" ID="{0B739FF8-C6EE-4511-AA39-2F697F1CBFBB}"/>
+						<Switch Name="bearing_300" ID="{9232325C-A076-41B0-8ACF-9BF182BADE4D}"/>
+						<Switch Name="bearing_310" ID="{C4675D17-89E7-47BB-897E-6C597E7A2C29}"/>
+						<Switch Name="bearing_320" ID="{8AADC0C9-2B82-4F59-902B-21C27C76E6CB}"/>
+						<Switch Name="bearing_330" ID="{B346AB90-3F9A-4550-8839-05392F239D61}"/>
+						<Switch Name="bearing_340" ID="{FBDF27D7-31B1-4782-9630-0C59903CEAF9}"/>
+						<Switch Name="bearing_350" ID="{21A9D79A-BE0F-4769-AA05-FEA69F3C281F}"/>
+					</ChildrenList>
+					<SwitchOnRTPC>
+						<GameParameterRef Name="bearing_RTPC" ID="{A1A98829-330B-4786-8BCB-2CC3E0400579}"/>
+						<Curve Name="" ID="{2657DC92-3EA3-4023-931D-F51E71D0B899}">
+							<PropertyList>
+								<Property Name="Flags" Type="int32" Value="65537"/>
+							</PropertyList>
+							<PointList>
+								<Point>
+									<XPos>0</XPos>
+									<YPos>1</YPos>
+									<Flags>5</Flags>
+								</Point>
+								<Point>
+									<XPos>0.95262</XPos>
+									<YPos>2</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>2</XPos>
+									<YPos>3</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>3</XPos>
+									<YPos>4</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>4</XPos>
+									<YPos>5</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>5</XPos>
+									<YPos>6</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>6</XPos>
+									<YPos>7</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>7</XPos>
+									<YPos>8</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>8</XPos>
+									<YPos>9</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>9</XPos>
+									<YPos>10</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>10</XPos>
+									<YPos>11</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>11</XPos>
+									<YPos>12</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>12</XPos>
+									<YPos>13</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>13</XPos>
+									<YPos>14</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>14</XPos>
+									<YPos>15</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>15</XPos>
+									<YPos>16</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>16</XPos>
+									<YPos>17</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>17</XPos>
+									<YPos>18</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>18</XPos>
+									<YPos>19</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>19</XPos>
+									<YPos>20</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>20</XPos>
+									<YPos>21</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>21.10263</XPos>
+									<YPos>22</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>22.07368</XPos>
+									<YPos>23</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>23.04474</XPos>
+									<YPos>24</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>24.01579</XPos>
+									<YPos>25</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>25.10526</XPos>
+									<YPos>26</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>26.05263</XPos>
+									<YPos>27</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>27.07105</XPos>
+									<YPos>28</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>28.11316</XPos>
+									<YPos>29</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>29.03684</XPos>
+									<YPos>30</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>30.12632</XPos>
+									<YPos>31</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>31.09737</XPos>
+									<YPos>32</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>32.06842</XPos>
+									<YPos>33</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>33.06316</XPos>
+									<YPos>34</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>34</XPos>
+									<YPos>35</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>35</XPos>
+									<YPos>36</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>35.999</XPos>
+									<YPos>0</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>36</XPos>
+									<YPos>0</YPos>
+									<Flags>37</Flags>
+								</Point>
+							</PointList>
+						</Curve>
+					</SwitchOnRTPC>
+				</SwitchGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</Switches>
 </WwiseDocument>
