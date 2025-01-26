@@ -36,6 +36,17 @@ public class GameManager : MonoBehaviour
         
     }
 
+    private void Start()
+    {
+        AkUnitySoundEngine.PostEvent("Play_atmos_blend", gameObject);
+
+    }
+
+    private void OnDestroy()
+    {
+        AkUnitySoundEngine.PostEvent("Stop_atmos_blend", gameObject);
+    }
+
     public static void StartGame()
     {
         _Instance._isGameRunning = true;

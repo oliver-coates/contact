@@ -42,6 +42,7 @@ public class Engineer : MonoBehaviour
 
         _Instance._healthRemaining -= 1;
 
+        AkUnitySoundEngine.PostEvent("Play_impact", _Instance.gameObject);
 
         OnHealthChanged?.Invoke(healthRemaining);
 

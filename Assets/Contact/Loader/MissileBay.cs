@@ -9,6 +9,8 @@ public class MissileBay
 {
     public const int NUM_MISSILES = 4;
 
+
+    private GameObject _gameObject;
     public event Action OnStartedLoad;
     public event Action OnFinishedLoading;
     public event Action<int> OnMissileCountChanged;
@@ -44,8 +46,9 @@ public class MissileBay
     private float _loadTime;
     private float _loadTimer;
 
-    public MissileBay()
+    public MissileBay(GameObject gameObject)
     {
+        _gameObject = gameObject;
         _missiles = NUM_MISSILES;
         _isLoading = false;
         _isSelected = false;
@@ -80,6 +83,8 @@ public class MissileBay
         _isLoading = true;
         GetNewLoadTime(true);
 
+        AkUnitySoundEngine.PostEvent("Play_missile_bay_lower", _gameObject);
+
         OnStartedLoad?.Invoke();
     }
 
@@ -106,6 +111,8 @@ public class MissileBay
     private void FinishedLoading()
     {
         _isLoading = false;
+
+        AkUnitySoundEngine.PostEvent("Play_missile_bay_raise", _gameObject);
 
         OnFinishedLoading?.Invoke();
     }

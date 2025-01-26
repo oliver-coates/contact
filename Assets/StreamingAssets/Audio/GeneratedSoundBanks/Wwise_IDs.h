@@ -14,11 +14,20 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID PLAY_ALARM = 603937113U;
+        static const AkUniqueID PLAY_ATMOS_BLEND = 3950469668U;
         static const AkUniqueID PLAY_CAPTAIN_HIGH_STRESS = 3717362780U;
+        static const AkUniqueID PLAY_CONE_CONTROL = 3788994153U;
+        static const AkUniqueID PLAY_IMPACT = 2764105556U;
+        static const AkUniqueID PLAY_MISSILE_BAY_LOWER = 612898901U;
+        static const AkUniqueID PLAY_MISSILE_BAY_RAISE = 3371935570U;
         static const AkUniqueID PLAY_MISSILE_LAUNCH = 104690776U;
+        static const AkUniqueID PLAY_PING_LP = 2496653549U;
         static const AkUniqueID PLAY_RADAR_ROTATE_END = 2370402918U;
         static const AkUniqueID PLAY_RADAR_ROTATE_START = 3847834445U;
         static const AkUniqueID PLAY_RADAR_WARBLE_SC = 1862541533U;
+        static const AkUniqueID STOP_ALARM = 377487063U;
+        static const AkUniqueID STOP_ATMOS_BLEND = 220630402U;
+        static const AkUniqueID STOP_CONE_CONTROL = 40483275U;
         static const AkUniqueID STOP_RADAR_WARBLE_SC = 2535798275U;
     } // namespace EVENTS
 

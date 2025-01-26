@@ -292,7 +292,6 @@
 										</Sound>
 										<Sound Name="ping_lp" ID="{BAFC6FC1-8191-47B3-9B0A-52CC027AC10F}" ShortID="698882196">
 											<PropertyList>
-												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-15</Value>
@@ -309,6 +308,11 @@
 											</ReferenceList>
 											<ChildrenList>
 												<AudioFileSource Name="ping_lp" ID="{7D49C6CD-4A9E-4B4D-911C-974C2EFA7A37}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="0"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="3.9785888077859"/>
+													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>ping_lp.wav</AudioFile>
 													<MediaIDList>

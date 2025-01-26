@@ -162,7 +162,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 686285e6582d884494b0ccae293af67c
     GuidInternal: 
-    m_lastTime: -8584637489317344776
+    m_lastTime: -8584637441386110955
     List:
     - name: Play_alarm
       guid: 05a25f84f728324ab384913b0f0ee0f6
@@ -178,6 +178,23 @@ MonoBehaviour:
         ObjectType: 3
         guid: 05a25f84f728324ab384913b0f0ee0f6
       Path: Events\Default Work Unit\Play_alarm
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Play_atmos_blend
+      guid: 0b3f0960055bb94cba87384a0ad68111
+      id: 3950469668
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 686285e6582d884494b0ccae293af67c
+      - ElementName: Play_atmos_blend
+        ObjectType: 3
+        guid: 0b3f0960055bb94cba87384a0ad68111
+      Path: Events\Default Work Unit\Play_atmos_blend
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -198,6 +215,74 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 3.506984
       minDuration: 1.874898
+    - name: Play_cone_control
+      guid: d9e9666b67ab4340a9858181533ab129
+      id: 3788994153
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 686285e6582d884494b0ccae293af67c
+      - ElementName: Play_cone_control
+        ObjectType: 3
+        guid: d9e9666b67ab4340a9858181533ab129
+      Path: Events\Default Work Unit\Play_cone_control
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Play_impact
+      guid: 64a38f37dd681d49991b5f316a6f33c7
+      id: 2764105556
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 686285e6582d884494b0ccae293af67c
+      - ElementName: Play_impact
+        ObjectType: 3
+        guid: 64a38f37dd681d49991b5f316a6f33c7
+      Path: Events\Default Work Unit\Play_impact
+      maxAttenuation: 0
+      maxDuration: 23.721813
+      minDuration: 23.721813
+    - name: Play_missile_bay_lower
+      guid: 979e804961f880488f55ec097c6d4f2a
+      id: 612898901
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 686285e6582d884494b0ccae293af67c
+      - ElementName: Play_missile_bay_lower
+        ObjectType: 3
+        guid: 979e804961f880488f55ec097c6d4f2a
+      Path: Events\Default Work Unit\Play_missile_bay_lower
+      maxAttenuation: 0
+      maxDuration: 4
+      minDuration: 4
+    - name: Play_missile_bay_raise
+      guid: 145c6f9f7cfc024b9c52929b2d55993f
+      id: 3371935570
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 686285e6582d884494b0ccae293af67c
+      - ElementName: Play_missile_bay_raise
+        ObjectType: 3
+        guid: 145c6f9f7cfc024b9c52929b2d55993f
+      Path: Events\Default Work Unit\Play_missile_bay_raise
+      maxAttenuation: 0
+      maxDuration: 4
+      minDuration: 4
     - name: Play_missile_launch
       guid: 9130b61cc72b384883b1efd398231920
       id: 104690776
@@ -215,6 +300,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 5.482653
       minDuration: 5.482653
+    - name: Play_ping_lp
+      guid: 0a8ad7c244f3914fbb85252da4db55dd
+      id: 2496653549
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 686285e6582d884494b0ccae293af67c
+      - ElementName: Play_ping_lp
+        ObjectType: 3
+        guid: 0a8ad7c244f3914fbb85252da4db55dd
+      Path: Events\Default Work Unit\Play_ping_lp
+      maxAttenuation: 0
+      maxDuration: 3.9785888
+      minDuration: 3.9785888
     - name: play_radar_rotate_end
       guid: 68cee0c030ffa64a9ff3b79ae09725c2
       id: 2370402918
@@ -263,6 +365,57 @@ MonoBehaviour:
         ObjectType: 3
         guid: fbaf0939fa6f7d4b8ffbcefae24804ed
       Path: Events\Default Work Unit\play_radar_warble_SC
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Stop_alarm
+      guid: ea26953cb8fff44b9fb6601d57e8b691
+      id: 377487063
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 686285e6582d884494b0ccae293af67c
+      - ElementName: Stop_alarm
+        ObjectType: 3
+        guid: ea26953cb8fff44b9fb6601d57e8b691
+      Path: Events\Default Work Unit\Stop_alarm
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Stop_atmos_blend
+      guid: 9711df61be388a4dbd28b32f277d686d
+      id: 220630402
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 686285e6582d884494b0ccae293af67c
+      - ElementName: Stop_atmos_blend
+        ObjectType: 3
+        guid: 9711df61be388a4dbd28b32f277d686d
+      Path: Events\Default Work Unit\Stop_atmos_blend
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Stop_cone_control
+      guid: 7bded8e8cec3f943b5b40db93e96b6f6
+      id: 40483275
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 686285e6582d884494b0ccae293af67c
+      - ElementName: Stop_cone_control
+        ObjectType: 3
+        guid: 7bded8e8cec3f943b5b40db93e96b6f6
+      Path: Events\Default Work Unit\Stop_cone_control
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -1187,9 +1340,9 @@ MonoBehaviour:
     GuidInternal: 
     m_lastTime: -8584638383447861429
     List: []
-  ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
+  ExpandedFileSystemItemIds: 0200000003000000
+  ExpandedWaapiItemIds: 0200000003000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
-  currentDataSource: 0
+  currentDataSource: 1
   CurrentPluginConfig: 

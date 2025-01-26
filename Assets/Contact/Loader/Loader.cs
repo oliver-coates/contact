@@ -72,7 +72,7 @@ public class Loader : MonoBehaviour
         _missileBays = new List<MissileBay>();
         for (int missileBayIndex = 0; missileBayIndex < _numMissileBays; missileBayIndex++)
         {
-            _missileBays.Add(new MissileBay());
+            _missileBays.Add(new MissileBay(gameObject));
         }    
 
         _activeMissileBay = _missileBays[0];

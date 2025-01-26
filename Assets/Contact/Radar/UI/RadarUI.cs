@@ -141,6 +141,8 @@ public class RadarUI : MonoBehaviour
             return;
         }
 
+        AkUnitySoundEngine.PostEvent("Play_ping_lp", gameObject);
+
         Vector3 contactPosition = contact.position;
 
         RectTransform newContact = Instantiate(_contactPrefab, _contactsHolder).GetComponent<RectTransform>();
