@@ -177,7 +177,10 @@ MonoBehaviour:
   speed: 1
   bombing: 0
   escaping: 0
-  detected: 0
+  detectedFar: 0
+  detectedNear: 0
+  farDetectionRadius: 1000
+  nearDetectionRadius: 500
 --- !u!135 &-4995076166059192588
 SphereCollider:
   m_ObjectHideFlags: 0
