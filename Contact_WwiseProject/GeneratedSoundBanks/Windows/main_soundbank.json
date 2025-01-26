@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{11252B18-2787-4403-9C8D-E823328218A0}",
     "Language": "SFX",
-    "Hash": "{E3F81FC7-05F2-41AF-B5ED-154681592299}",
+    "Hash": "{473B3CF6-9883-47B5-538B-136249277AAC}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\main_soundbank",
     "ShortName": "main_soundbank",
     "Path": "main_soundbank.bnk",
@@ -54,6 +54,14 @@
       "Location": "Memory",
       "ShortName": "vox_engineer_damage_int1\\vox_engineer_damage_int1_06.wav",
       "CachePath": "46/{46331057-773E-4858-6C48-1DF1D5272B60}.wem"
+     },
+     {
+      "Id": "42885431",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "vox_captain_far_high_04.wav",
+      "CachePath": "B0/{B089D697-6A09-E88E-017A-6338CD374880}.wem"
      },
      {
       "Id": "52985709",
@@ -224,6 +232,14 @@
       "CachePath": "46/{46F4737B-8B56-E919-E4E3-21D31F222035}.wem"
      },
      {
+      "Id": "117072380",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "vox_captain_far_high_16.wav",
+      "CachePath": "1B/{1BA655D3-EFC8-5649-3B1B-93F1B4C78D42}.wem"
+     },
+     {
       "Id": "119400452",
       "Language": "SFX",
       "Streaming": "false",
@@ -254,6 +270,14 @@
       "Location": "Memory",
       "ShortName": "vox_loader_up_int2\\vox_loader_up_int2_02.wav",
       "CachePath": "8D/{8D6E6AE4-AE45-77B3-ED78-65F807037E48}.wem"
+     },
+     {
+      "Id": "131212861",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "vox_captain_far_high_10.wav",
+      "CachePath": "A8/{A879EF2C-E95D-F572-3899-332080C0AFFD}.wem"
      },
      {
       "Id": "139452897",
@@ -421,7 +445,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "radar_warble_level_3_lp.wav",
-      "CachePath": "DB/{DB870853-A80D-CDCE-3422-79EC05489C4D}.wem"
+      "CachePath": "E8/{E8E33DE9-38E8-D894-B64E-93AD8F71DC92}.wem"
      },
      {
       "Id": "266321755",
@@ -517,7 +541,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "radar_warble_level_1_lp.wav",
-      "CachePath": "66/{66C94AEC-1FFD-5DE8-7FB7-058575612739}.wem"
+      "CachePath": "EE/{EE23BF80-A9B9-B986-F769-6AAD520A28EE}.wem"
      },
      {
       "Id": "339847612",
@@ -752,6 +776,14 @@
       "CachePath": "2A/{2A33B86C-ABCF-7D0F-4E0D-73BE8BDFB272}.wem"
      },
      {
+      "Id": "624728392",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "vox_captain_far_high_29.wav",
+      "CachePath": "B6/{B6E4A212-7363-3917-302A-85BCBBE4D548}.wem"
+     },
+     {
       "Id": "625579780",
       "Language": "SFX",
       "Streaming": "false",
@@ -781,7 +813,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "radar_warble_level_2_lp.wav",
-      "CachePath": "B7/{B7984224-FF9C-3EF0-2D69-8E0B8947EBC2}.wem"
+      "CachePath": "74/{74E558E0-27B6-033E-D50F-B47A6A07BEEF}.wem"
      },
      {
       "Id": "639853557",
@@ -846,6 +878,14 @@
       "Location": "Memory",
       "ShortName": "vox_loader_2nd_int2\\vox_loader_2nd_int2_03.wav",
       "CachePath": "D1/{D1C308C8-FA30-FBC6-A39A-642714FFB084}.wem"
+     },
+     {
+      "Id": "683927697",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "missile_launch.wav",
+      "CachePath": "4D/{4D6A5391-5F0A-6CF4-33DB-19AAA1D8900B}.wem"
      },
      {
       "Id": "711182202",
@@ -1160,6 +1200,14 @@
       "CachePath": "F7/{F7D102D9-DDD8-5A4B-C492-D2753264D604}.wem"
      },
      {
+      "Id": "943886251",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "alarm.wav",
+      "CachePath": "E1/{E1364B0D-A0D0-B8D2-ED00-5CFA06BD07FF}.wem"
+     },
+     {
       "Id": "947959503",
       "Language": "SFX",
       "Streaming": "false",
@@ -1304,6 +1352,14 @@
       "CachePath": "A3/{A3B1A6E9-992D-6EA3-3EF5-382319EF68CD}.wem"
      },
      {
+      "Id": "1039298174",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "vox_captain_far_high_22.wav",
+      "CachePath": "D7/{D73D1DE1-2A94-A053-379C-5C77B472034C}.wem"
+     },
+     {
       "Id": "1041126516",
       "Language": "SFX",
       "Streaming": "false",
@@ -1384,6 +1440,18 @@
     },
     "Events": [
      {
+      "Id": "603937113",
+      "Name": "Play_alarm",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_alarm",
+      "GUID": "{845FA205-28F7-4A32-B384-913B0F0EE0F6}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "943886251"
+       }
+      ]
+     },
+     {
       "Id": "3717362780",
       "Name": "Play_captain_high_stress",
       "ObjectPath": "\\Events\\Default Work Unit\\Play_captain_high_stress",
@@ -1396,28 +1464,13 @@
         "Id": "66779907"
        },
        {
-        "Id": "87227189"
-       },
-       {
-        "Id": "139452897"
-       },
-       {
-        "Id": "203933493"
-       },
-       {
         "Id": "280350055"
        },
        {
         "Id": "451820597"
        },
        {
-        "Id": "489649381"
-       },
-       {
         "Id": "678019972"
-       },
-       {
-        "Id": "843212827"
        },
        {
         "Id": "882904796"
@@ -1898,6 +1951,78 @@
           "Id": "785044780"
          }
         ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "4278471036",
+         "Id": "1133794587",
+         "GUID": "{CC15A17A-9C39-45E6-907B-1D73E0D10C39}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "87227189"
+         },
+         {
+          "Id": "139452897"
+         },
+         {
+          "Id": "203933493"
+         },
+         {
+          "Id": "489649381"
+         },
+         {
+          "Id": "843212827"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "4278471036",
+         "Id": "1183803292",
+         "GUID": "{A1CACF86-D26C-484D-8A71-75E5DC3AF914}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "42885431"
+         },
+         {
+          "Id": "117072380"
+         },
+         {
+          "Id": "131212861"
+         },
+         {
+          "Id": "624728392"
+         },
+         {
+          "Id": "1039298174"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "Id": "104690776",
+      "Name": "Play_missile_launch",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_missile_launch",
+      "GUID": "{1CB63091-2BC7-4838-83B1-EFD398231920}",
+      "DurationType": "OneShot",
+      "DurationMin": "5.482653",
+      "DurationMax": "5.482653",
+      "MediaRefs": [
+       {
+        "Id": "683927697"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "4126973915",
+        "Name": "dry_bus",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\dry_bus",
+        "GUID": "{BBABB05C-3CE0-456D-988D-19EB786B730B}"
        }
       ]
      },
@@ -1922,9 +2047,9 @@
       ],
       "ActionPostEvent": [
        {
-        "Id": "2545029876",
-        "Name": "play_radar_warble",
-        "ObjectPath": "\\Events\\Default Work Unit\\play_radar_warble",
+        "Id": "1862541533",
+        "Name": "play_radar_warble_SC",
+        "ObjectPath": "\\Events\\Default Work Unit\\play_radar_warble_SC",
         "GUID": "{3909AFFB-6FFA-4B7D-8FFB-CEFAE24804ED}"
        }
       ]
@@ -1945,53 +2070,153 @@
       ],
       "ActionPostEvent": [
        {
-        "Id": "186916906",
-        "Name": "stop_radar_warble",
-        "ObjectPath": "\\Events\\Default Work Unit\\stop_radar_warble",
+        "Id": "2535798275",
+        "Name": "stop_radar_warble_SC",
+        "ObjectPath": "\\Events\\Default Work Unit\\stop_radar_warble_SC",
         "GUID": "{3F79DB50-231D-4C3C-B726-08CDA52D5C41}"
        }
       ]
      },
      {
-      "Id": "2545029876",
-      "Name": "play_radar_warble",
-      "ObjectPath": "\\Events\\Default Work Unit\\play_radar_warble",
+      "Id": "1862541533",
+      "Name": "play_radar_warble_SC",
+      "ObjectPath": "\\Events\\Default Work Unit\\play_radar_warble_SC",
       "GUID": "{3909AFFB-6FFA-4B7D-8FFB-CEFAE24804ED}",
       "DurationType": "Infinite",
-      "MediaRefs": [
+      "SwitchContainers": [
        {
-        "Id": "17746272"
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2384490635",
+         "Id": "3497779481",
+         "GUID": "{BFA51D29-87E3-4188-B1DB-3B70EB1D8F1A}",
+         "Default": "true"
+        },
+        "MediaRefs": [
+         {
+          "Id": "334206698"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2384490635",
+         "Id": "2436997636",
+         "GUID": "{CC6AE65B-B239-4A99-B73A-424B4F45BFC2}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "638291494"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2384490635",
+         "Id": "136945955",
+         "GUID": "{0C80F6D0-38CB-4559-BC3E-97BE7F24DC20}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "252268455"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2384490635",
+         "Id": "3497779481",
+         "GUID": "{BFA51D29-87E3-4188-B1DB-3B70EB1D8F1A}",
+         "Default": "true"
+        },
+        "MediaRefs": [
+         {
+          "Id": "334206698"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2384490635",
+         "Id": "2436997636",
+         "GUID": "{CC6AE65B-B239-4A99-B73A-424B4F45BFC2}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "638291494"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2384490635",
+         "Id": "136945955",
+         "GUID": "{0C80F6D0-38CB-4559-BC3E-97BE7F24DC20}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "252268455"
+         }
+        ]
        }
-      ],
-      "PluginRefs": {
-       "ShareSets": [
-        {
-         "Id": "2539557199"
-        }
-       ]
-      }
+      ]
      },
      {
-      "Id": "186916906",
-      "Name": "stop_radar_warble",
-      "ObjectPath": "\\Events\\Default Work Unit\\stop_radar_warble",
+      "Id": "2535798275",
+      "Name": "stop_radar_warble_SC",
+      "ObjectPath": "\\Events\\Default Work Unit\\stop_radar_warble_SC",
       "GUID": "{3F79DB50-231D-4C3C-B726-08CDA52D5C41}",
       "MaxAttenuation": "0",
       "DurationType": "OneShot",
       "DurationMin": "0",
       "DurationMax": "0",
-      "MediaRefs": [
+      "SwitchContainers": [
        {
-        "Id": "17746272"
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2384490635",
+         "Id": "3497779481",
+         "GUID": "{BFA51D29-87E3-4188-B1DB-3B70EB1D8F1A}",
+         "Default": "true"
+        },
+        "MediaRefs": [
+         {
+          "Id": "334206698"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2384490635",
+         "Id": "2436997636",
+         "GUID": "{CC6AE65B-B239-4A99-B73A-424B4F45BFC2}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "638291494"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2384490635",
+         "Id": "136945955",
+         "GUID": "{0C80F6D0-38CB-4559-BC3E-97BE7F24DC20}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "252268455"
+         }
+        ]
        }
-      ],
-      "PluginRefs": {
-       "ShareSets": [
-        {
-         "Id": "2539557199"
-        }
-       ]
-      }
+      ]
      }
     ],
     "Busses": [
@@ -2045,12 +2270,32 @@
       }
      }
     ],
+    "AuxBusses": [
+     {
+      "Id": "4126973915",
+      "Name": "dry_bus",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\dry_bus",
+      "GUID": "{BBABB05C-3CE0-456D-988D-19EB786B730B}"
+     }
+    ],
     "GameParameters": [
+     {
+      "Id": "2384490635",
+      "Name": "amount_of_lock",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\amount_of_lock",
+      "GUID": "{DC0E19FF-8D9B-4F26-965C-EE87E4CCD5D1}"
+     },
      {
       "Id": "3820148733",
       "Name": "bearing_RTPC",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\bearing_RTPC",
       "GUID": "{A1A98829-330B-4786-8BCB-2CC3E0400579}"
+     },
+     {
+      "Id": "4278471036",
+      "Name": "distance_to_target",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\distance_to_target",
+      "GUID": "{24C70A9E-E47C-4056-9927-A1E42BD9315F}"
      }
     ],
     "SwitchGroups": [
@@ -2280,10 +2525,62 @@
         "GUID": "{8AADC0C9-2B82-4F59-902B-21C27C76E6CB}"
        }
       ]
+     },
+     {
+      "Id": "2384490635",
+      "Name": "amount_of_lock",
+      "ObjectPath": "\\Switches\\Default Work Unit\\amount_of_lock",
+      "GUID": "{D667BA77-7C38-4D5C-A078-D321A0FF07E4}",
+      "GameParameterRef": {
+       "Id": "2384490635"
+      },
+      "Switches": [
+       {
+        "Id": "136945955",
+        "Name": "locked",
+        "ObjectPath": "\\Switches\\Default Work Unit\\amount_of_lock\\locked",
+        "GUID": "{0C80F6D0-38CB-4559-BC3E-97BE7F24DC20}"
+       },
+       {
+        "Id": "2436997636",
+        "Name": "almost_locked",
+        "ObjectPath": "\\Switches\\Default Work Unit\\amount_of_lock\\almost_locked",
+        "GUID": "{CC6AE65B-B239-4A99-B73A-424B4F45BFC2}"
+       },
+       {
+        "Id": "3497779481",
+        "Name": "not_locked",
+        "ObjectPath": "\\Switches\\Default Work Unit\\amount_of_lock\\not_locked",
+        "GUID": "{BFA51D29-87E3-4188-B1DB-3B70EB1D8F1A}"
+       }
+      ]
+     },
+     {
+      "Id": "4278471036",
+      "Name": "distance_to_target",
+      "ObjectPath": "\\Switches\\Default Work Unit\\distance_to_target",
+      "GUID": "{62A50A0E-028E-4A2C-8B2D-6A9E815CB097}",
+      "GameParameterRef": {
+       "Id": "4278471036"
+      },
+      "Switches": [
+       {
+        "Id": "1133794587",
+        "Name": "near",
+        "ObjectPath": "\\Switches\\Default Work Unit\\distance_to_target\\near",
+        "GUID": "{CC15A17A-9C39-45E6-907B-1D73E0D10C39}"
+       },
+       {
+        "Id": "1183803292",
+        "Name": "far",
+        "ObjectPath": "\\Switches\\Default Work Unit\\distance_to_target\\far",
+        "GUID": "{A1CACF86-D26C-484D-8A71-75E5DC3AF914}"
+       }
+      ]
      }
     ]
    }
   ],
-  "FileHash": "{DF2DAD63-6A4B-7EE6-5AAC-13CBF5C51AD5}"
+  "FileHash": "{758FFD9D-1571-DE5B-1579-F426A53EA322}"
  }
 }

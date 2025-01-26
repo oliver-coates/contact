@@ -13,15 +13,29 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID PLAY_ALARM = 603937113U;
         static const AkUniqueID PLAY_CAPTAIN_HIGH_STRESS = 3717362780U;
+        static const AkUniqueID PLAY_MISSILE_LAUNCH = 104690776U;
         static const AkUniqueID PLAY_RADAR_ROTATE_END = 2370402918U;
         static const AkUniqueID PLAY_RADAR_ROTATE_START = 3847834445U;
-        static const AkUniqueID PLAY_RADAR_WARBLE = 2545029876U;
-        static const AkUniqueID STOP_RADAR_WARBLE = 186916906U;
+        static const AkUniqueID PLAY_RADAR_WARBLE_SC = 1862541533U;
+        static const AkUniqueID STOP_RADAR_WARBLE_SC = 2535798275U;
     } // namespace EVENTS
 
     namespace SWITCHES
     {
+        namespace AMOUNT_OF_LOCK
+        {
+            static const AkUniqueID GROUP = 2384490635U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID ALMOST_LOCKED = 2436997636U;
+                static const AkUniqueID LOCKED = 136945955U;
+                static const AkUniqueID NOT_LOCKED = 3497779481U;
+            } // namespace SWITCH
+        } // namespace AMOUNT_OF_LOCK
+
         namespace BEARING_SWITCH_GROUP
         {
             static const AkUniqueID GROUP = 2228001748U;
@@ -67,6 +81,17 @@ namespace AK
             } // namespace SWITCH
         } // namespace BEARING_SWITCH_GROUP
 
+        namespace DISTANCE_TO_TARGET
+        {
+            static const AkUniqueID GROUP = 4278471036U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID FAR = 1183803292U;
+                static const AkUniqueID NEAR = 1133794587U;
+            } // namespace SWITCH
+        } // namespace DISTANCE_TO_TARGET
+
         namespace RADAR_WARBLE_SWITCH
         {
             static const AkUniqueID GROUP = 26923334U;
@@ -84,7 +109,9 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID AMOUNT_OF_LOCK = 2384490635U;
         static const AkUniqueID BEARING_RTPC = 3820148733U;
+        static const AkUniqueID DISTANCE_TO_TARGET = 4278471036U;
         static const AkUniqueID RADAR_WARBLE_INTENSITY = 1091865113U;
     } // namespace GAME_PARAMETERS
 
@@ -101,6 +128,11 @@ namespace AK
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
         static const AkUniqueID THROUGH_WALL = 4130616467U;
     } // namespace BUSSES
+
+    namespace AUX_BUSSES
+    {
+        static const AkUniqueID DRY_BUS = 4126973915U;
+    } // namespace AUX_BUSSES
 
     namespace AUDIO_DEVICES
     {

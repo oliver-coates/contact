@@ -33,7 +33,18 @@ public class Captain : MonoBehaviour
 
         Debug.Log($"Enemy Bearing: {bearingOrder} | {bearing} | {jetDistance}");
 
+        float distanceToTarget = 0;
+        if (jetDistance == JetEnemy.DetectionDistance.Near)
+        {
+            distanceToTarget = 0.5f;
+        }
+        else if (jetDistance == JetEnemy.DetectionDistance.Far)
+        {
+            distanceToTarget = 1.5f;
+        }
+
         AkUnitySoundEngine.SetRTPCValue("bearing_RTPC", (bearingOrder / 10));
+        AkUnitySoundEngine.SetRTPCValue("distance_to_target", distanceToTarget);
 
         DialogueManager.PlayDialogue("play_captain_high_stress");
     }

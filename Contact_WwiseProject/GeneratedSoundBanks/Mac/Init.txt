@@ -1,6 +1,8 @@
 Switch Group	ID	Name			Wwise Object Path	Notes
 	26923334	radar_warble_switch			\Default Work Unit\radar_warble_switch	
 	2228001748	bearing_switch_group			\Default Work Unit\bearing_switch_group	
+	2384490635	amount_of_lock			\Default Work Unit\amount_of_lock	
+	4278471036	distance_to_target			\Default Work Unit\distance_to_target	
 
 Switch	ID	Name	Switch Group			Notes
 	708682868	radar_level_1	radar_warble_switch			
@@ -43,12 +45,20 @@ Switch	ID	Name	Switch Group			Notes
 	3145137191	bearing_300	bearing_switch_group			
 	3161914778	bearing_330	bearing_switch_group			
 	3178692365	bearing_320	bearing_switch_group			
+	136945955	locked	amount_of_lock			
+	2436997636	almost_locked	amount_of_lock			
+	3497779481	not_locked	amount_of_lock			
+	1133794587	near	distance_to_target			
+	1183803292	far	distance_to_target			
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	2913178912	futz			\Default Work Unit\Master Audio Bus\futz	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
 	4098848842	local			\Default Work Unit\Master Audio Bus\local	
 	4130616467	through_wall			\Default Work Unit\Master Audio Bus\through_wall	
+
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	4126973915	dry_bus			\Default Work Unit\Master Audio Bus\dry_bus	
 
 Effect plug-ins	ID	Name	Type				Notes
 	944860367	Guitar Distortion (Custom)	Wwise Guitar Distortion			
