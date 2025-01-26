@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{57696219-5855-3B4B-171C-244B31DC17E4}",
+    "Hash": "{00083055-CC23-2684-CC69-619B612BE24D}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -129,6 +129,14 @@
       }
      }
     ],
+    "AuxBusses": [
+     {
+      "Id": "4126973915",
+      "Name": "dry_bus",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\dry_bus",
+      "GUID": "{BBABB05C-3CE0-456D-988D-19EB786B730B}"
+     }
+    ],
     "GameParameters": [
      {
       "Id": "1091865113",
@@ -137,10 +145,22 @@
       "GUID": "{1F57A7A3-EBC1-44C0-BA25-6D1B4DD3D430}"
      },
      {
+      "Id": "2384490635",
+      "Name": "amount_of_lock",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\amount_of_lock",
+      "GUID": "{DC0E19FF-8D9B-4F26-965C-EE87E4CCD5D1}"
+     },
+     {
       "Id": "3820148733",
       "Name": "bearing_RTPC",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\bearing_RTPC",
       "GUID": "{A1A98829-330B-4786-8BCB-2CC3E0400579}"
+     },
+     {
+      "Id": "4278471036",
+      "Name": "distance_to_target",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\distance_to_target",
+      "GUID": "{24C70A9E-E47C-4056-9927-A1E42BD9315F}"
      }
     ],
     "SwitchGroups": [
@@ -405,10 +425,62 @@
         "GUID": "{8AADC0C9-2B82-4F59-902B-21C27C76E6CB}"
        }
       ]
+     },
+     {
+      "Id": "2384490635",
+      "Name": "amount_of_lock",
+      "ObjectPath": "\\Switches\\Default Work Unit\\amount_of_lock",
+      "GUID": "{D667BA77-7C38-4D5C-A078-D321A0FF07E4}",
+      "GameParameterRef": {
+       "Id": "2384490635"
+      },
+      "Switches": [
+       {
+        "Id": "136945955",
+        "Name": "locked",
+        "ObjectPath": "\\Switches\\Default Work Unit\\amount_of_lock\\locked",
+        "GUID": "{0C80F6D0-38CB-4559-BC3E-97BE7F24DC20}"
+       },
+       {
+        "Id": "2436997636",
+        "Name": "almost_locked",
+        "ObjectPath": "\\Switches\\Default Work Unit\\amount_of_lock\\almost_locked",
+        "GUID": "{CC6AE65B-B239-4A99-B73A-424B4F45BFC2}"
+       },
+       {
+        "Id": "3497779481",
+        "Name": "not_locked",
+        "ObjectPath": "\\Switches\\Default Work Unit\\amount_of_lock\\not_locked",
+        "GUID": "{BFA51D29-87E3-4188-B1DB-3B70EB1D8F1A}"
+       }
+      ]
+     },
+     {
+      "Id": "4278471036",
+      "Name": "distance_to_target",
+      "ObjectPath": "\\Switches\\Default Work Unit\\distance_to_target",
+      "GUID": "{62A50A0E-028E-4A2C-8B2D-6A9E815CB097}",
+      "GameParameterRef": {
+       "Id": "4278471036"
+      },
+      "Switches": [
+       {
+        "Id": "1133794587",
+        "Name": "near",
+        "ObjectPath": "\\Switches\\Default Work Unit\\distance_to_target\\near",
+        "GUID": "{CC15A17A-9C39-45E6-907B-1D73E0D10C39}"
+       },
+       {
+        "Id": "1183803292",
+        "Name": "far",
+        "ObjectPath": "\\Switches\\Default Work Unit\\distance_to_target\\far",
+        "GUID": "{A1CACF86-D26C-484D-8A71-75E5DC3AF914}"
+       }
+      ]
      }
     ]
    }
   ],
-  "FileHash": "{314F9797-56D4-9F10-1AAF-934D0E1622F9}"
+  "FileHash": "{62D3537F-9BE7-2D6C-50D9-95E3F6522558}"
  }
 }

@@ -141,6 +141,118 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Stop_alarm" ID="{3C9526EA-FFB8-4BF4-9FB6-601D57E8B691}">
+					<ChildrenList>
+						<Action Name="" ID="{61787B9E-927D-43E4-A5F3-7819973D5B2A}" ShortID="873659425">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="alarm" ID="{541F14AF-8C53-475C-A260-1F57558330B4}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_atmos_blend" ID="{60093F0B-5B05-4CB9-BA87-384A0AD68111}">
+					<ChildrenList>
+						<Action Name="" ID="{438CEB11-56ED-441D-B6D5-07B91B382598}" ShortID="401375057">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="3"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="atmos_blend" ID="{759AB092-5EFB-495A-892E-2B77F4CE5E74}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_atmos_blend" ID="{61DF1197-38BE-4D8A-BD28-B32F277D686D}">
+					<ChildrenList>
+						<Action Name="" ID="{CE90CABE-95CD-454F-8761-874EDC4BAA16}" ShortID="135454192">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="6"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="atmos_blend" ID="{759AB092-5EFB-495A-892E-2B77F4CE5E74}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_impact" ID="{378FA364-68DD-491D-991B-5F316A6F33C7}">
+					<ChildrenList>
+						<Action Name="" ID="{5579B307-4047-403C-ACA3-992A5EFD952B}" ShortID="491075374">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="impact" ID="{C64D4E5E-508E-4EDA-B5A1-45169DC40921}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_ping_lp" ID="{C2D78A0A-F344-4F91-BB85-252DA4DB55DD}">
+					<ChildrenList>
+						<Action Name="" ID="{4931DEF2-C5BD-46C6-9FE8-7C4507977E76}" ShortID="815089251">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ping_lp" ID="{BAFC6FC1-8191-47B3-9B0A-52CC027AC10F}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_cone_control" ID="{6B66E9D9-AB67-4043-A985-8181533AB129}">
+					<ChildrenList>
+						<Action Name="" ID="{C86B6EB6-1495-4B07-82D3-6F8811053106}" ShortID="935218479">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="cone_control" ID="{5183674E-C276-4861-BA0A-7A3D1D9E434C}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_cone_control" ID="{E8D8DE7B-C3CE-43F9-B5B4-0DB93E96B6F6}">
+					<ChildrenList>
+						<Action Name="" ID="{40466105-E491-4863-87CF-B56005867B61}" ShortID="463268666">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="cone_control" ID="{5183674E-C276-4861-BA0A-7A3D1D9E434C}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_missile_bay_lower" ID="{49809E97-F861-4880-8F55-EC097C6D4F2A}">
+					<ChildrenList>
+						<Action Name="" ID="{22E5541C-2F01-459D-9971-0C34363F9606}" ShortID="739653881">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="missile_bay_lower" ID="{BD03D801-3378-41DD-9096-2817FD7D4C08}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_missile_bay_raise" ID="{9F6F5C14-FC7C-4B02-9C52-929B2D55993F}">
+					<ChildrenList>
+						<Action Name="" ID="{F5C66D41-6E15-47A3-961D-FDC9BE916EDD}" ShortID="894596783">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="missile_bay_raise" ID="{B9D01203-25E9-408C-ACCE-32A4C21C8F3E}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
