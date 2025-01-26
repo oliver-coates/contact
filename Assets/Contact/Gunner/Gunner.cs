@@ -144,9 +144,17 @@ public class Gunner : MonoBehaviour
         }
 
 
-        if (contact.detectable == _currentTrackedDetectable)
+        if (contact == null)
         {
-            SimilarContactMade();
+            return;
+        }
+
+        if (_currentTrackedDetectable != null)
+        {
+            if (contact.detectable == _currentTrackedDetectable)
+            {
+                SimilarContactMade();
+            }
         }
         else
         {
@@ -194,7 +202,7 @@ public class Gunner : MonoBehaviour
         _readyToFire = true;
 
         _fireTimer = 0;
-        _timeToFire = UnityEngine.Random.Range(1.5f, 4f);
+        _timeToFire = UnityEngine.Random.Range(1.5f, 3f);
 
         Debug.Log($"Ready to fire");
         OnReadyToFire?.Invoke();

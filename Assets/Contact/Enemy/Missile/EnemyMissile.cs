@@ -13,7 +13,7 @@ public class EnemyMissle : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, subPos, speed * Time.deltaTime);
 
-        if (Vector3.Distance(transform.position, subPos) < 1)
+        if (Vector3.Distance(transform.position, subPos) < 50)
         {
             // Missile Hit Target
             // Debug.Log("We're hit!!!");

@@ -15,6 +15,11 @@ public class FriendlyMissile : MonoBehaviour, IRadarDetectable
     // Update is called once per frame
     void Update()
     {
+        if (target == null)
+        {
+            DestroyYou();
+        }
+
         targetPos = target.GetPosition();
         transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
 

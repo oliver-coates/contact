@@ -3655,7 +3655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14f847d9b700ecc44a1f821f9eee86bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _requiredHitsForLock: 2
+  _requiredHitsForLock: 3
   _timeToLoseLock: 4
   _hits: 0
   _attemptingLock: 0
