@@ -13,6 +13,17 @@ public class Captain : MonoBehaviour
 
     public static void Detection(IRadarDetectable radarDetectable, int bearing, JetEnemy.DetectionDistance jetDistance)
     {
+        bearing += Random.Range(-25, 25);
+
+        if (bearing > 360)
+        {
+            bearing -= 360;
+        }
+        else if (bearing < 0)
+        {
+            bearing += 360;
+        }
+
         float tempBearing = bearing / 10;
         int bearingOrder = (int)tempBearing * 10;
         if (bearingOrder == 360)

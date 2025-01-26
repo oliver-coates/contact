@@ -143,14 +143,20 @@ public class Radar : MonoBehaviour
 
             FindAllDetectables();
 
-            // AttemptSweepCheck();
-        
-            foreach (IRadarDetectable detectable in _allDetectables)
-            {
-                OnRadarContactOccured?.Invoke(new RadarContact(detectable.GetPosition(), 1, detectable));
-            }
+            AttemptSweepCheck();
+
+            // Debug;
+            // MakeContactWithEverything();
         }
-        
+
+    }
+
+    private void MakeContactWithEverything()
+    {
+        foreach (IRadarDetectable detectable in _allDetectables)
+        {
+            OnRadarContactOccured?.Invoke(new RadarContact(detectable.GetPosition(), 1, detectable));
+        }
     }
 
 

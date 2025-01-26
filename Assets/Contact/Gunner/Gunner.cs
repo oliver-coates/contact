@@ -133,7 +133,7 @@ public class Gunner : MonoBehaviour
 
     private void OnContact(RadarContact contact)
     {
-        if (_readyToFire == false)
+        if (_readyToFire == true)
         {
             return;
         }

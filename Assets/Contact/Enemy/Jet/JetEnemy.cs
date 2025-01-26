@@ -108,7 +108,7 @@ public class JetEnemy : EnemyBase
     {
         if (_counter < _bombingPositions.Count)
         {
-            transform.position = Vector3.MoveTowards(transform.position, _bombingPositions[_counter], 200 * speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, _bombingPositions[_counter],  speed * Time.deltaTime);
             if (Vector3.Distance(transform.position, _bombingPositions[_counter]) < DistanceToTarget) _counter ++;
         }
         else
@@ -125,7 +125,7 @@ public class JetEnemy : EnemyBase
     {
         if (_counter < _escapePositions.Count)
         {
-            transform.position = Vector3.MoveTowards(transform.position, _escapePositions[_counter], 200 * speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, _escapePositions[_counter],  speed * Time.deltaTime);
             if (Vector3.Distance(transform.position, _escapePositions[_counter]) < DistanceToTarget) _counter ++;
         }
         else

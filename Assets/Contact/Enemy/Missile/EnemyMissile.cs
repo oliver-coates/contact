@@ -16,10 +16,11 @@ public class EnemyMissle : MonoBehaviour
         if (Vector3.Distance(transform.position, subPos) < 1)
         {
             // Missile Hit Target
-            Debug.Log("We're hit!!!");
+            // Debug.Log("We're hit!!!");
+
 
             // Call Damage thingy
-            // 
+            Engineer.TakeDamage();
 
             Destroy(gameObject);
         }
