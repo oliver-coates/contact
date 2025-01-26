@@ -104,6 +104,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_captain_high_stress" ID="{304DE8C5-D83B-4A52-99B5-1BA6EB91B5E9}">
+					<ChildrenList>
+						<Action Name="" ID="{30BBE9DE-F062-4ECE-A738-40C4B02FEF72}" ShortID="956174585">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="captain_high_stress" ID="{7EF6188D-C5BC-4A86-A33E-F1EB23D82BB9}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

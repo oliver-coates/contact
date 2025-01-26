@@ -28,6 +28,94 @@
 								</ObjectList>
 							</ObjectLists>
 						</Bus>
+						<Bus Name="futz" ID="{C7318011-726E-4329-A420-3D8A22E0F782}">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-100</Value>
+									</ValueList>
+								</Property>
+								<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+							</PropertyList>
+							<PositioningInfo>
+								<Panner Name="" ID="{B4E77CF2-534D-49C3-AED9-E2C5D7B981BB}">
+									<PropertyList>
+										<Property Name="PanX" Type="Real64" Value="43.8502673796791"/>
+										<Property Name="PanY" Type="Real64" Value="96.7370441458733"/>
+									</PropertyList>
+								</Panner>
+							</PositioningInfo>
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{284C3555-8749-440A-AFC9-7CA4F50D9622}" ShortID="826880241">
+												<ReferenceList>
+													<Reference Name="Effect" PluginName="Wwise Pitch Shifter" CompanyID="0" PluginID="136" PluginType="3">
+														<ObjectRef Name="Monsterize" ID="{99F80B38-1C45-42CE-9BCD-E94F3885DCAA}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{DFE1D616-D188-4ECB-AF28-C8BB74D5AF61}" ShortID="760313492">
+												<ReferenceList>
+													<Reference Name="Effect" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+														<ObjectRef Name="Dual_Filters_Radio_Comm" ID="{69479ACD-2C87-4007-B83E-55210A3B36B7}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{F64E9CAF-C0FA-4D36-BB56-E043DAC18564}" ShortID="400897202">
+												<ReferenceList>
+													<Reference Name="Effect">
+														<Custom>
+															<Effect Name="Guitar Distortion (Custom)" ID="{90427A8A-245A-4D7C-9D99-55C6AD5EEAB9}" ShortID="944860367" PluginName="Wwise Guitar Distortion" CompanyID="0" PluginID="126" PluginType="3">
+																<PropertyList>
+																	<Property Name="DistortionDrive" Type="Real32" Value="59"/>
+																	<Property Name="DistortionTone" Type="Real32" Value="13"/>
+																	<Property Name="DistortionType" Type="int32" Value="1"/>
+																	<Property Name="OutputLevel" Type="Real32" Value="-5"/>
+																	<Property Name="PostEQBand2Enable" Type="bool" Value="True"/>
+																	<Property Name="PostEQBand2FilterType" Type="int32" Value="3"/>
+																	<Property Name="PostEQBand2Frequency" Type="Real32" Value="1908"/>
+																	<Property Name="PostEQBand2Gain" Type="Real32" Value="-5"/>
+																	<Property Name="PreEQBand2Enable" Type="bool" Value="True"/>
+																	<Property Name="PreEQBand2FilterType" Type="int32" Value="1"/>
+																	<Property Name="PreEQBand2Frequency" Type="Real32" Value="220"/>
+																	<Property Name="PreEQBand2Gain" Type="Real32" Value="18.5"/>
+																	<Property Name="PreEQBand2QFactor" Type="Real32" Value="3.4"/>
+																	<Property Name="PreEQBand3Enable" Type="bool" Value="True"/>
+																	<Property Name="PreEQBand3FilterType" Type="int32" Value="2"/>
+																	<Property Name="PreEQBand3Frequency" Type="Real32" Value="6966"/>
+																	<Property Name="PreEQBand3Gain" Type="Real32" Value="30.5"/>
+																</PropertyList>
+															</Effect>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{F765F190-6BB9-4502-BAAB-30A41F1D7CC4}" ShortID="435215751">
+												<ReferenceList>
+													<Reference Name="Effect" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
+														<ObjectRef Name="All_Buttons_IN" ID="{E5FFEBA7-4F6F-421E-ABB7-286C011BD0C8}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</Bus>
 					</ChildrenList>
 				</Bus>
 			</ChildrenList>

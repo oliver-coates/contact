@@ -82,6 +82,11 @@ public class Loader : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.IsGameRunning == false)
+        {
+            return;
+        }
+
         foreach (MissileBay missileBay in _missileBays)
         {
             if (missileBay.isLoading)

@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{9F470BB5-DECF-4794-842A-9B6F53D342BB}" SchemaVersion="123">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{9F470BB5-DECF-4794-842A-9B6F53D342BB}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{9F470BB5-DECF-4794-842A-9B6F53D342BB}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="radar_warble_intensity" ID="{1F57A7A3-EBC1-44C0-BA25-6D1B4DD3D430}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+						<Property Name="Max" Type="Real64" Value="3"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="bearing_RTPC" ID="{A1A98829-330B-4786-8BCB-2CC3E0400579}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+						<Property Name="Max" Type="Real64" Value="36"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
 	</GameParameters>
 </WwiseDocument>
