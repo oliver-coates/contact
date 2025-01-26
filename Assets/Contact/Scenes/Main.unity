@@ -4112,7 +4112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96488da8663f2944c8403b3c53e0a84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraControl: {fileID: 0}
+  cameraControl: {fileID: 6800255841940979978}
   _shipHealth: 5
   _healthRemaining: 0
 --- !u!1 &2133515949
@@ -4460,6 +4460,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e062b6ea9f3d1f47bda8a2c6d19d63c, type: 3}
+--- !u!114 &6800255841940979978 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2702779223241564998, guid: 2e062b6ea9f3d1f47bda8a2c6d19d63c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6800255841940979977}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19d0f6c806c8d0941a78e6201ce97cb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9113376541693435543
 PrefabInstance:
   m_ObjectHideFlags: 0

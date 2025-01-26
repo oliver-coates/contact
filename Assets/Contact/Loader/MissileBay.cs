@@ -78,7 +78,7 @@ public class MissileBay
     public void StartLoading()
     {
         _isLoading = true;
-        GetNewLoadTime();
+        GetNewLoadTime(true);
 
         OnStartedLoad?.Invoke();
     }
@@ -92,7 +92,7 @@ public class MissileBay
             if (_loadTimer > _loadTime)
             {
                 AddMissile();
-                GetNewLoadTime();
+                GetNewLoadTime(false);
                 _loadTimer = 0f;
             
                 if (_missiles == NUM_MISSILES)
@@ -110,9 +110,19 @@ public class MissileBay
         OnFinishedLoading?.Invoke();
     }
 
-    private void GetNewLoadTime()
+    private void GetNewLoadTime(bool isFirstLoad)
     {
-        _loadTime = UnityEngine.Random.Range(2, 5);
+        float random = UnityEngine.Random.Range(2, 5);
+
+        if (isFirstLoad)
+        {
+            _loadTime = 4 + random;
+
+        }
+        else
+        {
+            _loadTime = random;
+        }
     }
 
     public void SetIsSelected(bool isSelected)

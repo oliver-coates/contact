@@ -23,6 +23,7 @@ public class FriendlyMissile : MonoBehaviour, IRadarDetectable
 
         if (Vector3.Distance(transform.position, targetPos) < 10)
         {
+            target.DestroyYou();
             DestroyYou();
         }
 

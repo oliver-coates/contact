@@ -106,11 +106,11 @@ public class CameraControl : MonoBehaviour
 
             }
 
-            // Shaking Debug
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                ShakeCamera();
-            }
+            // // Shaking Debug
+            // if (Input.GetKeyDown(KeyCode.X))
+            // {
+            //     ShakeCamera();
+            // }
 
 
 

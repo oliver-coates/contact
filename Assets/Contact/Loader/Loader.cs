@@ -152,7 +152,7 @@ public class Loader : MonoBehaviour
             return;
         }
 
-        _Instance._switchTime = 5f;
+        _Instance._switchTime = 7f;
         _Instance._switchTimer = 0f;
         _Instance._isSwitching = true;
         _Instance._bayCurrentlySwitchingTo = otherBay;
