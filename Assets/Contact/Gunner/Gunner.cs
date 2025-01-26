@@ -65,6 +65,11 @@ public class Gunner : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.IsGameRunning == false)
+        {
+            return;
+        }
+
         if (Input.GetKey(KeyCode.Space))
         {
             _attemptingLock = true;

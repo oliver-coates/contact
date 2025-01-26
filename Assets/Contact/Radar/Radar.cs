@@ -33,7 +33,8 @@ public class Radar : MonoBehaviour
 
 
     [Header("State:")]
-    
+        
+
     // The rotation of the radar dish
     [Range(0, 360)] [SerializeField] private float _rotation;
     public static float Rotation
@@ -125,7 +126,12 @@ public class Radar : MonoBehaviour
 
 
     public void Update()
-    {
+    {   
+        if (GameManager.IsGameRunning == false)
+        {
+            return;
+        }
+
         RotateRadar();
     
         UpdateWidth();
@@ -228,11 +234,11 @@ public class Radar : MonoBehaviour
     {
         int widthInput = 0;
 
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.W))
         {
             widthInput = -1;
         }
-        else if (Input.GetKey(KeyCode.E))
+        else if (Input.GetKey(KeyCode.S))
         {
             widthInput = 1;
         }

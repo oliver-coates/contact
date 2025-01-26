@@ -48,7 +48,7 @@ public class Engineer : MonoBehaviour
 
     public void GameOver()
     {
-        Application.Quit();
+        GameManager.EndGame();
     }
 
 }
