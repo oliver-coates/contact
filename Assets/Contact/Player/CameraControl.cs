@@ -42,7 +42,6 @@ public class CameraControl : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log($"awake");
         GameManager.OnGameStart += Enable;
         globalVolume.TryGet(out blur);
         //blur.focalLength.value = 1;

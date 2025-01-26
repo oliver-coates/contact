@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Data.Common;
-using Unity.VisualScripting;
 using UnityEngine;
+using Sys = System;
 
 public class JetEnemy : EnemyBase
 {
+    public static event Sys.Action OnShotDown;
+
     [Header("Object References")]
     [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private WaveManager _waveManager;
@@ -90,13 +91,11 @@ public class JetEnemy : EnemyBase
         if (escaping) {EscapeManeuver();}
         if ((Vector3.Distance(transform.position, subPos) < farDetectionRadius) && (!detectedFar))
         {
-            Debug.Log($"Far enemy aircraft detected at {farDetectionRadius}m!");
             detectedFar = true;
             Captain.Detection(this, bearing, DetectionDistance.Far);
         }
         if ((Vector3.Distance(transform.position, subPos) < nearDetectionRadius) && (!detectedNear))
         {
-            Debug.Log($"Near enemy aircraft detected at {nearDetectionRadius}m!");
             detectedNear = true;
             Captain.Detection(this, bearing, DetectionDistance.Near);
         }
@@ -131,17 +130,13 @@ public class JetEnemy : EnemyBase
         else
         {
             // Jet Escaped, destroy
-            Debug.Log("Jet Escaped");
-            _waveManager.spawnedEnemies -= 1;
-            _waveManager.undefeatedEnemies += 1;
             Destroy(gameObject);
         }
     }
 
     public void ShotDown()
     {
-        Debug.Log("Jet Destroyed");
-        _waveManager.spawnedEnemies -= 1;
+        OnShotDown?.Invoke();
         Destroy(gameObject);
     }
 

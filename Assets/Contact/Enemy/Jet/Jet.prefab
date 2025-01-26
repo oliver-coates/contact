@@ -177,7 +177,7 @@ MonoBehaviour:
   maxFirePos: 400
   escapePos: {x: 0, y: 0, z: 0}
   offset: {x: 0, y: 0, z: 400}
-  speed: 165
+  speed: 120
   bombing: 0
   escaping: 0
   detectedFar: 0

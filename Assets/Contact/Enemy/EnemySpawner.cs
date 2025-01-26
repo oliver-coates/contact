@@ -13,7 +13,6 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float outerRadius;
     private float ratio;
 
-    [SerializeField] private GameObject[] wave;
 
 
     void Start()
@@ -36,12 +35,6 @@ public class EnemySpawner : MonoBehaviour
         Vector3 spawnPoint = RandomDonutPosition();
 
         Instantiate(jetEnemy, spawnPoint, Quaternion.identity);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void OnDrawGizmosSelected()

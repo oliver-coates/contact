@@ -65,6 +65,11 @@ public class DialogueManager : MonoBehaviour
 
     private void Play(string toPlay)
     {
+        if (_Instance == null)
+        {
+            return;
+        }
+
         // Debug.Log($"dialogue starting: {toPlay}");
         _isPlaying = true;
 

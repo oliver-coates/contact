@@ -171,8 +171,6 @@ public class Gunner : MonoBehaviour
         {
             SetReadyToFire();
         }
-
-        Debug.Log($"Repeat hit - {_currentTrackedDetectable.GetHashCode()}");
     }
 
     private void NewContactMade(IRadarDetectable detectable)
@@ -180,8 +178,6 @@ public class Gunner : MonoBehaviour
         _currentTrackedDetectable = detectable;
         _loseLockTimer = 0f;
         _hits = 1;
-
-        Debug.Log($"New hit - {_currentTrackedDetectable.GetHashCode()}");
     }
 
     private void LoseLock()
@@ -204,7 +200,6 @@ public class Gunner : MonoBehaviour
         _fireTimer = 0;
         _timeToFire = UnityEngine.Random.Range(1.5f, 3f);
 
-        Debug.Log($"Ready to fire");
         OnReadyToFire?.Invoke();
     }
 
@@ -217,7 +212,6 @@ public class Gunner : MonoBehaviour
         // TODO: Chjeck for ammo:
         if (Loader.CanFire())
         {
-            Debug.Log($"Fired");
             OnFired?.Invoke(_currentTrackedDetectable);
             Fire(_currentTrackedDetectable);
         }
@@ -241,7 +235,6 @@ public class Gunner : MonoBehaviour
     private void FireFailed()
     {
         _readyToFire = false;
-        Debug.Log($"Failed to fire");
 
         OnFailedToFire?.Invoke();
     }

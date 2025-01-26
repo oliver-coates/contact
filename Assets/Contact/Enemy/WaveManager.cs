@@ -1,142 +1,82 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.ExceptionServices;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class WaveManager : MonoBehaviour
 {
-    public List<Enemy> enemies = new List<Enemy>();
-    public int currWave;
-    public EnemySpawner enemySpawner;
-    public List<GameObject> enemiesToSpawn = new List<GameObject>();
-    public int waveDuration;
-    private float waveTimer;
-    private float spawnInterval;
-    private float spawnTimer;
+    [Header("Settings:")]
+    [SerializeField] private float _waveDuraction;
+
+    [Header("References:")]
+    [SerializeField] private EnemySpawner _enemySpawner;
+
+    [Header("State:")]
+    [SerializeField] private int _currentWave;
+    [SerializeField] private float _waveTimer;
+    [SerializeField] private int _spawnedEnemiesCurrentlyAlive = 0;
     
 
-    //public List<GameObject> spawnedEnemies = new List<GameObject>();
-    public int spawnedEnemies = 0; // Enemies that have been spawned that round
-    public int undefeatedEnemies = 0; // Enemies that were not destroyed and are added to the next waves total enemies
-    
     [Header("Wave Value Variables")]
     // Number of enemies is calculated using ax^z
     // where a is value mod, x is wave number, and z is exponent
-    [Header("  Write")]
-    [SerializeField] private float exponent;
-    [SerializeField] private float valueMod;
+    [SerializeField] private float _enemySpawnExponentValue;
+    [SerializeField] private float _enemySpawnValueBase;
 
-    [Header("  Read")]
-    [SerializeField] private int waveValue;
-    [SerializeField] private float preValue;
-    [SerializeField] private int roundedValue;
     
 
-    void Start()
-    {
-        GenerateWave();
-        undefeatedEnemies = 0;
+    private void Awake()
+    {   
+        _spawnedEnemiesCurrentlyAlive = 0;
+
+        JetEnemy.OnShotDown += EnemyShotDown;
     }
 
-    void FixedUpdate()
+    private void OnDestroy()
     {
-        if (GameManager.IsGameRunning)
-        {
-            if (spawnTimer <= 0)
-            {
-                _SpawnEnemy();
-            }
-            else
-            {
-                spawnTimer -= Time.fixedDeltaTime;
-                waveTimer -= Time.fixedDeltaTime;
-
-                // Adance to next wave instantly when no contacts exist
-                if (Radar.DoAnyContactsExist)
-                {
-                    spawnTimer = 0;
-                }
-            }
-
-            if (waveTimer <= 0 && spawnedEnemies <= 0)
-            {
-                currWave ++;
-                GenerateWave();
-                undefeatedEnemies = 0;
-            }
-        }
-
-      
+        JetEnemy.OnShotDown -= EnemyShotDown;
     }
 
-    private void _SpawnEnemy()
+    private void EnemyShotDown()
     {
-        if (enemiesToSpawn.Count > 0)
+        _spawnedEnemiesCurrentlyAlive -= 1;
+    }
+
+    private void FixedUpdate()
+    {
+        if (GameManager.IsGameRunning == false)
         {
-            //enemySpawner.SpawnEnemy();
-            GameObject enemy = Instantiate(enemiesToSpawn[0], enemySpawner.RandomDonutPosition(), Quaternion.identity);
-            enemiesToSpawn.RemoveAt(0);
-            spawnedEnemies ++;
-            spawnTimer = spawnInterval;
+            return;
         }
-        else
+    
+        _waveTimer -= Time.fixedDeltaTime;
+
+        if (_waveTimer <= 0 || _spawnedEnemiesCurrentlyAlive == 0)
         {
-            waveTimer = 0;
+            _currentWave += 1;
+            _waveTimer = _waveDuraction;
+
+            int numEnemiesToSpawn = CalculateEnemiesToSpawn();
+            SpawnWave(numEnemiesToSpawn);
+
+            _spawnedEnemiesCurrentlyAlive = numEnemiesToSpawn;
         }
     }
 
-    public void GenerateWave()
+    private void SpawnWave(int enemyCount)
     {
-        waveValue = CalculateWaveValue();
-        waveValue += undefeatedEnemies;
-
-        GenerateEnemies();
-
-        if (enemiesToSpawn.Count > 0)
+        for (int i = 0; i < enemyCount; i++)
         {
-            spawnInterval = waveDuration / Mathf.Max(1, enemiesToSpawn.Count);
+            _enemySpawner.SpawnEnemy();        
         }
-
-        waveTimer = waveDuration;
     }
 
-    public int CalculateWaveValue()
+    private int CalculateEnemiesToSpawn()
     {
-        preValue = valueMod * Mathf.Pow(currWave, exponent);
-        roundedValue = Mathf.RoundToInt(preValue);
-        if (roundedValue == 0)
-        {
-            roundedValue = 1;
-        }
-        return roundedValue;
+        float numToSpawnRaw = _enemySpawnValueBase * Mathf.Pow(_currentWave, _enemySpawnExponentValue);
         
+        int numToSpawn = Mathf.RoundToInt(Mathf.Clamp(numToSpawnRaw, 1, 100));
+        
+        numToSpawn += _spawnedEnemiesCurrentlyAlive;
+
+        return numToSpawn;        
     }
-
-    public void GenerateEnemies()
-    {
-        List<GameObject> generatedEnemies = new List<GameObject>();
-        while (waveValue > 0 && generatedEnemies.Count < 50)
-        {
-            if (waveValue >= 1)
-            {
-                generatedEnemies.Add(enemies[0].enemyPrefab);
-                waveValue -=  enemies[0].cost;
-            }
-        }
-
-        enemiesToSpawn.Clear();
-        enemiesToSpawn.AddRange(generatedEnemies);
-
-    }
-}
-
-[System.Serializable]
-public class Enemy
-{
-    public GameObject enemyPrefab;
-    public int cost;
 }

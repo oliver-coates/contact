@@ -47,9 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jetEnemy: {fileID: 8271892447891287542, guid: c932edd3dbf911d4e9a324139be035bf,
     type: 3}
-  innerRadius: 11000
-  outerRadius: 13000
-  wave: []
+  innerRadius: 11500
+  outerRadius: 11450
 --- !u!114 &3101814553204854388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,18 +61,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347ea54515de0d94ab040bc510df944e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - enemyPrefab: {fileID: 8271892447891287542, guid: c932edd3dbf911d4e9a324139be035bf,
-      type: 3}
-    cost: 1
-  currWave: 0
-  enemySpawner: {fileID: 6857579362271705668}
-  enemiesToSpawn: []
-  waveDuration: 0
-  spawnedEnemies: 0
-  undefeatedEnemies: 0
-  exponent: 1.6
-  valueMod: 0.1
-  waveValue: 0
-  preValue: 0
-  roundedValue: 0
+  _waveDuraction: 60
+  _enemySpawner: {fileID: 6857579362271705668}
+  _currentWave: 0
+  _waveTimer: 0
+  _spawnedEnemiesCurrentlyAlive: 0
+  _enemySpawnExponentValue: 1.1
+  _enemySpawnValueBase: 0.1

@@ -16,6 +16,7 @@ public class FriendlyMissile : MonoBehaviour, IRadarDetectable
         if (target == null)
         {
             DestroyYou();
+            return;
         }
 
         targetPos = target.GetPosition();
