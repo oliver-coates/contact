@@ -10,17 +10,51 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{AF30DC90-01C7-A7EC-E313-4845C58A8684}",
+    "Hash": "{57696219-5855-3B4B-171C-244B31DC17E4}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
     "Plugins": {
+     "Custom": [
+      {
+       "Id": "944860367",
+       "Name": "Guitar Distortion (Custom)",
+       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\futz\\[Effect Slot [2]: (Guitar Distortion)]\\Guitar Distortion (Custom)",
+       "GUID": "{90427A8A-245A-4D7C-9D99-55C6AD5EEAB9}",
+       "LibName": "Wwise Guitar Distortion",
+       "LibId": "8257539"
+      }
+     ],
      "ShareSets": [
       {
        "Id": "1008402193",
        "Name": "Low_Pass_20KHz",
        "ObjectPath": "\\Effects\\Factory Effects\\Parametric EQ\\Low Pass Filters\\Low_Pass_20KHz",
        "GUID": "{830124FB-B9D5-4AE8-846E-E94A74652666}",
+       "LibName": "Wwise Parametric EQ",
+       "LibId": "6881283"
+      },
+      {
+       "Id": "1416967478",
+       "Name": "All_Buttons_IN",
+       "ObjectPath": "\\Effects\\Factory Effects\\Compressor\\All_Buttons_IN",
+       "GUID": "{E5FFEBA7-4F6F-421E-ABB7-286C011BD0C8}",
+       "LibName": "Wwise Compressor",
+       "LibId": "7077891"
+      },
+      {
+       "Id": "1431265797",
+       "Name": "Monsterize",
+       "ObjectPath": "\\Effects\\Factory Effects\\Pitch Shifter\\Transpose\\Monsterize",
+       "GUID": "{99F80B38-1C45-42CE-9BCD-E94F3885DCAA}",
+       "LibName": "Wwise Pitch Shifter",
+       "LibId": "8912899"
+      },
+      {
+       "Id": "2952825346",
+       "Name": "Dual_Filters_Radio_Comm",
+       "ObjectPath": "\\Effects\\Factory Effects\\Parametric EQ\\Band Pass Filters\\Dual_Filters_Radio_Comm",
+       "GUID": "{69479ACD-2C87-4007-B83E-55210A3B36B7}",
        "LibName": "Wwise Parametric EQ",
        "LibId": "6881283"
       }
@@ -46,6 +80,30 @@
     },
     "Busses": [
      {
+      "Id": "2913178912",
+      "Name": "futz",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\futz",
+      "GUID": "{C7318011-726E-4329-A420-3D8A22E0F782}",
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "944860367"
+        }
+       ],
+       "ShareSets": [
+        {
+         "Id": "1416967478"
+        },
+        {
+         "Id": "1431265797"
+        },
+        {
+         "Id": "2952825346"
+        }
+       ]
+      }
+     },
+     {
       "Id": "3803692087",
       "Name": "Master Audio Bus",
       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus",
@@ -70,9 +128,287 @@
        ]
       }
      }
+    ],
+    "GameParameters": [
+     {
+      "Id": "1091865113",
+      "Name": "radar_warble_intensity",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\radar_warble_intensity",
+      "GUID": "{1F57A7A3-EBC1-44C0-BA25-6D1B4DD3D430}"
+     },
+     {
+      "Id": "3820148733",
+      "Name": "bearing_RTPC",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\bearing_RTPC",
+      "GUID": "{A1A98829-330B-4786-8BCB-2CC3E0400579}"
+     }
+    ],
+    "SwitchGroups": [
+     {
+      "Id": "26923334",
+      "Name": "radar_warble_switch",
+      "ObjectPath": "\\Switches\\Default Work Unit\\radar_warble_switch",
+      "GUID": "{74A6E1E7-F61A-47D5-BB7D-E3DBABDE1ECC}",
+      "GameParameterRef": {
+       "Id": "1091865113"
+      },
+      "Switches": [
+       {
+        "Id": "708682868",
+        "Name": "radar_level_1",
+        "ObjectPath": "\\Switches\\Default Work Unit\\radar_warble_switch\\radar_level_1",
+        "GUID": "{2BB0D677-83CB-4AD7-AFBE-596B32315B2B}"
+       },
+       {
+        "Id": "708682869",
+        "Name": "radar_level_0",
+        "ObjectPath": "\\Switches\\Default Work Unit\\radar_warble_switch\\radar_level_0",
+        "GUID": "{CE252D36-CD20-42FB-A175-9AA005A6F97B}"
+       },
+       {
+        "Id": "708682870",
+        "Name": "radar_level_3",
+        "ObjectPath": "\\Switches\\Default Work Unit\\radar_warble_switch\\radar_level_3",
+        "GUID": "{36E2949C-375D-438F-BCA4-FF5C221F2909}"
+       },
+       {
+        "Id": "708682871",
+        "Name": "radar_level_2",
+        "ObjectPath": "\\Switches\\Default Work Unit\\radar_warble_switch\\radar_level_2",
+        "GUID": "{BF67D696-5B06-4B66-855B-23FB33C0552C}"
+       }
+      ]
+     },
+     {
+      "Id": "2228001748",
+      "Name": "bearing_switch_group",
+      "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group",
+      "GUID": "{55B6F6DD-5926-419A-AA33-8CD4D7D5C2AA}",
+      "GameParameterRef": {
+       "Id": "3820148733"
+      },
+      "Switches": [
+       {
+        "Id": "678533040",
+        "Name": "bearing_170",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_170",
+        "GUID": "{695DA991-B28A-4249-A2A9-2287AF62FA82}"
+       },
+       {
+        "Id": "695310627",
+        "Name": "bearing_160",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_160",
+        "GUID": "{293F0FD8-5B68-43B4-80B6-403B132A38CA}"
+       },
+       {
+        "Id": "712088214",
+        "Name": "bearing_150",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_150",
+        "GUID": "{26CEFA63-D7BE-46C8-898A-06854B14DC0F}"
+       },
+       {
+        "Id": "728865801",
+        "Name": "bearing_140",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_140",
+        "GUID": "{06130645-AB3D-452F-8575-300AA1D67E03}"
+       },
+       {
+        "Id": "745643516",
+        "Name": "bearing_130",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_130",
+        "GUID": "{98DB5029-DE0F-4694-9D6D-5D2D0AEEB146}"
+       },
+       {
+        "Id": "762421103",
+        "Name": "bearing_120",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_120",
+        "GUID": "{F6FE42E3-BAC0-4A93-8484-8DC7E7BB82E7}"
+       },
+       {
+        "Id": "779198658",
+        "Name": "bearing_110",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_110",
+        "GUID": "{D1E22332-918E-4187-B9F8-D46F450BDDAD}"
+       },
+       {
+        "Id": "795976373",
+        "Name": "bearing_100",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_100",
+        "GUID": "{8F747240-95C5-4CE5-B103-8D5963A2A9B1}"
+       },
+       {
+        "Id": "913419706",
+        "Name": "bearing_190",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_190",
+        "GUID": "{6A106E00-A369-4AA4-BE79-EADCE1630F32}"
+       },
+       {
+        "Id": "930197293",
+        "Name": "bearing_180",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_180",
+        "GUID": "{957F82C9-D507-44AA-8F7D-6FCB204E4637}"
+       },
+       {
+        "Id": "1912908988",
+        "Name": "bearing_80",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_80",
+        "GUID": "{72B4E1E0-3A85-42A2-9D83-32A65D91FA61}"
+       },
+       {
+        "Id": "1929686575",
+        "Name": "bearing_90",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_90",
+        "GUID": "{535D6071-917A-4036-BEB0-E8F417D990A2}"
+       },
+       {
+        "Id": "1980019432",
+        "Name": "bearing_40",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_40",
+        "GUID": "{369BE035-91CE-401F-A912-8272BE2C1429}"
+       },
+       {
+        "Id": "1996797019",
+        "Name": "bearing_50",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_50",
+        "GUID": "{C7C5100F-0BCF-40B8-9A83-E0AF7DB8ACC3}"
+       },
+       {
+        "Id": "2013574606",
+        "Name": "bearing_60",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_60",
+        "GUID": "{35454E6B-F13B-4835-AC13-55E2D100B430}"
+       },
+       {
+        "Id": "2030352289",
+        "Name": "bearing_70",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_70",
+        "GUID": "{53A90F3B-0F71-4AE5-A70D-27F64C25EBCD}"
+       },
+       {
+        "Id": "2047129876",
+        "Name": "bearing_00",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_00",
+        "GUID": "{9B469319-FFB6-4532-89CE-C23173ACA0B6}"
+       },
+       {
+        "Id": "2063907463",
+        "Name": "bearing_10",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_10",
+        "GUID": "{A1CADF1B-DDEA-48BC-A888-AFB1E99E1F4C}"
+       },
+       {
+        "Id": "2080685178",
+        "Name": "bearing_20",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_20",
+        "GUID": "{B4F58779-D5AE-4BAA-A39E-33D0A0468ABE}"
+       },
+       {
+        "Id": "2097462765",
+        "Name": "bearing_30",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_30",
+        "GUID": "{0C96ECB6-9895-4880-A94D-CD4EFA2A01E6}"
+       },
+       {
+        "Id": "2910103366",
+        "Name": "bearing_280",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_280",
+        "GUID": "{FE72E1BE-53FF-4636-9B45-D988B9835856}"
+       },
+       {
+        "Id": "2926881081",
+        "Name": "bearing_290",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_290",
+        "GUID": "{0B739FF8-C6EE-4511-AA39-2F697F1CBFBB}"
+       },
+       {
+        "Id": "3010769112",
+        "Name": "bearing_220",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_220",
+        "GUID": "{54416252-5626-4666-96F0-E2A12A8C646A}"
+       },
+       {
+        "Id": "3027546699",
+        "Name": "bearing_230",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_230",
+        "GUID": "{02A1F84B-F3C2-49CC-A22D-59763CD0B4EC}"
+       },
+       {
+        "Id": "3044324414",
+        "Name": "bearing_200",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_200",
+        "GUID": "{5AEC19DA-0193-4A4B-932F-5E44F4811276}"
+       },
+       {
+        "Id": "3061101969",
+        "Name": "bearing_210",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_210",
+        "GUID": "{91B21BE1-E4EB-46A6-9DBF-A6754EB69AE9}"
+       },
+       {
+        "Id": "3061249032",
+        "Name": "bearing_350",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_350",
+        "GUID": "{21A9D79A-BE0F-4769-AA05-FEA69F3C281F}"
+       },
+       {
+        "Id": "3077879556",
+        "Name": "bearing_260",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_260",
+        "GUID": "{B17D98B4-9D27-43BB-9DB0-96735913A6B0}"
+       },
+       {
+        "Id": "3078026747",
+        "Name": "bearing_340",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_340",
+        "GUID": "{FBDF27D7-31B1-4782-9630-0C59903CEAF9}"
+       },
+       {
+        "Id": "3094657271",
+        "Name": "bearing_270",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_270",
+        "GUID": "{D816FC42-758B-4928-94ED-2C88A475E56A}"
+       },
+       {
+        "Id": "3111434858",
+        "Name": "bearing_240",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_240",
+        "GUID": "{EBFFFFFA-6D89-4333-9BA9-E94BCC1057BB}"
+       },
+       {
+        "Id": "3128212445",
+        "Name": "bearing_250",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_250",
+        "GUID": "{4C96EEFC-4F1D-4D74-9327-654EA7481988}"
+       },
+       {
+        "Id": "3128359604",
+        "Name": "bearing_310",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_310",
+        "GUID": "{C4675D17-89E7-47BB-897E-6C597E7A2C29}"
+       },
+       {
+        "Id": "3145137191",
+        "Name": "bearing_300",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_300",
+        "GUID": "{9232325C-A076-41B0-8ACF-9BF182BADE4D}"
+       },
+       {
+        "Id": "3161914778",
+        "Name": "bearing_330",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_330",
+        "GUID": "{B346AB90-3F9A-4550-8839-05392F239D61}"
+       },
+       {
+        "Id": "3178692365",
+        "Name": "bearing_320",
+        "ObjectPath": "\\Switches\\Default Work Unit\\bearing_switch_group\\bearing_320",
+        "GUID": "{8AADC0C9-2B82-4F59-902B-21C27C76E6CB}"
+       }
+      ]
+     }
     ]
    }
   ],
-  "FileHash": "{85CAB505-B4D3-35B2-40F3-3244736AACD3}"
+  "FileHash": "{314F9797-56D4-9F10-1AAF-934D0E1622F9}"
  }
 }
