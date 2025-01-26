@@ -116,6 +116,7 @@
 								</ObjectList>
 							</ObjectLists>
 						</Bus>
+						<AuxBus Name="dry_bus" ID="{BBABB05C-3CE0-456D-988D-19EB786B730B}"/>
 					</ChildrenList>
 				</Bus>
 			</ChildrenList>

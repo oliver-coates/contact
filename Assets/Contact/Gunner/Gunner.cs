@@ -94,7 +94,7 @@ public class Gunner : MonoBehaviour
 
             if (_readyToFire)
             {
-                AkUnitySoundEngine.SetRTPCValue("rtpc_radar_warble_intensity", 3);
+                AkUnitySoundEngine.SetRTPCValue("amount_of_lock", 3);
                 _fireTimer += Time.deltaTime;
 
                 if (_fireTimer > _timeToFire)
@@ -104,7 +104,7 @@ public class Gunner : MonoBehaviour
             }
             else
             {
-                AkUnitySoundEngine.SetRTPCValue("rtpc_radar_warble_intensity", 2);
+                AkUnitySoundEngine.SetRTPCValue("amount_of_lock", 2);
             }
         
         }
@@ -119,11 +119,11 @@ public class Gunner : MonoBehaviour
         
             if (Radar.IsRotating)
             {
-                AkUnitySoundEngine.SetRTPCValue("rtpc_radar_warble_intensity", 0);
+                // AkUnitySoundEngine.SetR  TPCValue("amount_of_lock", 0);
             }
             else
             {
-                AkUnitySoundEngine.SetRTPCValue("rtpc_radar_warble_intensity", 1);
+                AkUnitySoundEngine.SetRTPCValue("amount_of_lock", 1);
             }
         }
         
@@ -144,9 +144,17 @@ public class Gunner : MonoBehaviour
         }
 
 
-        if (contact.detectable == _currentTrackedDetectable)
+        if (contact == null)
         {
-            SimilarContactMade();
+            return;
+        }
+
+        if (_currentTrackedDetectable != null)
+        {
+            if (contact.detectable == _currentTrackedDetectable)
+            {
+                SimilarContactMade();
+            }
         }
         else
         {
@@ -194,7 +202,7 @@ public class Gunner : MonoBehaviour
         _readyToFire = true;
 
         _fireTimer = 0;
-        _timeToFire = UnityEngine.Random.Range(1.5f, 4f);
+        _timeToFire = UnityEngine.Random.Range(1.5f, 3f);
 
         Debug.Log($"Ready to fire");
         OnReadyToFire?.Invoke();
@@ -223,6 +231,8 @@ public class Gunner : MonoBehaviour
 
     private void Fire(IRadarDetectable target)
     {
+        AkUnitySoundEngine.PostEvent("Play_missile_launch", gameObject);
+
         GameObject firedMissile = Instantiate(friendlyMissile, new Vector3(0, 100, 0), Quaternion.identity);
         FriendlyMissile missileTarget = firedMissile.GetComponent<FriendlyMissile>();
         missileTarget.SetTarget(target);

@@ -292,6 +292,85 @@
 						</Curve>
 					</SwitchOnRTPC>
 				</SwitchGroup>
+				<SwitchGroup Name="distance_to_target" ID="{62A50A0E-028E-4A2C-8B2D-6A9E815CB097}">
+					<PropertyList>
+						<Property Name="UseGameParameter" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Switch Name="far" ID="{A1CACF86-D26C-484D-8A71-75E5DC3AF914}"/>
+						<Switch Name="near" ID="{CC15A17A-9C39-45E6-907B-1D73E0D10C39}"/>
+					</ChildrenList>
+					<SwitchOnRTPC>
+						<GameParameterRef Name="distance_to_target" ID="{24C70A9E-E47C-4056-9927-A1E42BD9315F}"/>
+						<Curve Name="" ID="{2C7CACD2-5C7F-4F43-B3C3-39E39A391838}">
+							<PropertyList>
+								<Property Name="Flags" Type="int32" Value="65537"/>
+							</PropertyList>
+							<PointList>
+								<Point>
+									<XPos>0</XPos>
+									<YPos>2</YPos>
+									<Flags>5</Flags>
+								</Point>
+								<Point>
+									<XPos>1</XPos>
+									<YPos>1</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>2</XPos>
+									<YPos>0</YPos>
+									<Flags>37</Flags>
+								</Point>
+							</PointList>
+						</Curve>
+					</SwitchOnRTPC>
+				</SwitchGroup>
+				<SwitchGroup Name="amount_of_lock" ID="{D667BA77-7C38-4D5C-A078-D321A0FF07E4}">
+					<PropertyList>
+						<Property Name="UseGameParameter" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Switch Name="not_locked" ID="{BFA51D29-87E3-4188-B1DB-3B70EB1D8F1A}"/>
+						<Switch Name="almost_locked" ID="{CC6AE65B-B239-4A99-B73A-424B4F45BFC2}"/>
+						<Switch Name="locked" ID="{0C80F6D0-38CB-4559-BC3E-97BE7F24DC20}"/>
+					</ChildrenList>
+					<SwitchOnRTPC>
+						<GameParameterRef Name="amount_of_lock" ID="{DC0E19FF-8D9B-4F26-965C-EE87E4CCD5D1}"/>
+						<Curve Name="" ID="{BF7B388F-192C-4813-8CD6-4C0A26398B61}">
+							<PropertyList>
+								<Property Name="Flags" Type="int32" Value="65537"/>
+							</PropertyList>
+							<PointList>
+								<Point>
+									<XPos>0</XPos>
+									<YPos>1</YPos>
+									<Flags>5</Flags>
+								</Point>
+								<Point>
+									<XPos>1</XPos>
+									<YPos>1</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>2</XPos>
+									<YPos>2</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>3</XPos>
+									<YPos>3</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>4</XPos>
+									<YPos>3</YPos>
+									<Flags>37</Flags>
+								</Point>
+							</PointList>
+						</Curve>
+					</SwitchOnRTPC>
+				</SwitchGroup>
 			</ChildrenList>
 		</WorkUnit>
 	</Switches>
