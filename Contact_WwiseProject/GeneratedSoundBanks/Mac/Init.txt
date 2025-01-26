@@ -1,10 +1,61 @@
+Switch Group	ID	Name			Wwise Object Path	Notes
+	26923334	radar_warble_switch			\Default Work Unit\radar_warble_switch	
+	2228001748	bearing_switch_group			\Default Work Unit\bearing_switch_group	
+
+Switch	ID	Name	Switch Group			Notes
+	708682868	radar_level_1	radar_warble_switch			
+	708682869	radar_level_0	radar_warble_switch			
+	708682870	radar_level_3	radar_warble_switch			
+	708682871	radar_level_2	radar_warble_switch			
+	678533040	bearing_170	bearing_switch_group			
+	695310627	bearing_160	bearing_switch_group			
+	712088214	bearing_150	bearing_switch_group			
+	728865801	bearing_140	bearing_switch_group			
+	745643516	bearing_130	bearing_switch_group			
+	762421103	bearing_120	bearing_switch_group			
+	779198658	bearing_110	bearing_switch_group			
+	795976373	bearing_100	bearing_switch_group			
+	913419706	bearing_190	bearing_switch_group			
+	930197293	bearing_180	bearing_switch_group			
+	1912908988	bearing_80	bearing_switch_group			
+	1929686575	bearing_90	bearing_switch_group			
+	1980019432	bearing_40	bearing_switch_group			
+	1996797019	bearing_50	bearing_switch_group			
+	2013574606	bearing_60	bearing_switch_group			
+	2030352289	bearing_70	bearing_switch_group			
+	2047129876	bearing_00	bearing_switch_group			
+	2063907463	bearing_10	bearing_switch_group			
+	2080685178	bearing_20	bearing_switch_group			
+	2097462765	bearing_30	bearing_switch_group			
+	2910103366	bearing_280	bearing_switch_group			
+	2926881081	bearing_290	bearing_switch_group			
+	3010769112	bearing_220	bearing_switch_group			
+	3027546699	bearing_230	bearing_switch_group			
+	3044324414	bearing_200	bearing_switch_group			
+	3061101969	bearing_210	bearing_switch_group			
+	3061249032	bearing_350	bearing_switch_group			
+	3077879556	bearing_260	bearing_switch_group			
+	3078026747	bearing_340	bearing_switch_group			
+	3094657271	bearing_270	bearing_switch_group			
+	3111434858	bearing_240	bearing_switch_group			
+	3128212445	bearing_250	bearing_switch_group			
+	3128359604	bearing_310	bearing_switch_group			
+	3145137191	bearing_300	bearing_switch_group			
+	3161914778	bearing_330	bearing_switch_group			
+	3178692365	bearing_320	bearing_switch_group			
+
 Audio Bus	ID	Name			Wwise Object Path	Notes
+	2913178912	futz			\Default Work Unit\Master Audio Bus\futz	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
 	4098848842	local			\Default Work Unit\Master Audio Bus\local	
 	4130616467	through_wall			\Default Work Unit\Master Audio Bus\through_wall	
 
 Effect plug-ins	ID	Name	Type				Notes
+	944860367	Guitar Distortion (Custom)	Wwise Guitar Distortion			
 	1008402193	Low_Pass_20KHz	Wwise Parametric EQ			
+	1416967478	All_Buttons_IN	Wwise Compressor			
+	1431265797	Monsterize	Wwise Pitch Shifter			
+	2952825346	Dual_Filters_Radio_Comm	Wwise Parametric EQ			
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			

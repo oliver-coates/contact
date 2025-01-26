@@ -1638,6 +1638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isPlaying: 0
+  _stress: 0
 --- !u!114 &774630005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3932,7 +3933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _requiredHitsForLock: 3
-  _timeToLoseLock: 3
+  _timeToLoseLock: 4
   _hits: 0
   _attemptingLock: 0
   _readyToFire: 0

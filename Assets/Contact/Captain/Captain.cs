@@ -21,6 +21,10 @@ public class Captain : MonoBehaviour
         }
 
         Debug.Log($"Enemy Bearing: {bearingOrder} | {bearing} | {jetDistance}");
+
+        AkUnitySoundEngine.SetRTPCValue("bearing_RTPC", (bearingOrder / 10));
+
+        DialogueManager.PlayDialogue("play_captain_high_stress");
     }
 
     // Start is called before the first frame update

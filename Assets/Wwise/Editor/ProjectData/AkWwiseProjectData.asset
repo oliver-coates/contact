@@ -38,8 +38,25 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 773ad1bed5b6fb49ae59cfee59d62b06
     GuidInternal: 
-    m_lastTime: -8584638316467092636
+    m_lastTime: -8584637533535180606
     List:
+    - name: futz
+      guid: 118031c76e722943a4203d8a22e0f782
+      id: 2913178912
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 773ad1bed5b6fb49ae59cfee59d62b06
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: futz
+        ObjectType: 2
+        guid: 118031c76e722943a4203d8a22e0f782
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\futz
     - name: local
       guid: d7470a2b1840984abc854a77de36b9b8
       id: 4098848842
@@ -100,7 +117,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 27eb08825f48e148951ccd7bdc7558b3
     GuidInternal: 
-    m_lastTime: -8584638316467038925
+    m_lastTime: -8584637533531971862
     List:
     - name: main_soundbank
       guid: 182b2511872703449c8de823328218a0
@@ -128,8 +145,25 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 686285e6582d884494b0ccae293af67c
     GuidInternal: 
-    m_lastTime: -8584638114060102867
+    m_lastTime: -8584637533535180606
     List:
+    - name: Play_captain_high_stress
+      guid: c5e84d303bd8524a99b51ba6eb91b5e9
+      id: 3717362780
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 686285e6582d884494b0ccae293af67c
+      - ElementName: Play_captain_high_stress
+        ObjectType: 3
+        guid: c5e84d303bd8524a99b51ba6eb91b5e9
+      Path: Events\Default Work Unit\Play_captain_high_stress
+      maxAttenuation: 0
+      maxDuration: 3.506984
+      minDuration: 1.874898
     - name: play_radar_rotate_end
       guid: 68cee0c030ffa64a9ff3b79ae09725c2
       id: 2370402918
@@ -210,8 +244,36 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: b50b479fcfde9447842a9b6f53d342bb
     GuidInternal: 
-    m_lastTime: -8584638383448663075
-    List: []
+    m_lastTime: -8584637533535180606
+    List:
+    - name: bearing_RTPC
+      guid: 2988a9a10b3386478bcb2cc3e0400579
+      id: 3820148733
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b50b479fcfde9447842a9b6f53d342bb
+      - ElementName: bearing_RTPC
+        ObjectType: 13
+        guid: 2988a9a10b3386478bcb2cc3e0400579
+      Path: Game Parameters\Default Work Unit\bearing_RTPC
+    - name: radar_warble_intensity
+      guid: a3a7571fc1ebc044ba256d1b4dd3d430
+      id: 1091865113
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b50b479fcfde9447842a9b6f53d342bb
+      - ElementName: radar_warble_intensity
+        ObjectType: 13
+        guid: a3a7571fc1ebc044ba256d1b4dd3d430
+      Path: Game Parameters\Default Work Unit\radar_warble_intensity
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     PathAndIcons:
@@ -238,8 +300,684 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: e978dbf1651bbb42ac71dcc7ac78a696
     GuidInternal: 
-    m_lastTime: -8584638383448847164
-    List: []
+    m_lastTime: -8584637533531961386
+    List:
+    - name: bearing_switch_group
+      guid: ddf6b65526599a41aa338cd4d7d5c2aa
+      id: 2228001748
+      PathAndIcons:
+      - ElementName: Switches
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e978dbf1651bbb42ac71dcc7ac78a696
+      - ElementName: bearing_switch_group
+        ObjectType: 11
+        guid: ddf6b65526599a41aa338cd4d7d5c2aa
+      Path: Switches\Default Work Unit\bearing_switch_group
+      values:
+      - name: bearing_00
+        guid: 1993469bb6ff324589cec23173aca0b6
+        id: 2047129876
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_00
+          ObjectType: 10
+          guid: 1993469bb6ff324589cec23173aca0b6
+      - name: bearing_10
+        guid: 1bdfcaa1eaddbc48a888afb1e99e1f4c
+        id: 2063907463
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_10
+          ObjectType: 10
+          guid: 1bdfcaa1eaddbc48a888afb1e99e1f4c
+      - name: bearing_100
+        guid: 4072748fc595e54cb1038d5963a2a9b1
+        id: 795976373
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_100
+          ObjectType: 10
+          guid: 4072748fc595e54cb1038d5963a2a9b1
+      - name: bearing_110
+        guid: 3223e2d18e918741b9f8d46f450bddad
+        id: 779198658
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_110
+          ObjectType: 10
+          guid: 3223e2d18e918741b9f8d46f450bddad
+      - name: bearing_120
+        guid: e342fef6c0ba934a84848dc7e7bb82e7
+        id: 762421103
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_120
+          ObjectType: 10
+          guid: e342fef6c0ba934a84848dc7e7bb82e7
+      - name: bearing_130
+        guid: 2950db980fde94469d6d5d2d0aeeb146
+        id: 745643516
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_130
+          ObjectType: 10
+          guid: 2950db980fde94469d6d5d2d0aeeb146
+      - name: bearing_140
+        guid: 450613063dab2f458575300aa1d67e03
+        id: 728865801
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_140
+          ObjectType: 10
+          guid: 450613063dab2f458575300aa1d67e03
+      - name: bearing_150
+        guid: 63face26bed7c846898a06854b14dc0f
+        id: 712088214
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_150
+          ObjectType: 10
+          guid: 63face26bed7c846898a06854b14dc0f
+      - name: bearing_160
+        guid: d80f3f29685bb44380b6403b132a38ca
+        id: 695310627
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_160
+          ObjectType: 10
+          guid: d80f3f29685bb44380b6403b132a38ca
+      - name: bearing_170
+        guid: 91a95d698ab24942a2a92287af62fa82
+        id: 678533040
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_170
+          ObjectType: 10
+          guid: 91a95d698ab24942a2a92287af62fa82
+      - name: bearing_180
+        guid: c9827f9507d5aa448f7d6fcb204e4637
+        id: 930197293
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_180
+          ObjectType: 10
+          guid: c9827f9507d5aa448f7d6fcb204e4637
+      - name: bearing_190
+        guid: 006e106a69a3a44abe79eadce1630f32
+        id: 913419706
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_190
+          ObjectType: 10
+          guid: 006e106a69a3a44abe79eadce1630f32
+      - name: bearing_20
+        guid: 7987f5b4aed5aa4ba39e33d0a0468abe
+        id: 2080685178
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_20
+          ObjectType: 10
+          guid: 7987f5b4aed5aa4ba39e33d0a0468abe
+      - name: bearing_200
+        guid: da19ec5a93014b4a932f5e44f4811276
+        id: 3044324414
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_200
+          ObjectType: 10
+          guid: da19ec5a93014b4a932f5e44f4811276
+      - name: bearing_210
+        guid: e11bb291ebe4a6469dbfa6754eb69ae9
+        id: 3061101969
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_210
+          ObjectType: 10
+          guid: e11bb291ebe4a6469dbfa6754eb69ae9
+      - name: bearing_220
+        guid: 526241542656664696f0e2a12a8c646a
+        id: 3010769112
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_220
+          ObjectType: 10
+          guid: 526241542656664696f0e2a12a8c646a
+      - name: bearing_230
+        guid: 4bf8a102c2f3cc49a22d59763cd0b4ec
+        id: 3027546699
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_230
+          ObjectType: 10
+          guid: 4bf8a102c2f3cc49a22d59763cd0b4ec
+      - name: bearing_240
+        guid: faffffeb896d33439ba9e94bcc1057bb
+        id: 3111434858
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_240
+          ObjectType: 10
+          guid: faffffeb896d33439ba9e94bcc1057bb
+      - name: bearing_250
+        guid: fcee964c1d4f744d9327654ea7481988
+        id: 3128212445
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_250
+          ObjectType: 10
+          guid: fcee964c1d4f744d9327654ea7481988
+      - name: bearing_260
+        guid: b4987db1279dbb439db096735913a6b0
+        id: 3077879556
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_260
+          ObjectType: 10
+          guid: b4987db1279dbb439db096735913a6b0
+      - name: bearing_270
+        guid: 42fc16d88b75284994ed2c88a475e56a
+        id: 3094657271
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_270
+          ObjectType: 10
+          guid: 42fc16d88b75284994ed2c88a475e56a
+      - name: bearing_280
+        guid: bee172feff5336469b45d988b9835856
+        id: 2910103366
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_280
+          ObjectType: 10
+          guid: bee172feff5336469b45d988b9835856
+      - name: bearing_290
+        guid: f89f730beec61145aa392f697f1cbfbb
+        id: 2926881081
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_290
+          ObjectType: 10
+          guid: f89f730beec61145aa392f697f1cbfbb
+      - name: bearing_30
+        guid: b6ec960c95988048a94dcd4efa2a01e6
+        id: 2097462765
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_30
+          ObjectType: 10
+          guid: b6ec960c95988048a94dcd4efa2a01e6
+      - name: bearing_300
+        guid: 5c32329276a0b0418acf9bf182bade4d
+        id: 3145137191
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_300
+          ObjectType: 10
+          guid: 5c32329276a0b0418acf9bf182bade4d
+      - name: bearing_310
+        guid: 175d67c4e789bb47897e6c597e7a2c29
+        id: 3128359604
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_310
+          ObjectType: 10
+          guid: 175d67c4e789bb47897e6c597e7a2c29
+      - name: bearing_320
+        guid: c9c0ad8a822b594f902b21c27c76e6cb
+        id: 3178692365
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_320
+          ObjectType: 10
+          guid: c9c0ad8a822b594f902b21c27c76e6cb
+      - name: bearing_330
+        guid: 90ab46b39a3f5045883905392f239d61
+        id: 3161914778
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_330
+          ObjectType: 10
+          guid: 90ab46b39a3f5045883905392f239d61
+      - name: bearing_340
+        guid: d727dffbb131824796300c59903ceaf9
+        id: 3078026747
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_340
+          ObjectType: 10
+          guid: d727dffbb131824796300c59903ceaf9
+      - name: bearing_350
+        guid: 9ad7a9210fbe6947aa05fea69f3c281f
+        id: 3061249032
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_350
+          ObjectType: 10
+          guid: 9ad7a9210fbe6947aa05fea69f3c281f
+      - name: bearing_40
+        guid: 35e09b36ce911f40a9128272be2c1429
+        id: 1980019432
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_40
+          ObjectType: 10
+          guid: 35e09b36ce911f40a9128272be2c1429
+      - name: bearing_50
+        guid: 0f10c5c7cf0bb8409a83e0af7db8acc3
+        id: 1996797019
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_50
+          ObjectType: 10
+          guid: 0f10c5c7cf0bb8409a83e0af7db8acc3
+      - name: bearing_60
+        guid: 6b4e45353bf13548ac1355e2d100b430
+        id: 2013574606
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_60
+          ObjectType: 10
+          guid: 6b4e45353bf13548ac1355e2d100b430
+      - name: bearing_70
+        guid: 3b0fa953710fe54aa70d27f64c25ebcd
+        id: 2030352289
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_70
+          ObjectType: 10
+          guid: 3b0fa953710fe54aa70d27f64c25ebcd
+      - name: bearing_80
+        guid: e0e1b472853aa2429d8332a65d91fa61
+        id: 1912908988
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_80
+          ObjectType: 10
+          guid: e0e1b472853aa2429d8332a65d91fa61
+      - name: bearing_90
+        guid: 71605d537a913640beb0e8f417d990a2
+        id: 1929686575
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: bearing_switch_group
+          ObjectType: 11
+          guid: ddf6b65526599a41aa338cd4d7d5c2aa
+        - ElementName: bearing_90
+          ObjectType: 10
+          guid: 71605d537a913640beb0e8f417d990a2
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
+    - name: radar_warble_switch
+      guid: e7e1a6741af6d547bb7de3dbabde1ecc
+      id: 26923334
+      PathAndIcons:
+      - ElementName: Switches
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e978dbf1651bbb42ac71dcc7ac78a696
+      - ElementName: radar_warble_switch
+        ObjectType: 11
+        guid: e7e1a6741af6d547bb7de3dbabde1ecc
+      Path: Switches\Default Work Unit\radar_warble_switch
+      values:
+      - name: radar_level_0
+        guid: 362d25ce20cdfb42a1759aa005a6f97b
+        id: 708682869
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: radar_warble_switch
+          ObjectType: 11
+          guid: e7e1a6741af6d547bb7de3dbabde1ecc
+        - ElementName: radar_level_0
+          ObjectType: 10
+          guid: 362d25ce20cdfb42a1759aa005a6f97b
+      - name: radar_level_1
+        guid: 77d6b02bcb83d74aafbe596b32315b2b
+        id: 708682868
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: radar_warble_switch
+          ObjectType: 11
+          guid: e7e1a6741af6d547bb7de3dbabde1ecc
+        - ElementName: radar_level_1
+          ObjectType: 10
+          guid: 77d6b02bcb83d74aafbe596b32315b2b
+      - name: radar_level_2
+        guid: 96d667bf065b664b855b23fb33c0552c
+        id: 708682871
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: radar_warble_switch
+          ObjectType: 11
+          guid: e7e1a6741af6d547bb7de3dbabde1ecc
+        - ElementName: radar_level_2
+          ObjectType: 10
+          guid: 96d667bf065b664b855b23fb33c0552c
+      - name: radar_level_3
+        guid: 9c94e2365d378f43bca4ff5c221f2909
+        id: 708682870
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: e978dbf1651bbb42ac71dcc7ac78a696
+        - ElementName: radar_warble_switch
+          ObjectType: 11
+          guid: e7e1a6741af6d547bb7de3dbabde1ecc
+        - ElementName: radar_level_3
+          ObjectType: 10
+          guid: 9c94e2365d378f43bca4ff5c221f2909
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
     PathAndIcons:
@@ -254,9 +992,9 @@ MonoBehaviour:
     GuidInternal: 
     m_lastTime: -8584638383447861429
     List: []
-  ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
+  ExpandedFileSystemItemIds: 0200000003000000090000000a00000035000000370000003a000000
+  ExpandedWaapiItemIds: 020000000300000037000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
-  currentDataSource: 0
+  currentDataSource: 1
   CurrentPluginConfig: 
