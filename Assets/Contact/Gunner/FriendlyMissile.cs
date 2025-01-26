@@ -22,7 +22,7 @@ public class FriendlyMissile : MonoBehaviour, IRadarDetectable
         transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, targetPos) < 10)
-        {
+        { 
             target.DestroyYou();
             DestroyYou();
         }
