@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{694C10D3-3915-48E1-AA80-6577DC7FB25D}" SchemaVersion="123">
 	<SoundcasterSessions>
-		<WorkUnit Name="Default Work Unit" ID="{694C10D3-3915-48E1-AA80-6577DC7FB25D}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{694C10D3-3915-48E1-AA80-6577DC7FB25D}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="New Soundcaster Session" ID="{20020803-7AD3-4810-996C-0EAF5E64C2BB}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Play_captain_high_stress" ID="{304DE8C5-D83B-4A52-99B5-1BA6EB91B5E9}" WorkUnitID="{E6856268-2D58-4488-94B0-CCAE293AF67C}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="play_radar_rotate_end" ID="{C0E0CE68-FF30-4AA6-9FF3-B79AE09725C2}" WorkUnitID="{E6856268-2D58-4488-94B0-CCAE293AF67C}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="play_radar_rotate_start" ID="{A11E5A0A-1CB0-47B4-A093-337DA036905E}" WorkUnitID="{E6856268-2D58-4488-94B0-CCAE293AF67C}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="play_radar_warble_SC" ID="{3909AFFB-6FFA-4B7D-8FFB-CEFAE24804ED}" WorkUnitID="{E6856268-2D58-4488-94B0-CCAE293AF67C}"/>
+							<Position X="3" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="stop_radar_warble_SC" ID="{3F79DB50-231D-4C3C-B726-08CDA52D5C41}" WorkUnitID="{E6856268-2D58-4488-94B0-CCAE293AF67C}"/>
+							<Position X="4" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="distance_to_target" ID="{24C70A9E-E47C-4056-9927-A1E42BD9315F}"/>
+							<Value>0.624</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="bearing_RTPC" ID="{A1A98829-330B-4786-8BCB-2CC3E0400579}"/>
+							<Value>18.329</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="amount_of_lock" ID="{DC0E19FF-8D9B-4F26-965C-EE87E4CCD5D1}"/>
+							<Value>4</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="bearing_180" ID="{957F82C9-D507-44AA-8F7D-6FCB204E4637}"/>
+						<CurrentSwitchRef Name="radar_level_0" ID="{CE252D36-CD20-42FB-A175-9AA005A6F97B}"/>
+						<CurrentSwitchRef Name="near" ID="{CC15A17A-9C39-45E6-907B-1D73E0D10C39}"/>
+						<CurrentSwitchRef Name="locked" ID="{0C80F6D0-38CB-4559-BC3E-97BE7F24DC20}"/>
+					</CurrentSwitchList>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundcasterSessions>
 </WwiseDocument>

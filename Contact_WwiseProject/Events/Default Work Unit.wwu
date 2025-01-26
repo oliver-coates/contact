@@ -30,7 +30,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="stop_radar_warble" ID="{3F79DB50-231D-4C3C-B726-08CDA52D5C41}" WorkUnitID="{E6856268-2D58-4488-94B0-CCAE293AF67C}"/>
+									<ObjectRef Name="stop_radar_warble_SC" ID="{3F79DB50-231D-4C3C-B726-08CDA52D5C41}" WorkUnitID="{E6856268-2D58-4488-94B0-CCAE293AF67C}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -73,24 +73,24 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="play_radar_warble" ID="{3909AFFB-6FFA-4B7D-8FFB-CEFAE24804ED}" WorkUnitID="{E6856268-2D58-4488-94B0-CCAE293AF67C}"/>
+									<ObjectRef Name="play_radar_warble_SC" ID="{3909AFFB-6FFA-4B7D-8FFB-CEFAE24804ED}" WorkUnitID="{E6856268-2D58-4488-94B0-CCAE293AF67C}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="play_radar_warble" ID="{3909AFFB-6FFA-4B7D-8FFB-CEFAE24804ED}">
+				<Event Name="play_radar_warble_SC" ID="{3909AFFB-6FFA-4B7D-8FFB-CEFAE24804ED}">
 					<ChildrenList>
 						<Action Name="" ID="{3330AA4E-DFEB-416C-8D08-949817B882DB}" ShortID="1008977769">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="radar_warble" ID="{56DD7A30-FE75-4664-9B8C-EAE4ED4C4810}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
+									<ObjectRef Name="radar_warble_SC" ID="{6488F123-EEDA-4557-9F80-5290EFA11B8B}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="stop_radar_warble" ID="{3F79DB50-231D-4C3C-B726-08CDA52D5C41}">
+				<Event Name="stop_radar_warble_SC" ID="{3F79DB50-231D-4C3C-B726-08CDA52D5C41}">
 					<ChildrenList>
 						<Action Name="" ID="{FE8EC322-9158-451B-A997-B2B7A1FD51D8}" ShortID="842272882">
 							<PropertyList>
@@ -98,18 +98,44 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="radar_warble" ID="{56DD7A30-FE75-4664-9B8C-EAE4ED4C4810}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
+									<ObjectRef Name="radar_warble_SC" ID="{6488F123-EEDA-4557-9F80-5290EFA11B8B}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="Play_captain_high_stress" ID="{304DE8C5-D83B-4A52-99B5-1BA6EB91B5E9}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="12"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
 					<ChildrenList>
 						<Action Name="" ID="{30BBE9DE-F062-4ECE-A738-40C4B02FEF72}" ShortID="956174585">
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="captain_high_stress" ID="{7EF6188D-C5BC-4A86-A33E-F1EB23D82BB9}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_missile_launch" ID="{1CB63091-2BC7-4838-83B1-EFD398231920}">
+					<ChildrenList>
+						<Action Name="" ID="{64B3B70C-DD5A-4A1E-B0CD-378F77F7B61B}" ShortID="809931142">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="missile_launch" ID="{59BEBCCB-729C-49F4-BA6C-EE9B72749DFF}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_alarm" ID="{845FA205-28F7-4A32-B384-913B0F0EE0F6}">
+					<ChildrenList>
+						<Action Name="" ID="{C70E45B5-3955-4D9A-82D3-05203EDA99E6}" ShortID="716030380">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="alarm" ID="{541F14AF-8C53-475C-A260-1F57558330B4}" WorkUnitID="{21C7B1D9-4E5A-4010-828B-D447A146E895}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

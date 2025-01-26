@@ -15,6 +15,18 @@
 						<Property Name="Max" Type="Real64" Value="36"/>
 					</PropertyList>
 				</GameParameter>
+				<GameParameter Name="distance_to_target" ID="{24C70A9E-E47C-4056-9927-A1E42BD9315F}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+						<Property Name="Max" Type="Real64" Value="2"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="amount_of_lock" ID="{DC0E19FF-8D9B-4F26-965C-EE87E4CCD5D1}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+						<Property Name="Max" Type="Real64" Value="4"/>
+					</PropertyList>
+				</GameParameter>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>
