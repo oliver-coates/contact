@@ -135,6 +135,12 @@ public class RadarUI : MonoBehaviour
 
     public void DrawContact(RadarContact contact)
     {
+        if (contact.position.magnitude > 10000)
+        {
+            // Ignore those outside of radar range
+            return;
+        }
+
         Vector3 contactPosition = contact.position;
 
         RectTransform newContact = Instantiate(_contactPrefab, _contactsHolder).GetComponent<RectTransform>();

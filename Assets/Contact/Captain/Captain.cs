@@ -13,6 +13,17 @@ public class Captain : MonoBehaviour
 
     public static void Detection(IRadarDetectable radarDetectable, int bearing, JetEnemy.DetectionDistance jetDistance)
     {
+        bearing += Random.Range(-25, 25);
+
+        if (bearing > 360)
+        {
+            bearing -= 360;
+        }
+        else if (bearing < 0)
+        {
+            bearing += 360;
+        }
+
         float tempBearing = bearing / 10;
         int bearingOrder = (int)tempBearing * 10;
         if (bearingOrder == 360)
@@ -21,6 +32,10 @@ public class Captain : MonoBehaviour
         }
 
         Debug.Log($"Enemy Bearing: {bearingOrder} | {bearing} | {jetDistance}");
+
+        AkUnitySoundEngine.SetRTPCValue("bearing_RTPC", (bearingOrder / 10));
+
+        DialogueManager.PlayDialogue("play_captain_high_stress");
     }
 
     // Start is called before the first frame update

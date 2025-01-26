@@ -48,7 +48,7 @@ public class Gunner : MonoBehaviour
     private float _loseLockTimer = 0;
     private float _fireTimer = 0;
 
-
+    [SerializeField] private GameObject friendlyMissile;
     
     private void Awake()
     {
@@ -133,15 +133,28 @@ public class Gunner : MonoBehaviour
 
     private void OnContact(RadarContact contact)
     {
+        if (_readyToFire == true)
+        {
+            return;
+        }
+
         if (_attemptingLock == false)
         {
             return;
         }
 
 
-        if (contact.detectable == _currentTrackedDetectable)
+        if (contact == null)
         {
-            SimilarContactMade();
+            return;
+        }
+
+        if (_currentTrackedDetectable != null)
+        {
+            if (contact.detectable == _currentTrackedDetectable)
+            {
+                SimilarContactMade();
+            }
         }
         else
         {
@@ -151,7 +164,6 @@ public class Gunner : MonoBehaviour
 
     private void SimilarContactMade()
     {
-        Debug.Log($"Repeat hit");
         _hits += 1;
         _loseLockTimer = 0f;
 
@@ -159,14 +171,17 @@ public class Gunner : MonoBehaviour
         {
             SetReadyToFire();
         }
+
+        Debug.Log($"Repeat hit - {_currentTrackedDetectable.GetHashCode()}");
     }
 
     private void NewContactMade(IRadarDetectable detectable)
     {
-        Debug.Log($"New hit");
         _currentTrackedDetectable = detectable;
         _loseLockTimer = 0f;
         _hits = 1;
+
+        Debug.Log($"New hit - {_currentTrackedDetectable.GetHashCode()}");
     }
 
     private void LoseLock()
@@ -187,7 +202,7 @@ public class Gunner : MonoBehaviour
         _readyToFire = true;
 
         _fireTimer = 0;
-        _timeToFire = UnityEngine.Random.Range(1.5f, 4f);
+        _timeToFire = UnityEngine.Random.Range(1.5f, 3f);
 
         Debug.Log($"Ready to fire");
         OnReadyToFire?.Invoke();
@@ -204,6 +219,7 @@ public class Gunner : MonoBehaviour
         {
             Debug.Log($"Fired");
             OnFired?.Invoke(_currentTrackedDetectable);
+            Fire(_currentTrackedDetectable);
         }
         else
         {
@@ -213,10 +229,17 @@ public class Gunner : MonoBehaviour
         
     }
 
+    private void Fire(IRadarDetectable target)
+    {
+        GameObject firedMissile = Instantiate(friendlyMissile, new Vector3(0, 100, 0), Quaternion.identity);
+        FriendlyMissile missileTarget = firedMissile.GetComponent<FriendlyMissile>();
+        missileTarget.SetTarget(target);
+    }
+
     private void FireFailed()
     {
         _readyToFire = false;
-        Debug.Log($"Faield to fire");
+        Debug.Log($"Failed to fire");
 
         OnFailedToFire?.Invoke();
     }

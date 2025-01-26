@@ -144,8 +144,19 @@ public class Radar : MonoBehaviour
             FindAllDetectables();
 
             AttemptSweepCheck();
+
+            // Debug;
+            // MakeContactWithEverything();
         }
-        
+
+    }
+
+    private void MakeContactWithEverything()
+    {
+        foreach (IRadarDetectable detectable in _allDetectables)
+        {
+            OnRadarContactOccured?.Invoke(new RadarContact(detectable.GetPosition(), 1, detectable));
+        }
     }
 
 
@@ -268,6 +279,7 @@ public class Radar : MonoBehaviour
         {
             Vector3 pos = detectable.GetPosition();
 
+
             float angle = Vector3.Angle(Vector3.forward, pos.normalized);
 
             if (pos.x < 0)
@@ -360,7 +372,8 @@ public class Radar : MonoBehaviour
 
         public Bearing(int degree)
         {
-            _degree = degree;
+            _degree = 360 - degree;
+            // Debug.Log($"Setup bearing {degree} on {_degree}");
             _detectables = new List<IRadarDetectable>();
         }
 

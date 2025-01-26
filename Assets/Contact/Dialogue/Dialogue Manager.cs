@@ -10,6 +10,15 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private bool _isPlaying;
     private Queue<string> _dialogueQueue;
 
+    [SerializeField] private float _stress;
+    public static float stress
+    {
+        get
+        {
+            return _Instance._stress;
+        }
+    }
+
     #region Initialisation
     private void Awake()
     {
@@ -26,8 +35,12 @@ public class DialogueManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            PlayDialogue("play_test_dialogue");
+            AkUnitySoundEngine.SetRTPCValue("bearing_RTPC", 4);
+            
+            DialogueManager.PlayDialogue("play_captain_high_stress");
         }
+
+        _stress = (5 - Engineer.healthRemaining);
     }
 
 

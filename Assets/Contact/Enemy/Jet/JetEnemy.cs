@@ -10,6 +10,7 @@ public class JetEnemy : EnemyBase
     [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private WaveManager _waveManager;
     [SerializeField] private GameObject missile;
+    [SerializeField] private EnemyBase _enemyBase;
 
     [Header("Position References")]
     [SerializeField] private Vector3 subPos = Vector3.zero;
@@ -46,11 +47,10 @@ public class JetEnemy : EnemyBase
     [SerializeField] private float nearDetectionRadius;
     public enum DetectionDistance {Near, Far};
     
-
-    
-
     void Awake()
     {
+        _enemyBase = GetComponent<EnemyBase>();
+        _enemyBase.isJet = true;
         bombing = true;
         escaping = false;
         _counter = 0;
@@ -102,18 +102,13 @@ public class JetEnemy : EnemyBase
         }
     }
 
-    void JetDetected()
-    {
-
-    }
-
     #region Maneuvers
 
     void BombManeuver()
     {
         if (_counter < _bombingPositions.Count)
         {
-            transform.position = Vector3.MoveTowards(transform.position, _bombingPositions[_counter], 200 * speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, _bombingPositions[_counter],  speed * Time.deltaTime);
             if (Vector3.Distance(transform.position, _bombingPositions[_counter]) < DistanceToTarget) _counter ++;
         }
         else
@@ -130,7 +125,7 @@ public class JetEnemy : EnemyBase
     {
         if (_counter < _escapePositions.Count)
         {
-            transform.position = Vector3.MoveTowards(transform.position, _escapePositions[_counter], 200 * speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, _escapePositions[_counter],  speed * Time.deltaTime);
             if (Vector3.Distance(transform.position, _escapePositions[_counter]) < DistanceToTarget) _counter ++;
         }
         else
@@ -141,6 +136,13 @@ public class JetEnemy : EnemyBase
             _waveManager.undefeatedEnemies += 1;
             Destroy(gameObject);
         }
+    }
+
+    public void ShotDown()
+    {
+        Debug.Log("Jet Destroyed");
+        _waveManager.spawnedEnemies -= 1;
+        Destroy(gameObject);
     }
 
     # endregion

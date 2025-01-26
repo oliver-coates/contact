@@ -11,11 +11,32 @@
     "StaticLib": "AkParametricEQFX"
    },
    {
+    "LibName": "Wwise Compressor",
+    "LibId": "7077891",
+    "Type": "Effect",
+    "DLL": "AkCompressor",
+    "StaticLib": "AkCompressorFX"
+   },
+   {
     "LibName": "Wwise Flanger",
     "LibId": "8192003",
     "Type": "Effect",
     "DLL": "AkFlanger",
     "StaticLib": "AkFlangerFX"
+   },
+   {
+    "LibName": "Wwise Guitar Distortion",
+    "LibId": "8257539",
+    "Type": "Effect",
+    "DLL": "AkGuitarDistortion",
+    "StaticLib": "AkGuitarDistortionFX"
+   },
+   {
+    "LibName": "Wwise Pitch Shifter",
+    "LibId": "8912899",
+    "Type": "Effect",
+    "DLL": "AkPitchShifter",
+    "StaticLib": "AkPitchShifterFX"
    },
    {
     "LibName": "System",
@@ -28,6 +49,6 @@
     "Type": "AudioDevice"
    }
   ],
-  "FileHash": "{067E74CC-FCEB-A247-5704-9DDBECB9777F}"
+  "FileHash": "{50D0DCB8-CD29-C4A9-A8DE-D8EFFDB34BBB}"
  }
 }

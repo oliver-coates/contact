@@ -8,4 +8,5 @@ public interface IRadarDetectable
 
     public void SetBearing(int bearing);
 
+    public void DestroyYou();
 }

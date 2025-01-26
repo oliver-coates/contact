@@ -44,22 +44,27 @@ public class WaveManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (spawnTimer <= 0)
+        if (GameManager.IsGameRunning)
         {
-            _SpawnEnemy();
-        }
-        else
-        {
-            spawnTimer -= Time.fixedDeltaTime;
-            waveTimer -= Time.fixedDeltaTime;
+            if (spawnTimer <= 0)
+            {
+                _SpawnEnemy();
+            }
+            else
+            {
+                spawnTimer -= Time.fixedDeltaTime;
+                waveTimer -= Time.fixedDeltaTime;
+            }
+
+            if (waveTimer <= 0 && spawnedEnemies <= 0)
+            {
+                currWave ++;
+                GenerateWave();
+                undefeatedEnemies = 0;
+            }
         }
 
-        if (waveTimer <= 0 && spawnedEnemies <= 0)
-        {
-            currWave ++;
-            GenerateWave();
-            undefeatedEnemies = 0;
-        }
+      
     }
 
     private void _SpawnEnemy()
