@@ -36,7 +36,13 @@ public class Engineer : MonoBehaviour
     {
         _Instance._healthRemaining -= 1;
 
+
         OnHealthChanged?.Invoke(healthRemaining);
+
+        if (_Instance._healthRemaining == 1)
+        {
+            AkUnitySoundEngine.PostEvent("Play_alarm", _Instance.gameObject);
+        }
 
         if (_Instance._healthRemaining == 0)
         {
@@ -48,6 +54,7 @@ public class Engineer : MonoBehaviour
 
     public void GameOver()
     {
+        AkUnitySoundEngine.PostEvent("Stop_alarm", _Instance.gameObject);
         GameManager.EndGame();
     }
 
