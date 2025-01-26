@@ -18,6 +18,13 @@ public class Gunner : MonoBehaviour
     [Header("State")]
     [SerializeField] private int _hits;
     private IRadarDetectable _currentTrackedDetectable;
+    public static IRadarDetectable CurrentTrackedDetectable
+    {
+        get
+        {
+            return _Instance._currentTrackedDetectable;
+        }
+    }
 
     [SerializeField] private bool _attemptingLock;
     public static bool AttemptingLock
@@ -58,6 +65,11 @@ public class Gunner : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.IsGameRunning == false)
+        {
+            return;
+        }
+
         if (Input.GetKey(KeyCode.Space))
         {
             _attemptingLock = true;
@@ -82,6 +94,7 @@ public class Gunner : MonoBehaviour
 
             if (_readyToFire)
             {
+                AkUnitySoundEngine.SetRTPCValue("rtpc_radar_warble_intensity", 3);
                 _fireTimer += Time.deltaTime;
 
                 if (_fireTimer > _timeToFire)
@@ -89,14 +102,28 @@ public class Gunner : MonoBehaviour
                     AttemptFire();
                 }
             }
+            else
+            {
+                AkUnitySoundEngine.SetRTPCValue("rtpc_radar_warble_intensity", 2);
+            }
+        
         }
         else
         {
             _loseLockTimer = 0;
 
-            if (_readyToFire)
+            if (_hits > 0)
             {
-                FireFailed();
+                LoseLock();
+            }
+        
+            if (Radar.IsRotating)
+            {
+                AkUnitySoundEngine.SetRTPCValue("rtpc_radar_warble_intensity", 0);
+            }
+            else
+            {
+                AkUnitySoundEngine.SetRTPCValue("rtpc_radar_warble_intensity", 1);
             }
         }
         
@@ -111,7 +138,7 @@ public class Gunner : MonoBehaviour
             return;
         }
 
-        
+
         if (contact.detectable == _currentTrackedDetectable)
         {
             SimilarContactMade();
@@ -160,7 +187,7 @@ public class Gunner : MonoBehaviour
         _readyToFire = true;
 
         _fireTimer = 0;
-        _timeToFire = UnityEngine.Random.Range(1f, 3f);
+        _timeToFire = UnityEngine.Random.Range(1.5f, 4f);
 
         Debug.Log($"Ready to fire");
         OnReadyToFire?.Invoke();
@@ -168,16 +195,27 @@ public class Gunner : MonoBehaviour
 
     private void AttemptFire()
     {
-        // TODO: Chjeck for ammo:
-
+        _fireTimer = 0f;
         _readyToFire = false;
+        _hits = 0;
 
-        Debug.Log($"Fired");
-        OnFired?.Invoke(_currentTrackedDetectable);
+        // TODO: Chjeck for ammo:
+        if (Loader.CanFire())
+        {
+            Debug.Log($"Fired");
+            OnFired?.Invoke(_currentTrackedDetectable);
+        }
+        else
+        {
+            Debug.Log($"No missile to fire");
+        }
+
+        
     }
 
     private void FireFailed()
     {
+        _readyToFire = false;
         Debug.Log($"Faield to fire");
 
         OnFailedToFire?.Invoke();

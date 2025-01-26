@@ -13,4 +13,9 @@ public class DummyRadarContact : MonoBehaviour, IRadarDetectable
     {
         return transform.position;
     }
+
+    public void SetBearing(int bearing)
+    {
+        
+    }
 }

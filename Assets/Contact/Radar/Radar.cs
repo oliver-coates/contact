@@ -33,7 +33,8 @@ public class Radar : MonoBehaviour
 
 
     [Header("State:")]
-    
+        
+
     // The rotation of the radar dish
     [Range(0, 360)] [SerializeField] private float _rotation;
     public static float Rotation
@@ -125,7 +126,12 @@ public class Radar : MonoBehaviour
 
 
     public void Update()
-    {
+    {   
+        if (GameManager.IsGameRunning == false)
+        {
+            return;
+        }
+
         RotateRadar();
     
         UpdateWidth();
@@ -228,11 +234,11 @@ public class Radar : MonoBehaviour
     {
         int widthInput = 0;
 
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.W))
         {
             widthInput = -1;
         }
-        else if (Input.GetKey(KeyCode.E))
+        else if (Input.GetKey(KeyCode.S))
         {
             widthInput = 1;
         }
@@ -268,13 +274,13 @@ public class Radar : MonoBehaviour
             {
                 angle = 359.9f - angle;
             }
-
+            
             angle = 360 - angle;
 
-            int bearing = Mathf.FloorToInt(angle);
+            int bearing = Mathf.Clamp(Mathf.FloorToInt(angle), 0, 359);
+
 
             _bearings[bearing].AddDetectable(detectable);
-            // Debug.Log($"Added detectable under bearing {bearing} ({angle})");
         }
     }
 
@@ -365,7 +371,9 @@ public class Radar : MonoBehaviour
 
         public void AddDetectable(IRadarDetectable detectable)
         {
+
             _detectables.Add(detectable);
+            detectable.SetBearing(_degree);
         }
 
         public List<IRadarDetectable> GetDetectables()
