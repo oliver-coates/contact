@@ -7,7 +7,13 @@ public class Radar : MonoBehaviour
 {
     private static Radar _Instance;
 
-    
+    public enum State
+    {
+        Long,
+        Short
+    }
+
+
     public static event Action<RadarContact> OnRadarContactOccured;
 
 
@@ -20,6 +26,7 @@ public class Radar : MonoBehaviour
 
     private const float CHANCE_OF_DETECTION_AT_MAX_DISTANCE = 0.4f;
     private const float CHANCE_OF_DETECTION_AT_MIN_DISTANCE = 1f;
+
 
 
     private List<IRadarDetectable> _allDetectables;
@@ -51,13 +58,13 @@ public class Radar : MonoBehaviour
             return _Instance._isRotating;
         }
     }
-
-    public static bool DoAnyContactsExist
+    [SerializeField] private State _dishState;
+    public static State DishState
     {
         get
         {
-            return _Instance._allDetectables.Count > 0;
-        }
+            return _Instance._dishState;
+        }	
     }
 
 

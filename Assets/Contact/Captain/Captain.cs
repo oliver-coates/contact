@@ -43,10 +43,7 @@ public class Captain : MonoBehaviour
             distanceToTarget = 1.5f;
         }
 
-        AkUnitySoundEngine.SetRTPCValue("bearing_RTPC", (bearingOrder / 10));
-        AkUnitySoundEngine.SetRTPCValue("distance_to_target", distanceToTarget);
-
-        DialogueManager.PlayDialogue("play_captain_high_stress");
+        DialogueManager.PlayDialogue(new ContactSpottedDialogueType(bearingOrder, distanceToTarget));
     }
 
     // Start is called before the first frame update
