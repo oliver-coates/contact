@@ -18,6 +18,7 @@ public class RadarOverlayUI : MonoBehaviour
     
     [Header("Gunner Settings:")]
     [SerializeField] private Color _restColor;
+    [SerializeField] private Color _inactiveColor;
     [SerializeField] private Color _attemptingLockColor;
     [SerializeField] private Color _readyToFireColor;
 
@@ -39,6 +40,7 @@ public class RadarOverlayUI : MonoBehaviour
     {
         int numberOfMidPoints = Mathf.FloorToInt(Radar.Width / _degreesPerMidPoint);
         // int numberOfMidPoints = 3;
+        numberOfMidPoints = Mathf.Clamp(numberOfMidPoints, 1, 100);
 
         float degreesPerPoint = Radar.Width / numberOfMidPoints;
 
@@ -77,7 +79,11 @@ public class RadarOverlayUI : MonoBehaviour
 
         // Coloration:
         Color colorThisFrame;
-        if (Gunner.ReadyToFire)
+        if (Radar.IsChangingDishState || Radar.IsRotating)
+        {
+            colorThisFrame = _inactiveColor;
+        }
+        else if (Gunner.ReadyToFire)
         {
             colorThisFrame = _readyToFireColor;
         }

@@ -17,26 +17,29 @@ public class Radar : MonoBehaviour
     public static event Action<RadarContact> OnRadarContactOccured;
 
 
-    private const float MIMIMUM_ROTATION_INPUT_TIME = 0.5f;
-    private const float MINIMUM_WIDTH = 20;
-    private const float MAXIMUM_WIDTH = 180;
+    // --- Settings:
+    private const float MIMIMUM_ROTATION_INPUT_TIME = 0.8f;
+    
+    private const float MINIMUM_WIDTH_LONG = 20;
+    private const float MAXIMUM_WIDTH_LONG = 180;
+
+    private const float MINIMUM_WIDTH_SHORT = 10;
+    private const float MAXIMUM_WIDTH_SHORT = 60;
+
+    private const float ROTATION_SPEED_LONG = 45;
+    private const float ROTATION_SPEED_SHORT = 18;
+    private const float WIDTH_CHANGE_SPEED_LONG = 34;
+    private const float WIDTH_CHANGE_SPEED_SHORT = 12;
+    
+    private const float SWEEP_SPEED = 22;
 
     public const float MAXIMUM_DISTANCE = 10000;
     public const float MINIMUM_DISTANCE = 3000;
 
+    private const float TIME_TO_CHANGE_DISH = 1f;
+
     private const float CHANCE_OF_DETECTION_AT_MAX_DISTANCE = 0.4f;
     private const float CHANCE_OF_DETECTION_AT_MIN_DISTANCE = 1f;
-
-
-
-    private List<IRadarDetectable> _allDetectables;
-    private Bearing[] _bearings;
-    
-
-    [Header("Settings:")]
-    [SerializeField] private float _rotationSpeed;
-    [SerializeField] private float _widthSpeed;
-    [SerializeField] private float _sweepSpeed;
 
 
     [Header("State:")]
@@ -67,8 +70,11 @@ public class Radar : MonoBehaviour
         }	
     }
 
+    private List<IRadarDetectable> _allDetectables;
+    private Bearing[] _bearings;
+    
 
-    [Range(MINIMUM_WIDTH, MAXIMUM_WIDTH)] [SerializeField] private float _width;
+    [Range(MINIMUM_WIDTH_LONG, MAXIMUM_WIDTH_LONG)] [SerializeField] private float _width;
     public static float Width
     {
         get
@@ -89,11 +95,20 @@ public class Radar : MonoBehaviour
     }
 
     private int _previousSweepBearing;
+    private float _dishChangeTimer;
 
     [Header("Input:")]
     [SerializeField] private bool _isRotating;
     [SerializeField] private float _rotationTime;
     [SerializeField] private int _rotationInput;
+    [SerializeField] private bool _isChangingDishState;
+    public static bool IsChangingDishState
+    {
+        get
+        {
+            return _Instance._isChangingDishState;
+        }
+    }
 
 
 
@@ -108,7 +123,7 @@ public class Radar : MonoBehaviour
         _Instance = this;
         _allDetectables = new List<IRadarDetectable>();
     
-        _width = Mathf.Lerp(MINIMUM_WIDTH, MAXIMUM_WIDTH, 0.75f);
+        _width = Mathf.Lerp(MINIMUM_WIDTH_LONG, MAXIMUM_WIDTH_LONG, 0.75f);
         _rotation = 0f;
         _sweepAngle = _width/2f;
         _previousSweepBearing = -1;
@@ -159,11 +174,16 @@ public class Radar : MonoBehaviour
         }
 
         RotateRadar();
-    
+
+        if (_isChangingDishState)
+        {
+            UpdateDishState();
+        }
+
         UpdateWidth();
 
         // Only do the following when not rotating:
-        if (_isRotating == false)
+        if (_isRotating == false && _isChangingDishState == false)
         {
             UpdateSweepAngle();
 
@@ -177,17 +197,8 @@ public class Radar : MonoBehaviour
 
     }
 
-    private void MakeContactWithEverything()
-    {
-        foreach (IRadarDetectable detectable in _allDetectables)
-        {
-            OnRadarContactOccured?.Invoke(new RadarContact(detectable.GetPosition(), 1, detectable));
-        }
-    }
 
-
-
-    #region Rotation
+    #region Rotation, Width & Dish State
     private void RotateRadar()
     {
         // Get the raw input this frame:
@@ -216,7 +227,6 @@ public class Radar : MonoBehaviour
                 _rotationInput = 1;
            }
 
-            // AkSoundEngine.PostEvent("play_radar_rotate_start", gameObject);
             AkUnitySoundEngine.PostEvent("play_radar_rotate_start", gameObject);
 
         }
@@ -229,8 +239,18 @@ public class Radar : MonoBehaviour
                 _rotationInput = rotationInputThisFrame;
             }
 
+            float speed = 0;
+            if (_dishState == State.Long)
+            {
+                speed = ROTATION_SPEED_LONG;
+            }
+            else if (_dishState == State.Short)
+            {
+                speed = ROTATION_SPEED_SHORT;
+            }
+
             // Grab input:
-            _rotation += _rotationInput * Time.deltaTime * _rotationSpeed;
+            _rotation += _rotationInput * Time.deltaTime * speed;
 
             if (_rotation > 360)
             {
@@ -262,15 +282,47 @@ public class Radar : MonoBehaviour
 
 
     }
-    #endregion
 
+    private void UpdateDishState()
+    {
+        _dishChangeTimer += Time.deltaTime;
 
-    #region Update Width
+        if (_dishChangeTimer > TIME_TO_CHANGE_DISH)
+        {
+            if (_dishState == State.Long)
+            {
+                _dishState = State.Short;
+            }
+            else if (_dishState == State.Short)
+            {
+                _dishState = State.Long;
+            }
+
+            _dishChangeTimer = 0;
+            _isChangingDishState = false;
+        }
+    }
 
     private void UpdateWidth()
     {
-        int widthInput = 0;
+        float widthChangeSpeed = 0;
+        float minimumWidth = 0;
+        float maximumWidth = 0;
+        if (_dishState == State.Short)
+        {
+            widthChangeSpeed = WIDTH_CHANGE_SPEED_SHORT;
+            minimumWidth = MINIMUM_WIDTH_SHORT;
+            maximumWidth = MAXIMUM_WIDTH_SHORT;
+        }
+        else if (_dishState == State.Long)
+        {
+            widthChangeSpeed = WIDTH_CHANGE_SPEED_LONG;
+            minimumWidth = MINIMUM_WIDTH_LONG;
+            maximumWidth = MAXIMUM_WIDTH_LONG;
+        }
 
+
+        int widthInput = 0;
         if (Input.GetKey(KeyCode.W))
         {
             widthInput = -1;
@@ -280,11 +332,10 @@ public class Radar : MonoBehaviour
             widthInput = 1;
         }
         
-        _width += widthInput * Time.deltaTime * _widthSpeed;
 
-        _width = Mathf.Clamp(_width, MINIMUM_WIDTH, MAXIMUM_WIDTH);
-
-
+        _width += widthInput * Time.deltaTime * widthChangeSpeed;
+   
+        _width = Mathf.Clamp(_width, minimumWidth, maximumWidth);
     }
 
     #endregion
@@ -335,7 +386,7 @@ public class Radar : MonoBehaviour
             _sweepAngle = angleMax;
         }
 
-        _sweepAngle -= Time.deltaTime * _sweepSpeed;
+        _sweepAngle -= Time.deltaTime * SWEEP_SPEED;
     }
 
     private void AttemptSweepCheck()
@@ -388,6 +439,34 @@ public class Radar : MonoBehaviour
             }
         }         
     }
+
+    #endregion 
+
+
+
+    #region Public methods
+
+    public static void SwapDishState()
+    {
+        if (_Instance._isChangingDishState == false)
+        {
+            _Instance._isChangingDishState = true;
+        }
+    }
+
+    #endregion
+
+
+    #region Debug
+
+    private void MakeContactWithEverything()
+    {
+        foreach (IRadarDetectable detectable in _allDetectables)
+        {
+            OnRadarContactOccured?.Invoke(new RadarContact(detectable.GetPosition(), 1, detectable));
+        }
+    }
+
 
     #endregion 
 

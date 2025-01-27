@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028425, g: 0.22571501, b: 0.30692354, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028456, g: 0.22571532, b: 0.3069243, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1446,16 +1446,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a26a1d97627d6ce4dbeeca86cefd01ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 35
-  _widthSpeed: 50
-  _sweepSpeed: 25
   _rotation: 0
+  _dishState: 0
   _width: 0
   _length: 0
   _sweepAngle: 0
   _isRotating: 0
   _rotationTime: 0
   _rotationInput: 0
+  _isChangingDishState: 0
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -4488,6 +4487,26 @@ PrefabInstance:
     - target: {fileID: 1228742934990675, guid: 7386a7111fa624b45bfd9860aade0d58, type: 3}
       propertyPath: m_Name
       value: Radar Screen
+      objectReference: {fileID: 0}
+    - target: {fileID: 1601546737779018192, guid: 7386a7111fa624b45bfd9860aade0d58,
+        type: 3}
+      propertyPath: _inactiveColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1601546737779018192, guid: 7386a7111fa624b45bfd9860aade0d58,
+        type: 3}
+      propertyPath: _inactiveColor.b
+      value: 0.509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 1601546737779018192, guid: 7386a7111fa624b45bfd9860aade0d58,
+        type: 3}
+      propertyPath: _inactiveColor.g
+      value: 0.509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 1601546737779018192, guid: 7386a7111fa624b45bfd9860aade0d58,
+        type: 3}
+      propertyPath: _inactiveColor.r
+      value: 0.509434
       objectReference: {fileID: 0}
     - target: {fileID: 3844540261906713509, guid: 7386a7111fa624b45bfd9860aade0d58,
         type: 3}

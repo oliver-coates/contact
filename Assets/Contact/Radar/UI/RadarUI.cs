@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RadarUI : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class RadarUI : MonoBehaviour
     [SerializeField] private Color _activeSweepColor;
     [SerializeField] private Color _inactiveSweepColor;
     [SerializeField] private GameObject _contactPrefab;
+    [SerializeField] private Color _activeButtonColor;
+    [SerializeField] private Color _inactiveButtonColor;
     [SerializeField] private float _contactMaximumDrawDistance = 43;
 
 
@@ -21,6 +24,9 @@ public class RadarUI : MonoBehaviour
     [SerializeField] private Transform _sweepTransform;
     [SerializeField] private LineRenderer _sweepLine;
 
+    [SerializeField] private Animator _dishAnimator;
+    [SerializeField] private Image _shortDishButtonBacker;
+    [SerializeField] private Image _longDishButtonBacker;
 
     [SerializeField] private TextMeshProUGUI _rotaionText;
     [SerializeField] private TextMeshProUGUI _distanceText;
@@ -59,6 +65,17 @@ public class RadarUI : MonoBehaviour
             _refreshTimer = 0f;
         }
 
+        if (Radar.IsChangingDishState)
+        {
+            _longDishButtonBacker.color = _inactiveButtonColor;
+            _shortDishButtonBacker.color = _inactiveButtonColor;
+        }
+        else
+        {
+            _longDishButtonBacker.color = _activeButtonColor;
+            _shortDishButtonBacker.color = _activeButtonColor;
+        }
+
         RefreshUI();
     }
 
@@ -68,7 +85,7 @@ public class RadarUI : MonoBehaviour
 
         _sweepTransform.localEulerAngles = new Vector3(0, 0, Radar.SweepAngle);
 
-        if (Radar.IsRotating)
+        if (Radar.IsRotating || Radar.IsChangingDishState)
         {
             _sweepLine.startColor = _inactiveSweepColor;
             _sweepLine.endColor = _inactiveSweepColor;
@@ -152,5 +169,39 @@ public class RadarUI : MonoBehaviour
 
 
         newContact.anchoredPosition = new Vector2(xPos, yPos);
+    }
+
+    public void AttemptSwitchToShortDish()
+    {
+        if (Radar.IsChangingDishState)
+        {
+            return;
+        }
+
+        if (Radar.DishState == Radar.State.Short)
+        {
+            return;
+        }
+
+        _dishAnimator.SetBool("dishIsLong", false);
+
+        Radar.SwapDishState();
+    }
+
+    public void AttemptSwitchToLongDish()
+    {
+        if (Radar.IsChangingDishState)
+        {
+            return;
+        }
+
+        if (Radar.DishState == Radar.State.Long)
+        {
+            return;
+        }
+
+        _dishAnimator.SetBool("dishIsLong", true);
+
+        Radar.SwapDishState();
     }
 }

@@ -33,11 +33,6 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            PlayDialogue(new ContactSpottedDialogueType(0, 1.5f));
-        }
-
         _stress = (5 - Engineer.healthRemaining) * 2f;
         _stress = Mathf.Clamp(_stress, 0, 10f);
     }
@@ -84,7 +79,6 @@ public class DialogueManager : MonoBehaviour
 
     private void DialogueFinished(object in_cookie, AkCallbackType in_type, object in_info)
     {
-        Debug.Log($"dialogue finished?");
         if (_dialogueQueue.Count == 0)
         {
             // Nothing else to play
