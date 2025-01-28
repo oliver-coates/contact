@@ -47,8 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jetEnemy: {fileID: 8271892447891287542, guid: c932edd3dbf911d4e9a324139be035bf,
     type: 3}
-  innerRadius: 11500
-  outerRadius: 11450
+  innerRadius: 12500
+  outerRadius: 14000
 --- !u!114 &3101814553204854388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,5 +66,5 @@ MonoBehaviour:
   _currentWave: 0
   _waveTimer: 0
   _spawnedEnemiesCurrentlyAlive: 0
-  _enemySpawnExponentValue: 1.1
-  _enemySpawnValueBase: 0.1
+  _enemySpawnExponentValue: 1.05
+  _enemySpawnValueBase: 0.08

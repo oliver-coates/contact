@@ -18,8 +18,10 @@ public class Radar : MonoBehaviour
 
 
     // --- Settings:
-    private const float MIMIMUM_ROTATION_INPUT_TIME = 0.8f;
+    private const float MINIMUM_ROTATION_INPUT_TIME_LONG = 0.7f;
+    private const float MINIMUM_ROTATION_INPUT_TIME_SHORT = 0.25f;
     
+
     private const float MINIMUM_WIDTH_LONG = 20;
     private const float MAXIMUM_WIDTH_LONG = 180;
 
@@ -27,16 +29,16 @@ public class Radar : MonoBehaviour
     private const float MAXIMUM_WIDTH_SHORT = 60;
 
     private const float ROTATION_SPEED_LONG = 45;
-    private const float ROTATION_SPEED_SHORT = 18;
-    private const float WIDTH_CHANGE_SPEED_LONG = 34;
-    private const float WIDTH_CHANGE_SPEED_SHORT = 12;
+    private const float ROTATION_SPEED_SHORT = 12;
+    private const float WIDTH_CHANGE_SPEED_LONG = 0.4f;
+    private const float WIDTH_CHANGE_SPEED_SHORT = 0.2f;
     
     private const float SWEEP_SPEED = 22;
 
-    public const float MAXIMUM_DISTANCE = 10000;
+    public const float MAXIMUM_DISTANCE = 14000;
     public const float MINIMUM_DISTANCE = 3000;
 
-    private const float TIME_TO_CHANGE_DISH = 1f;
+    private const float TIME_TO_CHANGE_DISH = 0.8f;
 
     private const float CHANCE_OF_DETECTION_AT_MAX_DISTANCE = 0.4f;
     private const float CHANCE_OF_DETECTION_AT_MIN_DISTANCE = 1f;
@@ -74,7 +76,8 @@ public class Radar : MonoBehaviour
     private Bearing[] _bearings;
     
 
-    [Range(MINIMUM_WIDTH_LONG, MAXIMUM_WIDTH_LONG)] [SerializeField] private float _width;
+    [Range(MINIMUM_WIDTH_SHORT, MAXIMUM_WIDTH_LONG)] 
+    [SerializeField] private float _width;
     public static float Width
     {
         get
@@ -82,7 +85,9 @@ public class Radar : MonoBehaviour
             return _Instance._width;
         }
     }
-    
+    [Range(0,1)]
+    [SerializeField] private float _widthInput;
+
     [Range(0, 100)] [SerializeField] private float _length;
     
     [SerializeField] private float _sweepAngle;
@@ -123,7 +128,7 @@ public class Radar : MonoBehaviour
         _Instance = this;
         _allDetectables = new List<IRadarDetectable>();
     
-        _width = Mathf.Lerp(MINIMUM_WIDTH_LONG, MAXIMUM_WIDTH_LONG, 0.75f);
+        _widthInput = 0.5f;
         _rotation = 0f;
         _sweepAngle = _width/2f;
         _previousSweepBearing = -1;
@@ -173,7 +178,10 @@ public class Radar : MonoBehaviour
             return;
         }
 
-        RotateRadar();
+        if (_isChangingDishState == false)
+        {
+            RotateRadar();
+        }
 
         if (_isChangingDishState)
         {
@@ -269,7 +277,17 @@ public class Radar : MonoBehaviour
         if (rotationInputThisFrame == 0)
         {
             // Stop Rotating
-            if (_rotationTime > MIMIMUM_ROTATION_INPUT_TIME)
+            float minRotationInputTime = 0;
+            if (_dishState == State.Long)
+            {
+                minRotationInputTime = MINIMUM_ROTATION_INPUT_TIME_LONG;
+            }
+            else if (_dishState == State.Short)
+            {
+                minRotationInputTime = MINIMUM_ROTATION_INPUT_TIME_SHORT;
+            }
+
+            if (_rotationTime > minRotationInputTime)
             {
                 _isRotating = false;
                 _rotationTime = 0f;
@@ -305,37 +323,86 @@ public class Radar : MonoBehaviour
 
     private void UpdateWidth()
     {
+        // --- Width input:        
+        int widthInputChange = 0;
+        if (Input.GetKey(KeyCode.W))
+        {
+            widthInputChange = -1;
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            widthInputChange = 1;
+        }
+
+        // --- Input speed:
         float widthChangeSpeed = 0;
-        float minimumWidth = 0;
-        float maximumWidth = 0;
-        if (_dishState == State.Short)
+        if (_isChangingDishState)
+        {
+            widthChangeSpeed = 0;
+        }
+        else if (_dishState == State.Short)
         {
             widthChangeSpeed = WIDTH_CHANGE_SPEED_SHORT;
-            minimumWidth = MINIMUM_WIDTH_SHORT;
-            maximumWidth = MAXIMUM_WIDTH_SHORT;
         }
         else if (_dishState == State.Long)
         {
             widthChangeSpeed = WIDTH_CHANGE_SPEED_LONG;
-            minimumWidth = MINIMUM_WIDTH_LONG;
-            maximumWidth = MAXIMUM_WIDTH_LONG;
-        }
-
-
-        int widthInput = 0;
-        if (Input.GetKey(KeyCode.W))
-        {
-            widthInput = -1;
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            widthInput = 1;
         }
         
+        // --- Change width input:
+        _widthInput += widthInputChange * Time.deltaTime * widthChangeSpeed;
+        _widthInput = Mathf.Clamp(_widthInput, 0, 1);
 
-        _width += widthInput * Time.deltaTime * widthChangeSpeed;
-   
-        _width = Mathf.Clamp(_width, minimumWidth, maximumWidth);
+
+        // Find mind and max width:        
+        float minimumWidth = 0;
+        float maximumWidth = 0;
+        if (_isChangingDishState)
+        {
+            // Dish state is currently being changed:
+            float oldMax = 0;
+            float newMax = 0;
+            float oldMin = 0;
+            float newMin = 0;
+
+            if (_dishState == State.Short)
+            {
+                oldMin = MINIMUM_WIDTH_SHORT;
+                oldMax = MAXIMUM_WIDTH_SHORT;
+
+                newMin = MINIMUM_WIDTH_LONG;
+                newMax = MAXIMUM_WIDTH_LONG;
+            }
+            else if (_dishState == State.Long)
+            {
+                oldMin = MINIMUM_WIDTH_LONG;
+                oldMax = MAXIMUM_WIDTH_LONG;
+
+                newMin = MINIMUM_WIDTH_SHORT;
+                newMax = MAXIMUM_WIDTH_SHORT;
+            }
+
+            float lerpAmount = _dishChangeTimer / TIME_TO_CHANGE_DISH;
+            minimumWidth = Mathf.Lerp(oldMin, newMin, lerpAmount);
+            maximumWidth = Mathf.Lerp(oldMax, newMax, lerpAmount);
+        }
+        else
+        {
+            // Dish state is not being changed:
+            if (_dishState == State.Short)
+            {
+                minimumWidth = MINIMUM_WIDTH_SHORT;
+                maximumWidth = MAXIMUM_WIDTH_SHORT;
+            }
+            else if (_dishState == State.Long)
+            {
+                minimumWidth = MINIMUM_WIDTH_LONG;
+                maximumWidth = MAXIMUM_WIDTH_LONG;
+            }
+        }
+        
+        // Apply actual width:
+        _width = Mathf.Lerp(minimumWidth, maximumWidth, _widthInput);
     }
 
     #endregion
@@ -354,8 +421,12 @@ public class Radar : MonoBehaviour
         // Go through all detectables:
         foreach (IRadarDetectable detectable in _allDetectables)
         {
-            Vector3 pos = detectable.GetPosition();
+            if (detectable == null)
+            {
+                continue;
+            }
 
+            Vector3 pos = detectable.GetPosition();
 
             float angle = Vector3.Angle(Vector3.forward, pos.normalized);
 

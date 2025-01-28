@@ -29,9 +29,6 @@ public class FriendlyMissile : MonoBehaviour, IRadarDetectable
                 DestroyYou();
             }    
         }
-
-        
-
     }
 
     public void SetTarget(IRadarDetectable givenTarget)

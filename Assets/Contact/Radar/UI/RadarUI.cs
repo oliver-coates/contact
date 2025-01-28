@@ -72,8 +72,16 @@ public class RadarUI : MonoBehaviour
         }
         else
         {
-            _longDishButtonBacker.color = _activeButtonColor;
-            _shortDishButtonBacker.color = _activeButtonColor;
+            if (Radar.DishState == Radar.State.Long)
+            {
+                _shortDishButtonBacker.color = _activeButtonColor;
+                _longDishButtonBacker.color = _inactiveButtonColor;
+            }
+            else if (Radar.DishState == Radar.State.Short)
+            {
+                _shortDishButtonBacker.color = _inactiveButtonColor;
+                _longDishButtonBacker.color = _activeButtonColor;
+            }    
         }
 
         RefreshUI();
@@ -95,6 +103,8 @@ public class RadarUI : MonoBehaviour
             _sweepLine.startColor = _activeSweepColor;
             _sweepLine.endColor = _activeSweepColor;
         }
+
+        
 
         if (Gunner.ReadyToFire)
         {
