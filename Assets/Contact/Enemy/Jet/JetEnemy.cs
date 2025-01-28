@@ -6,6 +6,7 @@ using Sys = System;
 public class JetEnemy : EnemyBase
 {
     public static event Sys.Action OnShotDown;
+    public static event Sys.Action<EnemyMissle> OnFiredMissile;
 
     [Header("Object References")]
     [SerializeField] private EnemySpawner _enemySpawner;
@@ -152,7 +153,8 @@ public class JetEnemy : EnemyBase
     void FireMissle()
     {
         // Fires a missile towards the submarine
-        Instantiate(missile, transform.position, Quaternion.identity);
+        EnemyMissle firedMissile = Instantiate(missile, transform.position, Quaternion.identity).GetComponent<EnemyMissle>();
+        OnFiredMissile?.Invoke(firedMissile);
         Debug.Log($"Incoming Missle!");
     }
 

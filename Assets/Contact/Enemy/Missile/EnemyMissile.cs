@@ -7,10 +7,18 @@ public class EnemyMissle : MonoBehaviour, IRadarDetectable
 
     private Vector3 subPos = Vector3.zero;
     [SerializeField] private float speed;
+    
 
     private int _bearing;
+    public int bearing
+    {
+        get
+        {
+            return _bearing;
+        }
+    }
 
-    public void DestroyYou()
+    public void Shotdown()
     {
         Radar.DeregisterRadarDetectable(this);
         Destroy(gameObject);
@@ -45,12 +53,8 @@ public class EnemyMissle : MonoBehaviour, IRadarDetectable
             // Call Damage thingy
             Engineer.TakeDamage();
 
-            DestroyYou();
+            Shotdown();
         }
     }
 
-    public GameObject GetObject()
-    {
-        return this.gameObject;
-    }
 }

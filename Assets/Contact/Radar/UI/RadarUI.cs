@@ -162,7 +162,7 @@ public class RadarUI : MonoBehaviour
 
     public void DrawContact(RadarContact contact)
     {
-        if (contact.position.magnitude > 10000)
+        if (contact.position.magnitude > Radar.MAXIMUM_DISTANCE)
         {
             // Ignore those outside of radar range
             return;

@@ -114,7 +114,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6323010544644074559}
-  - component: {fileID: 6897774166123094866}
   - component: {fileID: 8485179101047724586}
   - component: {fileID: -4995076166059192588}
   m_Layer: 0
@@ -140,19 +139,6 @@ Transform:
   - {fileID: 5852313160945403415}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6897774166123094866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8271892447891287542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ca1361f5e70d694bb64b6133a9ab5ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isJet: 0
 --- !u!114 &8485179101047724586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,13 +162,13 @@ MonoBehaviour:
   minFirePos: 400
   maxFirePos: 800
   escapePos: {x: 0, y: 0, z: 0}
-  offset: {x: 4000, y: 0, z: 4000}
+  offset: {x: 5000, y: 0, z: 5000}
   speed: 120
   bombing: 0
   escaping: 0
   detectedFar: 0
   detectedNear: 0
-  farDetectionRadius: 10500
+  farDetectionRadius: 11500
   nearDetectionRadius: 5500
 --- !u!135 &-4995076166059192588
 SphereCollider:

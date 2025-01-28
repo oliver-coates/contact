@@ -83,14 +83,18 @@ public class Gunner : MonoBehaviour
         {
             if (_currentTrackedDetectable != null)
             {
-                _loseLockTimer += Time.deltaTime;
-                
-                if (_loseLockTimer > _timeToLoseLock)
+                if (_currentTrackedDetectable.Equals(null) == false)
                 {
-                    LoseLock();
-                    _loseLockTimer = 0;
+                    _loseLockTimer += Time.deltaTime;
+                    
+                    if (_loseLockTimer > _timeToLoseLock)
+                    {
+                        LoseLock();
+                        _loseLockTimer = 0;
+                    }
                 }
             }
+            
 
             if (_readyToFire)
             {
@@ -208,12 +212,12 @@ public class Gunner : MonoBehaviour
         _fireTimer = 0f;
         _readyToFire = false;
         _hits = 0;
+        _currentTrackedDetectable = null;
 
-        // TODO: Chjeck for ammo:
         if (Loader.CanFire())
         {
-            OnFired?.Invoke(_currentTrackedDetectable);
             Fire(_currentTrackedDetectable);
+            OnFired?.Invoke(_currentTrackedDetectable);
         }
         else
         {
@@ -227,9 +231,12 @@ public class Gunner : MonoBehaviour
     {
         AkUnitySoundEngine.PostEvent("Play_missile_launch", gameObject);
 
-        GameObject firedMissile = Instantiate(friendlyMissile, new Vector3(0, 100, 0), Quaternion.identity);
-        FriendlyMissile missileTarget = firedMissile.GetComponent<FriendlyMissile>();
-        missileTarget.SetTarget(target);
+        GameObject firedMissileObject = Instantiate(friendlyMissile, new Vector3(0, 100, 0), Quaternion.identity);
+        
+        FriendlyMissile firedMissile = firedMissileObject.GetComponent<FriendlyMissile>();
+
+        Debug.Log($"Firing at {target != null}");
+        firedMissile.Initialise(target);
     }
 
     private void FireFailed()

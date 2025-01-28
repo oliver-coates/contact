@@ -19,7 +19,7 @@ public class EnemyBase : MonoBehaviour, IRadarDetectable
         Radar.RegisterRadarDetectable(this);
     }
 
-    public void DestroyYou()
+    public void Shotdown()
     {   
         if (isJet)
         {

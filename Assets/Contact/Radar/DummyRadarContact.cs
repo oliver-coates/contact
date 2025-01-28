@@ -19,7 +19,7 @@ public class DummyRadarContact : MonoBehaviour, IRadarDetectable
         
     }
 
-    public void DestroyYou()
+    public void Shotdown()
     {
         Destroy(gameObject);
     }
@@ -29,9 +29,5 @@ public class DummyRadarContact : MonoBehaviour, IRadarDetectable
         Radar.DeregisterRadarDetectable(this);
     }
 
-    public GameObject GetObject()
-    {
-        return this.gameObject;
-    }
 }
 

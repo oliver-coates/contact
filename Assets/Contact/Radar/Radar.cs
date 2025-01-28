@@ -197,10 +197,10 @@ public class Radar : MonoBehaviour
 
             FindAllDetectables();
 
-            // AttemptSweepCheck();
+            AttemptSweepCheck();
 
             // Debug;
-            MakeContactWithEverything();
+            // MakeContactWithEverything();
         }
 
     }
@@ -488,6 +488,15 @@ public class Radar : MonoBehaviour
 
         foreach (IRadarDetectable detectable in currentBearing.GetDetectables())
         {
+            if (detectable == null)
+            {
+                continue;
+            }
+
+            if (detectable.Equals(null))
+            {
+                continue;
+            }
 
             float distance = detectable.GetPosition().magnitude;
 
