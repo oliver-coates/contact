@@ -9,4 +9,6 @@ public interface IRadarDetectable
     public void SetBearing(int bearing);
 
     public void DestroyYou();
+
+    public GameObject GetObject();
 }

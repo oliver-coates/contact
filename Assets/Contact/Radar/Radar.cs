@@ -197,10 +197,10 @@ public class Radar : MonoBehaviour
 
             FindAllDetectables();
 
-            AttemptSweepCheck();
+            // AttemptSweepCheck();
 
             // Debug;
-            // MakeContactWithEverything();
+            MakeContactWithEverything();
         }
 
     }

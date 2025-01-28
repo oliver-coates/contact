@@ -48,4 +48,9 @@ public class EnemyMissle : MonoBehaviour, IRadarDetectable
             DestroyYou();
         }
     }
+
+    public GameObject GetObject()
+    {
+        return this.gameObject;
+    }
 }

@@ -7,13 +7,14 @@ public class FriendlyMissile : MonoBehaviour, IRadarDetectable
 
     private Vector3 targetPos;
     private IRadarDetectable target;
+    private GameObject targetObj;
     [SerializeField] private float speed;
     protected int bearing;
 
     // Update is called once per frame
     void Update()
     {
-        if (target == null)
+        if (targetObj == null)
         {
             DestroyYou();
             return;
@@ -34,6 +35,7 @@ public class FriendlyMissile : MonoBehaviour, IRadarDetectable
     public void SetTarget(IRadarDetectable givenTarget)
     {
         target = givenTarget;
+        targetObj = target.GetObject();
     }
 
     void Start()
@@ -59,5 +61,10 @@ public class FriendlyMissile : MonoBehaviour, IRadarDetectable
     public void DestroyYou()
     {
         Destroy(gameObject);
+    }
+
+    public GameObject GetObject()
+    {
+        return this.gameObject;
     }
 }

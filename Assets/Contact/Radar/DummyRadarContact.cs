@@ -28,4 +28,10 @@ public class DummyRadarContact : MonoBehaviour, IRadarDetectable
     {
         Radar.DeregisterRadarDetectable(this);
     }
+
+    public GameObject GetObject()
+    {
+        return this.gameObject;
+    }
 }
+

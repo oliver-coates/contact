@@ -43,4 +43,9 @@ public class EnemyBase : MonoBehaviour, IRadarDetectable
     {
         this.bearing = bearing;
     }
+
+    public GameObject GetObject()
+    {
+        return this.gameObject;
+    }
 }

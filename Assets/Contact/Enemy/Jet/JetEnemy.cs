@@ -24,8 +24,9 @@ public class JetEnemy : EnemyBase
     [SerializeField] private Vector3 firePos;
     
     // Neither of these values should be higher than 1000
-    [SerializeField] private float minFirePos = 80;
-    [SerializeField] private float maxFirePos = 400;
+    // I lied they can be larger if you want them too :3
+    [SerializeField] private float minFirePos;
+    [SerializeField] private float maxFirePos;
     [SerializeField] private Vector3 escapePos;
     
     [Header("Bezier Curve")]

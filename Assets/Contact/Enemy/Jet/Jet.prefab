@@ -173,10 +173,10 @@ MonoBehaviour:
   subPos: {x: 0, y: 0, z: 0}
   startPos: {x: 0, y: 0, z: 0}
   firePos: {x: 0, y: 0, z: 0}
-  minFirePos: 80
-  maxFirePos: 400
+  minFirePos: 400
+  maxFirePos: 800
   escapePos: {x: 0, y: 0, z: 0}
-  offset: {x: 0, y: 0, z: 400}
+  offset: {x: 4000, y: 0, z: 4000}
   speed: 120
   bombing: 0
   escaping: 0
