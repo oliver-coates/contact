@@ -2,32 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DummyRadarContact : MonoBehaviour, IRadarDetectable
+public class DummyRadarContact : RadarDetectable
 {
-    private void Start()
+    protected override void Shotdown()
     {
-        Radar.RegisterRadarDetectable(this);
-    }
 
-    public Vector3 GetPosition()
-    {
-        return transform.position;
     }
-
-    public void SetBearing(int bearing)
-    {
-        
-    }
-
-    public void Shotdown()
-    {
-        Destroy(gameObject);
-    }
-
-    private void OnDestroy()
-    {
-        Radar.DeregisterRadarDetectable(this);
-    }
-
 }
 

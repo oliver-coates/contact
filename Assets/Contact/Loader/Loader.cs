@@ -118,7 +118,7 @@ public class Loader : MonoBehaviour
         }
     }
 
-    private void Fired(IRadarDetectable radarDetectable)
+    private void Fired(RadarDetectable radarDetectable)
     {
         RemoveMissile();
     }   

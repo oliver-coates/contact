@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Captain : MonoBehaviour
 {
+    private static Captain _Instance;
 
-    private static Captain Instance;
     void Awake()
     {
-        Instance = this;
+        _Instance = this;
     }
 
-    public static void Detection(IRadarDetectable radarDetectable, int bearing, JetEnemy.DetectionDistance jetDistance)
+    public static void GiveDetectionNotification(RadarDetectable radarDetectable, int bearing, JetEnemy.DetectionDistance jetDistance)
     {
         bearing += Random.Range(-25, 25);
 
@@ -46,15 +46,4 @@ public class Captain : MonoBehaviour
         DialogueManager.PlayDialogue(new ContactSpottedDialogueType(bearingOrder, distanceToTarget));
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

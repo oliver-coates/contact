@@ -106,7 +106,7 @@ public class RadarUI : MonoBehaviour
 
         
 
-        if (Gunner.ReadyToFire)
+        if (Gunner.ReadyToFire && Gunner.CurrentTrackedDetectable != null)
         {
             float distanceToTarget = Gunner.CurrentTrackedDetectable.GetPosition().magnitude;
             _distanceText.text = $"{distanceToTarget:0000}"; 

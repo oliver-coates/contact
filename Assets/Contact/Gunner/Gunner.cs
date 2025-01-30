@@ -8,7 +8,7 @@ public class Gunner : MonoBehaviour
     private static Gunner _Instance;
 
     public static event Action OnReadyToFire;
-    public static event Action<IRadarDetectable> OnFired;
+    public static event Action<RadarDetectable> OnFired;
     public static event Action OnFailedToFire;
 
     [Header("Settings:")]
@@ -16,15 +16,17 @@ public class Gunner : MonoBehaviour
     [SerializeField] private float _timeToLoseLock = 3;
 
     [Header("State")]
-    [SerializeField] private int _hits;
-    private IRadarDetectable _currentTrackedDetectable;
-    public static IRadarDetectable CurrentTrackedDetectable
+    [SerializeField] private RadarDetectable _currentTrackedDetectable;
+    public static RadarDetectable CurrentTrackedDetectable
     {
         get
         {
             return _Instance._currentTrackedDetectable;
         }
     }
+
+    [SerializeField] private int _hits;
+
 
     [SerializeField] private bool _attemptingLock;
     public static bool AttemptingLock
@@ -83,18 +85,15 @@ public class Gunner : MonoBehaviour
         {
             if (_currentTrackedDetectable != null)
             {
-                if (_currentTrackedDetectable.Equals(null) == false)
+                _loseLockTimer += Time.deltaTime;
+                
+                if (_loseLockTimer > _timeToLoseLock)
                 {
-                    _loseLockTimer += Time.deltaTime;
-                    
-                    if (_loseLockTimer > _timeToLoseLock)
-                    {
-                        LoseLock();
-                        _loseLockTimer = 0;
-                    }
+                    LoseLock();
+                    _loseLockTimer = 0;
                 }
+                
             }
-            
 
             if (_readyToFire)
             {
@@ -114,11 +113,13 @@ public class Gunner : MonoBehaviour
         }
         else
         {
+            // Not attempting lock:
             _loseLockTimer = 0;
 
             if (_hits > 0)
             {
-                LoseLock();
+                _hits = 0;
+                _currentTrackedDetectable = null;
             }
         
             if (Radar.IsRotating)
@@ -146,7 +147,6 @@ public class Gunner : MonoBehaviour
         {
             return;
         }
-
 
         if (contact == null)
         {
@@ -177,7 +177,7 @@ public class Gunner : MonoBehaviour
         }
     }
 
-    private void NewContactMade(IRadarDetectable detectable)
+    private void NewContactMade(RadarDetectable detectable)
     {
         _currentTrackedDetectable = detectable;
         _loseLockTimer = 0f;
@@ -189,7 +189,6 @@ public class Gunner : MonoBehaviour
         _hits = 0;
         _currentTrackedDetectable = null;
 
-        Debug.Log($"Lost Lock");
 
         if (_readyToFire)
         {
@@ -209,25 +208,22 @@ public class Gunner : MonoBehaviour
 
     private void AttemptFire()
     {
-        _fireTimer = 0f;
-        _readyToFire = false;
-        _hits = 0;
-        _currentTrackedDetectable = null;
-
         if (Loader.CanFire())
         {
             Fire(_currentTrackedDetectable);
-            OnFired?.Invoke(_currentTrackedDetectable);
         }
         else
         {
             Debug.Log($"No missile to fire");
         }
 
-        
+        _fireTimer = 0f;
+        _readyToFire = false;
+        _hits = 0;
+        _currentTrackedDetectable = null;
     }
 
-    private void Fire(IRadarDetectable target)
+    private void Fire(RadarDetectable target)
     {
         AkUnitySoundEngine.PostEvent("Play_missile_launch", gameObject);
 
@@ -235,8 +231,9 @@ public class Gunner : MonoBehaviour
         
         FriendlyMissile firedMissile = firedMissileObject.GetComponent<FriendlyMissile>();
 
-        Debug.Log($"Firing at {target != null}");
         firedMissile.Initialise(target);
+
+        OnFired?.Invoke(_currentTrackedDetectable);
     }
 
     private void FireFailed()

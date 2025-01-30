@@ -72,7 +72,7 @@ public class Radar : MonoBehaviour
         }	
     }
 
-    private List<IRadarDetectable> _allDetectables;
+    private List<RadarDetectable> _allDetectables;
     private Bearing[] _bearings;
     
 
@@ -126,7 +126,7 @@ public class Radar : MonoBehaviour
     private void Awake()
     {
         _Instance = this;
-        _allDetectables = new List<IRadarDetectable>();
+        _allDetectables = new List<RadarDetectable>();
     
         _widthInput = 0.5f;
         _rotation = 0f;
@@ -154,12 +154,12 @@ public class Radar : MonoBehaviour
 
 
     #region Adding/Removing detectables
-    public static void RegisterRadarDetectable(IRadarDetectable detectable)
+    public static void RegisterRadarDetectable(RadarDetectable detectable)
     {
         _Instance._allDetectables.Add(detectable);
     }
 
-    public static void DeregisterRadarDetectable(IRadarDetectable detectable)
+    public static void DeregisterRadarDetectable(RadarDetectable detectable)
     {
         _Instance._allDetectables.Remove(detectable);
     }
@@ -419,7 +419,7 @@ public class Radar : MonoBehaviour
         }
 
         // Go through all detectables:
-        foreach (IRadarDetectable detectable in _allDetectables)
+        foreach (RadarDetectable detectable in _allDetectables)
         {
             if (detectable == null)
             {
@@ -486,7 +486,7 @@ public class Radar : MonoBehaviour
     {
         Bearing currentBearing = _bearings[bearing];
 
-        foreach (IRadarDetectable detectable in currentBearing.GetDetectables())
+        foreach (RadarDetectable detectable in currentBearing.GetDetectables())
         {
             if (detectable == null)
             {
@@ -541,7 +541,7 @@ public class Radar : MonoBehaviour
 
     private void MakeContactWithEverything()
     {
-        foreach (IRadarDetectable detectable in _allDetectables)
+        foreach (RadarDetectable detectable in _allDetectables)
         {
             OnRadarContactOccured?.Invoke(new RadarContact(detectable.GetPosition(), 1, detectable));
         }
@@ -553,28 +553,28 @@ public class Radar : MonoBehaviour
     private class Bearing
     {
         private int _degree;
-        private List<IRadarDetectable> _detectables;
+        private List<RadarDetectable> _detectables;
 
         public Bearing(int degree)
         {
             _degree = 360 - degree;
             // Debug.Log($"Setup bearing {degree} on {_degree}");
-            _detectables = new List<IRadarDetectable>();
+            _detectables = new List<RadarDetectable>();
         }
 
         public void Reset()
         {
-            _detectables = new List<IRadarDetectable>();
+            _detectables = new List<RadarDetectable>();
         }
 
-        public void AddDetectable(IRadarDetectable detectable)
+        public void AddDetectable(RadarDetectable detectable)
         {
 
             _detectables.Add(detectable);
             detectable.SetBearing(_degree);
         }
 
-        public List<IRadarDetectable> GetDetectables()
+        public List<RadarDetectable> GetDetectables()
         {
             return _detectables;
         }

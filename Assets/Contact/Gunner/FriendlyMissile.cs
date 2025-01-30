@@ -2,26 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FriendlyMissile : MonoBehaviour, IRadarDetectable
+public class FriendlyMissile : RadarDetectable
 {
 
-    private Vector3 targetPos;
-    private bool _initialised;
-    private IRadarDetectable target;
+    [Header("State:")]
+    [SerializeField] private bool _initialised;
+    [SerializeField] private Vector3 targetPos;
+    [SerializeField] private RadarDetectable _target;
+    [SerializeField] private float _internalTimer;
+
+
+    [Header("Settings:")]
     [SerializeField] private float speed;
-    protected int bearing;
-    private float _internalTimer;
 
 
 
-    public void Initialise(IRadarDetectable givenTarget)
+    public void Initialise(RadarDetectable givenTarget)
     {
-        Debug.Log($"Initialised with {givenTarget}");
-        Debug.Log($"->> {givenTarget as UnityEngine.Object}");
-        target = givenTarget;
+        _target = givenTarget;
     
-        Radar.RegisterRadarDetectable(this);
-
         SlowUpdate();
         _internalTimer = 0;
 
@@ -36,7 +35,7 @@ public class FriendlyMissile : MonoBehaviour, IRadarDetectable
         }
 
         _internalTimer += Time.deltaTime;
-        if (_internalTimer > 4)
+        if (_internalTimer > 1)
         {
             _internalTimer = 0;
             SlowUpdate();
@@ -47,19 +46,21 @@ public class FriendlyMissile : MonoBehaviour, IRadarDetectable
 
     private void SlowUpdate()
     {
-        if ((target.Equals(null)))
+        if (_target == null)
         {
-            Debug.Log($"Destroying myself!!!");
-            Shotdown();
+            DestroyThis(DestructionReason.Despawn);
             return;
         }
 
-        targetPos = target.GetPosition();
-    
-        if (Vector3.Distance(transform.position, targetPos) < 50)
+        targetPos = _target.GetPosition();
+        float distanceToTarget = Vector3.Distance(transform.position, targetPos); 
+
+
+        if (distanceToTarget < (speed + 50))
         { 
-            target.Shotdown();
-            Shotdown();
+            // Destroy the enemy we hit:
+            _target.DestroyThis(DestructionReason.HitByMissile);
+            DestroyThis(DestructionReason.Despawn);
         }
     }
 
@@ -67,20 +68,9 @@ public class FriendlyMissile : MonoBehaviour, IRadarDetectable
 
 
 
-    public Vector3 GetPosition()
-    {
-        return transform.position;
-    }
 
-    public void SetBearing(int bearing)
+    protected override void Shotdown()
     {
-        this.bearing = bearing;
-    }
 
-    public void Shotdown()
-    {
-        Radar.DeregisterRadarDetectable(this);
-        Destroy(gameObject);
     }
-
 }

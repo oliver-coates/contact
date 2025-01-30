@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sys = System;
 
-public class JetEnemy : EnemyBase
+public class JetEnemy : RadarDetectable
 {
     public static event Sys.Action OnShotDown;
     public static event Sys.Action<EnemyMissle> OnFiredMissile;
+
 
     [Header("Object References")]
     [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private WaveManager _waveManager;
     [SerializeField] private GameObject missile;
-    [SerializeField] private EnemyBase _enemyBase;
 
     [Header("Position References")]
     [SerializeField] private Vector3 subPos = Vector3.zero;
@@ -50,21 +50,19 @@ public class JetEnemy : EnemyBase
     [SerializeField] private float nearDetectionRadius;
     public enum DetectionDistance {Near, Far};
     
-    void Awake()
+    protected override void Start() 
     {
-        _enemyBase = GetComponent<EnemyBase>();
-        _enemyBase.isJet = true;
+        base.Start();
+
         bombing = true;
         escaping = false;
         _counter = 0;
-        // I AM NOT MAKING A STATE MACHINE! 
 
         _enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         _waveManager = GameObject.Find("EnemySpawner").GetComponent<WaveManager>();
         startPos = transform.position;
         firePos = GetFirePosition(startPos, subPos);
         escapePos = _enemySpawner.RandomDonutPosition();
-
 
         // curve maxxing
         _escapePositions = new List<Vector3>(100);
@@ -80,28 +78,37 @@ public class JetEnemy : EnemyBase
         }
     }
 
-    public Vector3 GetFirePosition(Vector3 startPos, Vector3 subPos)
+    protected override void Shotdown()
     {
-        Vector3 differance = startPos - subPos;
-        Vector3 point = differance * Random.Range(minFirePos / 1000, maxFirePos / 1000);
-        return point;
+        Debug.Log($"ENEMY JET SHOT DOWN");
+        OnShotDown?.Invoke();
     }
 
     void Update()  
     {
-        if (bombing) {BombManeuver();}
-        if (escaping) {EscapeManeuver();}
+        if (bombing) 
+        {
+            BombManeuver();
+        }
+        
+        if (escaping) 
+        {
+            EscapeManeuver();
+        }
+        
         if ((Vector3.Distance(transform.position, subPos) < farDetectionRadius) && (!detectedFar))
         {
             detectedFar = true;
-            Captain.Detection(this, bearing, DetectionDistance.Far);
+            Captain.GiveDetectionNotification(this, bearing, DetectionDistance.Far);
         }
+        
         if ((Vector3.Distance(transform.position, subPos) < nearDetectionRadius) && (!detectedNear))
         {
             detectedNear = true;
-            Captain.Detection(this, bearing, DetectionDistance.Near);
+            Captain.GiveDetectionNotification(this, bearing, DetectionDistance.Near);
         }
     }
+
 
     #region Maneuvers
 
@@ -136,28 +143,32 @@ public class JetEnemy : EnemyBase
         }
     }
 
-    public void ShotDown()
-    {
-        OnShotDown?.Invoke();
-        Destroy(gameObject);
-    }
-
-    # endregion
-
     private Vector3 CubicCurve(Vector3 start, Vector3 control1, Vector3 control2, Vector3 end, float t)
     {
         // curbve
         return (((-start + 3 * (control1 - control2) + end) * t + (3 * (start + control2) - 6 * control1)) * t + 3 * (control1 - start)) * t + start;
     }
 
+    
+    public Vector3 GetFirePosition(Vector3 startPos, Vector3 subPos)
+    {
+        Vector3 differance = startPos - subPos;
+        Vector3 point = differance * Random.Range(minFirePos / 1000, maxFirePos / 1000);
+        return point;
+    }
+
+
+    #endregion
+
     void FireMissle()
     {
         // Fires a missile towards the submarine
         EnemyMissle firedMissile = Instantiate(missile, transform.position, Quaternion.identity).GetComponent<EnemyMissle>();
         OnFiredMissile?.Invoke(firedMissile);
-        Debug.Log($"Incoming Missle!");
     }
 
+
+    #region Gizmos:
     void OnDrawGizmos()
     {
         
@@ -178,4 +189,7 @@ public class JetEnemy : EnemyBase
             Gizmos.DrawSphere(newPosition, 5f);
         }
     }
+
+ 
+    #endregion
 }
