@@ -8,7 +8,8 @@ public abstract class RadarDetectable : MonoBehaviour
     {
         HitByMissile,
         HitPlayer,
-        Despawn
+        Despawn,
+        HitByCiws
     }
 
     [SerializeField] private int _bearing;
@@ -44,7 +45,7 @@ public abstract class RadarDetectable : MonoBehaviour
     {
         Debug.Log($"{gameObject.name} was shot down! Reason: {reason}");
 
-        if (reason == DestructionReason.HitByMissile)
+        if (reason == DestructionReason.HitByMissile || reason == DestructionReason.HitByCiws)
         {
             Shotdown();   
         }

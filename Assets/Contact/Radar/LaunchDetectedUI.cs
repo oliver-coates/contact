@@ -55,7 +55,7 @@ public class LaunchDetectedUI : MonoBehaviour
 
         _trueDistance = missile.GetPosition().magnitude;
 
-        _offDistance = _trueDistance * (Random.Range(0.8f, 1.2f) * 5);
+        _offDistance = _trueDistance * Random.Range(0.8f, 1.2f);
     
         Invoke("GetBearingDelayed", 0.25f);
     }

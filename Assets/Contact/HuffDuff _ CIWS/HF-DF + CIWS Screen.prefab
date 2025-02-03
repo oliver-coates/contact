@@ -121,6 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2814684665080099899}
+  - component: {fileID: 3379588858323109217}
   m_Layer: 5
   m_Name: CIWS
   m_TagString: Untagged
@@ -143,12 +144,9 @@ RectTransform:
   - {fileID: 6921860453128565822}
   - {fileID: 3242048528779991554}
   - {fileID: 3257549550747601603}
-  - {fileID: 2838302134449013565}
-  - {fileID: 8702297701160032951}
-  - {fileID: 5888989937098218411}
-  - {fileID: 6191456069399511418}
   - {fileID: 7633419219147136646}
-  - {fileID: 3570765296878520900}
+  - {fileID: 2838302134449013565}
+  - {fileID: 6798288364954527530}
   m_Father: {fileID: 8808530097642538978}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -156,6 +154,29 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -25}
   m_SizeDelta: {x: 0, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3379588858323109217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238091329497943214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3693396d257908b41b5b980f69d1dad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canvasGroup: {fileID: 5179241936090386739}
+  _OnButton: {fileID: 8349750384201876005}
+  _OffButton: {fileID: 8918207215845232151}
+  _loadButton: {fileID: 2058493538494109789}
+  _stateTExt: {fileID: 2476857908392584309}
+  _ammoText: {fileID: 1945330678077804116}
+  _rotationText: {fileID: 4713858937238127191}
+  _loadText: {fileID: 7991540530941574035}
+  _orangeColor: {r: 0.9811321, g: 0.71401703, b: 0.41189036, a: 1}
+  _redColor: {r: 0.8773585, g: 0.23589355, b: 0.23589355, a: 1}
+  _greenColor: {r: 0.47592562, g: 0.8773585, b: 0.48489326, a: 1}
 --- !u!1 &1254717264271568329
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,6 +987,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6227181468177885052}
+  - component: {fileID: 1041380790502462604}
   m_Layer: 5
   m_Name: Huff Duff
   m_TagString: Untagged
@@ -996,6 +1018,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 15}
   m_SizeDelta: {x: 0, y: -30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1041380790502462604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2399502644607599477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2894f76b4cd8524a8c431ca012ef839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationDial: {fileID: 586675568223777781}
+  _huffDuffRadar: {fileID: 6922539756229861016}
+  _OnButton: {fileID: 8722027526423499244}
+  _OffButton: {fileID: 2998790542136860703}
 --- !u!1 &2463015707462270766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,9 +1156,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: RadarUI, Assembly-CSharp
-        m_MethodName: AttemptSwitchToShortDish
+      - m_Target: {fileID: 3379588858323109217}
+        m_TargetAssemblyTypeName: CIWSUI, Assembly-CSharp
+        m_MethodName: Load
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1462,16 +1500,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2954876254036650330}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0000011408702}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 131076928683662144}
-  m_Father: {fileID: 2814684665080099899}
+  m_Father: {fileID: 6798288364954527530}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 15, y: -8.500001}
+  m_AnchoredPosition: {x: 35, y: -43.499996}
   m_SizeDelta: {x: 8.5, y: 3}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &2365389972297510236
@@ -1708,6 +1746,58 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &3465068024713609520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6798288364954527530}
+  - component: {fileID: 5179241936090386739}
+  m_Layer: 5
+  m_Name: Power Dependent UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6798288364954527530
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3465068024713609520}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8702297701160032951}
+  - {fileID: 5888989937098218411}
+  - {fileID: 6191456069399511418}
+  - {fileID: 3570765296878520900}
+  m_Father: {fileID: 2814684665080099899}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &5179241936090386739
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3465068024713609520}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3546487246460863999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1951,9 +2041,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: RadarUI, Assembly-CSharp
-        m_MethodName: AttemptSwitchToShortDish
+      - m_Target: {fileID: 1041380790502462604}
+        m_TargetAssemblyTypeName: HuffDuffUI, Assembly-CSharp
+        m_MethodName: TurnOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2254,9 +2344,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: RadarUI, Assembly-CSharp
-        m_MethodName: AttemptSwitchToLongDish
+      - m_Target: {fileID: 1041380790502462604}
+        m_TargetAssemblyTypeName: HuffDuffUI, Assembly-CSharp
+        m_MethodName: TurnOn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2443,16 +2533,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4964080068771027791}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.000017787534}
+  m_LocalPosition: {x: 0, y: 0, z: 0.000020861626}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1423366777025644907}
-  m_Father: {fileID: 2814684665080099899}
+  m_Father: {fileID: 6798288364954527530}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 15, y: -12.330006}
+  m_AnchoredPosition: {x: 35, y: -47.330006}
   m_SizeDelta: {x: 8.5, y: 3}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &6740287894421947197
@@ -2915,9 +3005,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: RadarUI, Assembly-CSharp
-        m_MethodName: AttemptSwitchToShortDish
+      - m_Target: {fileID: 3379588858323109217}
+        m_TargetAssemblyTypeName: CIWSUI, Assembly-CSharp
+        m_MethodName: TurnOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3049,9 +3139,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: RadarUI, Assembly-CSharp
-        m_MethodName: AttemptSwitchToLongDish
+      - m_Target: {fileID: 3379588858323109217}
+        m_TargetAssemblyTypeName: CIWSUI, Assembly-CSharp
+        m_MethodName: TurnOn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3092,11 +3182,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3478487508298874382}
-  m_Father: {fileID: 2814684665080099899}
+  m_Father: {fileID: 6798288364954527530}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 15, y: -16.22}
+  m_AnchoredPosition: {x: 35, y: -51.219994}
   m_SizeDelta: {x: 8.5, y: 3}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &5319059203608454175
@@ -3220,8 +3310,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5831938150377199488}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3232,7 +3322,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 34.91, y: 0}
+  m_AnchoredPosition: {x: 34.909996, y: 0}
   m_SizeDelta: {x: 23, y: 16}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &5871286576932338699
@@ -3375,6 +3465,7 @@ GameObject:
   - component: {fileID: 4132255465616195452}
   - component: {fileID: 7962541473081166609}
   - component: {fileID: 3510056491752694653}
+  - component: {fileID: 6922539756229861016}
   m_Layer: 5
   m_Name: HF/DF Radar
   m_TagString: Untagged
@@ -3424,6 +3515,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AspectMode: 0
   m_AspectRatio: 1.06
+--- !u!225 &6922539756229861016
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6394940561418431693}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6525326824971832523
 GameObject:
   m_ObjectHideFlags: 0
@@ -4164,7 +4267,7 @@ GameObject:
   - component: {fileID: 1094167081126207224}
   - component: {fileID: 7991540530941574035}
   m_Layer: 5
-  m_Name: Rotation Text
+  m_Name: Load State Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4394,11 +4497,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3080743399774022240}
-  m_Father: {fileID: 2814684665080099899}
+  m_Father: {fileID: 6798288364954527530}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 15, y: -23.22}
+  m_AnchoredPosition: {x: 35, y: -58.22}
   m_SizeDelta: {x: 8.5, y: 3}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &3536739093743195055

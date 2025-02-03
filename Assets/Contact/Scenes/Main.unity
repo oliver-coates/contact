@@ -942,6 +942,7 @@ Transform:
   - {fileID: 774630003}
   - {fileID: 366963228}
   - {fileID: 1832965269}
+  - {fileID: 1471231762}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &520147192
@@ -2934,6 +2935,86 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1455215111}
   m_CullTransparentMesh: 1
+--- !u!1 &1471231761
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1471231762}
+  - component: {fileID: 1471231763}
+  - component: {fileID: 1471231764}
+  m_Layer: 0
+  m_Name: Huff Duff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1471231762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471231761}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 519687974}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1471231763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471231761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04557e02b24158243bc6ed0cfdaeb78a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: -80
+  _timeToPowerUp: 4
+  _poweringUp: 0
+  _powered: 0
+  _powerUpTimer: 0
+  _rotation: 0
+--- !u!114 &1471231764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471231761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c674dbb6b2e1f874d9e0d9d2d1347b95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: 200
+  _timeToPowerUp: 2.5
+  _maxAmmo: 1200
+  _loadTime: 10
+  _fireRate: 250
+  _getTargetTime: 1.5
+  _chanceToDestoryTargetPerSecondWhenFiring: 0.5
+  _currentContact: {fileID: 0}
+  _getTargetTimer: 0
+  _ammo: 0
+  _isLoading: 0
+  _poweringUp: 0
+  _powered: 0
+  _powerUpTimer: 0
+  _rotation: 0
+  _loadTimer: 0
+  _shootTimer: 0
 --- !u!1 &1542565335
 GameObject:
   m_ObjectHideFlags: 0

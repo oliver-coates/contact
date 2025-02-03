@@ -534,6 +534,11 @@ public class Radar : MonoBehaviour
         }
     }
 
+    public static List<RadarDetectable> GetContactsOnBearing(int bearing)
+    {
+        return _Instance._bearings[bearing].GetDetectables();
+    }
+
     #endregion
 
 
