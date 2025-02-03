@@ -31,8 +31,6 @@ public class Captain : MonoBehaviour
             bearingOrder = 0;
         }
 
-        Debug.Log($"Enemy Bearing: {bearingOrder} | {bearing} | {jetDistance}");
-
         float distanceToTarget = 0;
         if (jetDistance == JetEnemy.DetectionDistance.Near)
         {

@@ -87,7 +87,7 @@ public class CIWS : MonoBehaviour
         _ammo = _maxAmmo;
         _Instance = this;
 
-        _loadTime = _loadTimer;
+        _loadTimer = _loadTime;
     }
 
     private void OnDestroy()
@@ -189,6 +189,7 @@ public class CIWS : MonoBehaviour
             _shootTimer = 0;
         }
 
+        CameraControl.ShakeCamera(0.1f);
     }
 
     private void RollToDestroyIncoming()

@@ -123,8 +123,6 @@ public class HuffDuff : MonoBehaviour
         {
             if (radarDetectable.GetPosition().magnitude <= DETECTION_DISTANCE)
             {
-                Debug.Log($"HF/ DF CONTACT: {bearing}");
-
                 OnContactMade?.Invoke(radarDetectable);
             }
         }

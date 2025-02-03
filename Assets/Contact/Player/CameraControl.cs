@@ -9,6 +9,7 @@ using Cursor = UnityEngine.Cursor;
 
 public class CameraControl : MonoBehaviour
 {
+    private static CameraControl _Instance;
     [Header("Input:")]
     [SerializeField] private float _targetX;
     [SerializeField] private float _targetY;
@@ -42,6 +43,7 @@ public class CameraControl : MonoBehaviour
 
     private void Awake()
     {
+        _Instance = this;
         GameManager.OnGameStart += Enable;
         globalVolume.TryGet(out blur);
         //blur.focalLength.value = 1;
@@ -90,7 +92,7 @@ public class CameraControl : MonoBehaviour
                     blur.focalLength.Override(1);
                 }
 
-                currentShake += Time.deltaTime;
+                currentShake += Time.deltaTime * 0.5f;
                 shakeAmount -= Mathf.Pow(currentShake, 2);
                 shakeAmount = Mathf.Clamp(shakeAmount, 0, maxShakeIntensity);
 
@@ -106,10 +108,10 @@ public class CameraControl : MonoBehaviour
             }
 
             // // Shaking Debug
-            // if (Input.GetKeyDown(KeyCode.X))
-            // {
-            //     ShakeCamera();
-            // }
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                ShakeCamera(0.25f);
+            }
 
 
 
@@ -118,13 +120,21 @@ public class CameraControl : MonoBehaviour
       
     }
 
-    public void ShakeCamera()
+    public static void ShakeCamera()
     {
-        if (!shaking)
+        if (!_Instance.shaking)
         {
-            shaking = true;
-            shakeAmount = maxShakeIntensity;
+            _Instance.shaking = true;
+            _Instance.shakeAmount = _Instance.maxShakeIntensity;
+            _Instance.currentShake = 0;
         }
+    }
+
+    public static void ShakeCamera(float lerpAmount)
+    {
+        _Instance.shaking = true;
+        _Instance.shakeAmount = _Instance.maxShakeIntensity * lerpAmount;
+        _Instance.currentShake = 0;
     }
     
 }

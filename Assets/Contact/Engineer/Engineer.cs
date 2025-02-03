@@ -9,7 +9,6 @@ public class Engineer : MonoBehaviour
 
     public static event Action<int> OnHealthChanged;
 
-    [SerializeField] private CameraControl cameraControl;
 
     [Header("Settings:")]
     [SerializeField] private int _shipHealth = 5;
@@ -31,8 +30,6 @@ public class Engineer : MonoBehaviour
         _Instance = this;
 
         _healthRemaining = _shipHealth;
-
-        cameraControl = GameObject.Find("Player").GetComponent<CameraControl>();
     } 
 
 
@@ -59,7 +56,7 @@ public class Engineer : MonoBehaviour
 
     public void Shake()
     {
-        cameraControl.ShakeCamera();
+        CameraControl.ShakeCamera();
     }
 
 
